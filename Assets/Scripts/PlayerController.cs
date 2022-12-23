@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CnControls;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
+    public float speedRotate = 20;
     private float xRangeLeft = -113;
     private float xRangeRight = 135;
     private float yRangeTop = 67;
     private float yRangeDown = -75;
-
-    private Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Vector3 vectorDirectionMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +23,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.MovePosition(transform.position + Vector3.up * (Time.deltaTime * speed));
+        
     }
 
-    public void OnCollisionEnter(Collision collision)
+    private void FixedUpdate()
+    {
+        float inputX = CnInputManager.GetAxis("Horizontal");         
+        float inputY = CnInputManager.GetAxis("Vertical");         
+        vectorDirectionMove = new Vector3(inputX, inputY, 0f);
+        rb.velocity = vectorDirectionMove.normalized * speed;
+    }
+
+    /*public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("wall"))
         {
-            rb.MoveRotation(transform.rotation);
-            //Quaternion.LookRotation(Vector3.forward);
-            // Vector3 rotationVector = new Vector3(0, 0, 90);
-            // Quaternion rotation = Quaternion.Euler(rotationVector);
+            
         }
-    }
+    }*/
 }
