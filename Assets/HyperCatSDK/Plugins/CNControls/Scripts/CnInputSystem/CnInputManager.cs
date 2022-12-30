@@ -152,7 +152,7 @@ namespace CnControls
             // If there is no such button registered, we return false;
             return false;
         }
-
+        
         /// <summary>
         /// Method for retrieval of the desired button "has just been released" state
         /// </summary>

@@ -42,7 +42,7 @@ public class CameraController : HCMonoBehaviour
             Transform.position = new Vector3(targetFollow.position.x + offset.x, Transform.position.y, targetFollow.position.z + offset.z);
         }
 
-        else if (targetFollow.position.x < -75 && targetFollow.position.y > -55 && targetFollow.position.y < 49)
+        else if (targetFollow.position.x < -80 && targetFollow.position.y > -55 && targetFollow.position.y < 49)
         {
             Transform.position = new Vector3(Transform.position.x, targetFollow.position.y + offset.y, targetFollow.position.z +offset.z);
         }
@@ -50,7 +50,7 @@ public class CameraController : HCMonoBehaviour
         {
             Transform.position = new Vector3(targetFollow.position.x + offset.x, Transform.position.y, targetFollow.position.z + offset.z);
         }
-        else if( targetFollow.position.x < 105 && targetFollow.position.x > -75 && targetFollow.position.y >-55 && targetFollow.position.y < 49)
+        else if( targetFollow.position.x < 105 && targetFollow.position.x > -80 && targetFollow.position.y >-55 && targetFollow.position.y < 49)
         {
             Transform.position = Vector3.Lerp(Transform.position,
                 targetFollow.position + offset, Time.deltaTime * transitionSpeed); 

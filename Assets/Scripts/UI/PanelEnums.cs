@@ -18,5 +18,6 @@ public enum UiPanelType
     PopupChestRoom,
     PopupDailyReward,
     PopupLeaderboard,
+    PopupPauseGame,
     SdkPlaceHolder //Do not rename or re-arrange
 }

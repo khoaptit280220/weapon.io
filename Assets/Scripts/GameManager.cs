@@ -26,6 +26,9 @@ public class GameManager : Singleton<GameManager>
     
     [HideInInspector] public float lastClaimOnlineGiftTime;
 
+    [HideInInspector] public int point = 0;
+    [HideInInspector] public int coin = 0;
+    [HideInInspector] public float energy = 0;
     public static bool EnableAds
     {
         get

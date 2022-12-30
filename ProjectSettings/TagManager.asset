@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
+  - Energy
+  - Horn_Player
+  - Enemy
+  - Horn_Enemy
+  - Food
+  - coin
+  - wallcoin
   layers:
   - Default
   - TransparentFX
