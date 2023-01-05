@@ -1,28 +1,123 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class HornController : MonoBehaviour
 {
-    public int pointEnemy = 0;
-    public GameObject enemy;
+    
+    
+    //public GameObject enemy;
     public GameObject objfood;
+    
+    public TypeKiem typeKiem;
+   
+    public PlayerController player;
+    public EnemyController enemy;
+    public BossEnemyController BossEnemy;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        switch (typeKiem)
         {
-            other.gameObject.SetActive(false);
-            GameManager.Instance.point += 50;
-            Instantiate(objfood,
-                new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z),
-                objfood.transform.rotation);
-        }
+            
+            case TypeKiem.KiemPlayer:
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    other.gameObject.SetActive(false);
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                    GameManager.Instance.point += 50;
+                    
+                    DOTween.Sequence().SetDelay(5).OnComplete(() =>
+                    {
+                        other.gameObject.SetActive(true);
+                    });
+                }
 
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.SetActive(false);
-            pointEnemy += 50;
+                if (other.gameObject.CompareTag("Boss"))
+                {
+                    other.gameObject.SetActive(false);
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                    GameManager.Instance.point += 50;
+                }
+                break;
+            case TypeKiem.KiemEnemy:
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    other.gameObject.SetActive(false);
+                    this.enemy.pointEnemy += 50;
+            
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                    DOTween.Sequence().SetDelay(5).OnComplete(() =>
+                    {
+                        other.gameObject.SetActive(true);
+                    });
+                    
+                }
+
+                if (other.gameObject.CompareTag("Boss"))
+                {
+                    other.gameObject.SetActive(false);
+                    this.enemy.pointEnemy += 50;
+            
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                }
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    GameManager.Instance.isPlayerDie = true;
+                    other.gameObject.SetActive(false);
+                    this.enemy.pointEnemy += 50;
+            
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                }
+                break;
+            case TypeKiem.KiemEnemyBoss:
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    other.gameObject.SetActive(false);
+                    this.BossEnemy.pointEnemyBoss += 50;
+            
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                    DOTween.Sequence().SetDelay(5).OnComplete(() =>
+                    {
+                        other.gameObject.SetActive(true);
+                    });
+                    
+                }
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    GameManager.Instance.isPlayerDie = true;
+                    other.gameObject.SetActive(false);
+                    this.BossEnemy.pointEnemyBoss += 50;
+            
+                    Instantiate(objfood,
+                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                        objfood.transform.rotation);
+                }
+                break;
         }
     }
 }
+
+public enum TypeKiem
+{
+    KiemEnemy,
+    KiemPlayer,
+    KiemEnemyBoss,
+}
+
+
+

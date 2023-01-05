@@ -20,7 +20,7 @@ public class SpawnCoin : MonoBehaviour
     // Update is called once per frame
     private void SpawnCoii()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             Instantiate(coin, new Vector3(Random.Range(-120, 120), 73, -1), coin.transform.rotation);
 

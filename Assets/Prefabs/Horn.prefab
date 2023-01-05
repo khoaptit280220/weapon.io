@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4270621219837391851}
   - component: {fileID: 4270621219837391850}
   - component: {fileID: 4270621219837391849}
-  - component: {fileID: 4270621219837391848}
+  - component: {fileID: 3185413352181740415}
   m_Layer: 0
   m_Name: Horn
-  m_TagString: Horn_Enemy
+  m_TagString: Horn_Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,13 +91,13 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4270621219837391831}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.9434686
+  m_Height: 1.427654
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &4270621219837391848
+  m_Center: {x: 0.17587397, y: 0.48022446, z: 0.20221107}
+--- !u!114 &3185413352181740415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,3 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f326fbe40609d400cae40cad92995925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objfood: {fileID: 2206084994753595220, guid: 172a473ebe440471298f051d1c727018, type: 3}
+  typeKiem: 1
+  player: {fileID: 0}
+  enemy: {fileID: 0}

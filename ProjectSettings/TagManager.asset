@@ -12,6 +12,9 @@ TagManager:
   - Food
   - coin
   - wallcoin
+  - EnemyModel
+  - PlayerModel
+  - Boss
   layers:
   - Default
   - TransparentFX

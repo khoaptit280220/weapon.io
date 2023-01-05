@@ -58,18 +58,24 @@ public class PlayScreen : UIPanel
 
     void UpdateTimer()
     {
-        if (timeGame > 0)
+        if (GameManager.Instance.isPlayerDie == false)
         {
-            timeGame -= 1;
-        }
-        timer.text = timeGame.ToString();
+            if (timeGame > 0)
+            {
+                timeGame -= 1;
+            }
+            timer.text = timeGame.ToString();
 
-        if (timeGame == 0)
-        {
-            Debug.Log("Victory");   
+            if (timeGame == 0)
+            {
+                Debug.Log("Victory");   
+            }
         }
-        
-        
+        else if(GameManager.Instance.isPlayerDie == true)
+        {
+            timer.text = timeGame.ToString();
+        }
+
     }
 
     private void Update()

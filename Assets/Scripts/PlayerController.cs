@@ -9,14 +9,15 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 20;
     public float speedRotate = 20;
-    
+
     [SerializeField] private Rigidbody rb;
     [DisableInEditorMode][SerializeField] private Vector3 direction;
     
-    [SerializeField] private int tier = 0;
+    public int tier = 0;
     [SerializeField] private int pointTier = 0;
-    //public int point = 0;
-    
+
+    public BossEnemyController _boss;
+    public bool checkActiveBoss;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,11 @@ public class PlayerController : MonoBehaviour
         SetDirection();
         rb.velocity = direction.normalized * speed;
         ClickTrail();
-        
+        Scale();
+        if (tier > 4)
+        {
+            speed = 30;
+        }
     }
     private void SetDirection()
     {
@@ -42,7 +47,6 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotation),
                 speedRotate * Time.deltaTime);
         }
-        Scale();
     }
     private void ClickTrail()
     {
@@ -56,7 +60,6 @@ public class PlayerController : MonoBehaviour
             {
                 speed = 15;
             }
-            
         }
         else if (CnInputManager.GetButton("Jump") == false)
         {
@@ -70,11 +73,19 @@ public class PlayerController : MonoBehaviour
         {
             pointTier = GameManager.Instance.point;
             tier += 1;
+            checkActiveBoss = true;
             float x =  5 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
+            Instantiate(_boss, new Vector3(0, 0, _boss.transform.position.z), _boss.transform.rotation);
+            
+        }
+        else
+        {
+            checkActiveBoss = false;
         }
     }
 
+    //+poin, coin
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Food"))
@@ -99,4 +110,5 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.coin += 1;
         }
     }
+    
 }

@@ -770,6 +770,8 @@ MonoBehaviour:
   energy: {fileID: 5378317357676017315}
   point: {fileID: 8078972731752129968}
   coin: {fileID: 3544942203822588769}
+  _playerController: {fileID: 1500205767200352551, guid: 9b35f2760925946c2a52c31c6819b8f0,
+    type: 3}
 --- !u!1 &4333623723528496052
 GameObject:
   m_ObjectHideFlags: 0
