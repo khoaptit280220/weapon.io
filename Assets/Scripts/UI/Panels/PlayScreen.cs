@@ -69,11 +69,13 @@ public class PlayScreen : UIPanel
             if (timeGame == 0)
             {
                 Debug.Log("Victory");   
+               // MainScreen.Show();
             }
         }
         else if(GameManager.Instance.isPlayerDie == true)
         {
             timer.text = timeGame.ToString();
+            //MainScreen.Show();
         }
 
     }

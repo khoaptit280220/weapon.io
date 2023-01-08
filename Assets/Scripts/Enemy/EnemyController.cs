@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
 {
     public GameObject ModelEnemy;
     public bool isDied;
-    private List<Vector3> WayPoints;
+   private List<Vector3> WayPoints;
     public float speedEnemy = 15;
     public bool moveLoop;
     public WayPointController WayPointController;
@@ -36,8 +36,7 @@ public class EnemyController : MonoBehaviour
         DOTween.Sequence().AppendInterval(.1f).AppendCallback(() => { firstStartRotate = true; });
         indexPoint = 0;
         pointEnemy = 0;
-        WayPoints = WayPointController.GetListPosition();
-        WayPointController.SpawnWayPoint(WayPoints);
+        SetupWaypoint();
         MoveByPoint();
     }
 
@@ -46,6 +45,11 @@ public class EnemyController : MonoBehaviour
         Scale();
     }
 
+    public void SetupWaypoint()
+    {
+        WayPoints = WayPointController.GetListPosition();
+         WayPointController.SpawnWayPoint(WayPoints);
+    }
     public void MoveByPoint()
     {
         if (!moveLoop)
@@ -59,12 +63,12 @@ public class EnemyController : MonoBehaviour
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
                                speedEnemy;
                 }
-                else
-                { 
-                    timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /
-                             speedEnemy;
-                    
-                }
+                 else
+                 { 
+                     timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /
+                              speedEnemy;
+                     
+                 }
                 if (firstStartRotate)
                 {
                     ModelEnemy.transform.DOLookAt(WayPoints[indexPoint], .2f);
@@ -72,7 +76,7 @@ public class EnemyController : MonoBehaviour
             
                 t = ModelEnemy.transform.DOLocalMove(WayPoints[indexPoint], timeMove).SetEase(Ease.Linear).OnComplete((() =>
                 {
-                    firstStartPosition = true;
+                   firstStartPosition = true;
                     if (indexPoint >= WayPoints.Count - 1)
                     {
                         isTarget = false;
@@ -113,7 +117,7 @@ public class EnemyController : MonoBehaviour
                 {
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
                                speedEnemy;
-                }
+               }
                 else
                 { 
                     timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /

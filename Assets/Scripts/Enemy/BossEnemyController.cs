@@ -35,8 +35,8 @@ public class BossEnemyController : MonoBehaviour
         DOTween.Sequence().AppendInterval(.1f).AppendCallback(() => { firstStartRotate = true; });
         indexPoint = 0;
         pointEnemyBoss = 0;
-        WayPoints = WayPointController.GetListPosition();
-        WayPointController.SpawnWayPoint(WayPoints);
+       // WayPoints = WayPointController.GetListPosition();
+       // WayPointController.SpawnWayPoint(WayPoints);
         MoveByPoint();
     }
 

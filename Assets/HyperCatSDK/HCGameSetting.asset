@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b01b1668254094cb8dbca85a5d491f, type: 3}
   m_Name: HCGameSetting
   m_EditorClassIdentifier: 
-  gameName: Prototype
-  packageName: com.hypercat.prototype
+  gameName: weapon.io
+  packageName: com.hypercat.weapon.io
   gameVersion: 1.0
   bundleVersion: 1
   buildVersion: 1
   appstoreId: 
-  admobAndroidId: AdmobId
+  admobAndroidId: ca-app-pub-6336405384015455~2331966598
   admobIosId: 
-  interAd: Inter
-  rewardedAd: Reward
-  bannerAd: Banner
-  aoa: AOA
-  firebaseEventPrefix: hcPrototype
+  interAd: 53f2ac5785311a18
+  rewardedAd: 872f1df492c3364e
+  bannerAd: 6390517cb883ce8c
+  aoa: 2de23cc5dc72f84e
+  firebaseEventPrefix: hcZooABC
   orientation: 1

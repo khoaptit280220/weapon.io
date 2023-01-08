@@ -23,7 +23,7 @@ public class GameServices : Singleton<GameServices>
     public void Init()
     {
 #if FIREBASE
-        FirebaseMessaging.TokenRegistrationOnInitEnabled = true;
+//        FirebaseMessaging.TokenRegistrationOnInitEnabled = true;
         InitFirebase();
 #endif
 
@@ -45,20 +45,20 @@ public class GameServices : Singleton<GameServices>
 
     private void InitFirebase()
     {
-        FirebaseApp.CheckDependenciesAsync().ContinueWith(task =>
-        {
-            var dependencyStatus = task.Result;
-            if (dependencyStatus == DependencyStatus.Available)
-            {
-                firebaseApp = FirebaseApp.DefaultInstance;
-                SetupFirebase();
-            }
-            else
-            {
-                Debug.LogError(string.Format(
-                    "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
-            }
-        });
+        // FirebaseApp.CheckDependenciesAsync().ContinueWith(task =>
+        // {
+        //     var dependencyStatus = task.Result;
+        //     if (dependencyStatus == DependencyStatus.Available)
+        //     {
+        //         firebaseApp = FirebaseApp.DefaultInstance;
+        //         SetupFirebase();
+        //     }
+        //     else
+        //     {
+        //         Debug.LogError(string.Format(
+        //             "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
+        //     }
+        // });
     }
 
     private void OnMessageReceived(object sender, MessageReceivedEventArgs e)

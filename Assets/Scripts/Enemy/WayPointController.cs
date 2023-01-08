@@ -12,10 +12,10 @@ public class WayPointController : MonoBehaviour
     private float yRangeDown = -70;
     public GameObject pointPrefabs;
     List<Vector3> listPos = new List<Vector3>();
-
-   
-
-    private Vector3 Position()
+    
+    
+    
+    public Vector3 Position()
     {
         float x = Random.Range(xRangeLeft, xRangeRight);
         float y = Random.Range(yRangeDown, yRangeTop);
@@ -29,10 +29,10 @@ public class WayPointController : MonoBehaviour
         {
             listPos.Add(Position());
         }
-
+    
         return listPos;
     }
-
+    
     public void SpawnWayPoint(List<Vector3> _listPos)
     {
        for(int i = 0; i<_listPos.Count; i++)

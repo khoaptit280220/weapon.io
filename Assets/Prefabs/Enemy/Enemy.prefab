@@ -230,6 +230,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2902144149791268161, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80bdf1fbf2e254b71ba3109deff0563f, type: 2}
     - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
         type: 3}
       propertyPath: m_RootOrder

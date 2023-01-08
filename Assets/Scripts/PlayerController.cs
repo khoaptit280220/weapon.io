@@ -8,11 +8,13 @@ using Sirenix.OdinInspector;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 20;
+    private float speed2 = 15;
     public float speedRotate = 20;
 
     [SerializeField] private Rigidbody rb;
     [DisableInEditorMode][SerializeField] private Vector3 direction;
-    
+    //private DynamicJoystick dynamicJoystick => (PopupController.Instance.Get<PopupInGame>() as PopupInGame).DynamicJoystick;
+
     public int tier = 0;
     [SerializeField] private int pointTier = 0;
 
@@ -28,13 +30,28 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         SetDirection();
-        rb.velocity = direction.normalized * speed;
+        //rb.velocity = direction.normalized * speed;
+        if (transform.position.y > 70)
+        {
+            transform.position = new Vector3(transform.position.x, 70, transform.position.z);
+        }
+        if (transform.position.y < -70)
+        {
+            transform.position = new Vector3(transform.position.x, -70, transform.position.z);
+        }
+        if (transform.position.x > 130)
+        {
+            transform.position = new Vector3(130, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x < -130)
+        {
+            transform.position = new Vector3(-130, transform.position.y, transform.position.z);
+        }
+
+        transform.position += direction * speed * Time.deltaTime;
+       
         ClickTrail();
         Scale();
-        if (tier > 4)
-        {
-            speed = 30;
-        }
     }
     private void SetDirection()
     {
@@ -46,7 +63,10 @@ public class PlayerController : MonoBehaviour
                 , -Mathf.Atan2(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical")) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotation),
                 speedRotate * Time.deltaTime);
+            
         }
+        
+
     }
     private void ClickTrail()
     {
@@ -54,16 +74,17 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.Instance.energy > 0)
             {
+                speed2 = speed;
                 speed = 60;
             }
             else
             {
-                speed = 15;
+                speed = speed2;
             }
         }
         else if (CnInputManager.GetButton("Jump") == false)
         {
-            speed = 15;
+            speed = speed2;
         }
     }
 
@@ -73,10 +94,12 @@ public class PlayerController : MonoBehaviour
         {
             pointTier = GameManager.Instance.point;
             tier += 1;
+            speed += 5;
+            speed2 = speed;
             checkActiveBoss = true;
             float x =  5 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
-            Instantiate(_boss, new Vector3(0, 0, _boss.transform.position.z), _boss.transform.rotation);
+            Instantiate(_boss, new Vector3(this.transform.position.x + 30, 0, _boss.transform.position.z), _boss.transform.rotation);
             
         }
         else
@@ -84,8 +107,7 @@ public class PlayerController : MonoBehaviour
             checkActiveBoss = false;
         }
     }
-
-    //+poin, coin
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Food"))

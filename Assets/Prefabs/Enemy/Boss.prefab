@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: BossEnemy
       value: 
       objectReference: {fileID: 3594593414545931622}
+    - target: {fileID: 2902144149791268161, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19814882212d14f53a9d916ca305d5bf, type: 2}
     - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
         type: 3}
       propertyPath: m_RootOrder

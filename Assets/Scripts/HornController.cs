@@ -31,9 +31,14 @@ public class HornController : MonoBehaviour
                         objfood.transform.rotation);
                     GameManager.Instance.point += 50;
                     
-                    DOTween.Sequence().SetDelay(5).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(10).OnComplete(() =>
                     {
-                        other.gameObject.SetActive(true);
+                        if (other.transform.position.x < player.transform.position.x - 30 ||
+                            other.transform.position.x > player.transform.position.x + 30)
+                        {
+                            other.gameObject.SetActive(true);
+                        }
+                        
                     });
                 }
 
@@ -55,9 +60,13 @@ public class HornController : MonoBehaviour
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
                         objfood.transform.rotation);
-                    DOTween.Sequence().SetDelay(5).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(10).OnComplete(() =>
                     {
-                        other.gameObject.SetActive(true);
+                        if (other.transform.position.x < player.transform.position.x - 30 ||
+                            other.transform.position.x > player.transform.position.x + 30)
+                        {
+                            other.gameObject.SetActive(true);
+                        }
                     });
                     
                 }
@@ -91,9 +100,13 @@ public class HornController : MonoBehaviour
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
                         objfood.transform.rotation);
-                    DOTween.Sequence().SetDelay(5).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(10).OnComplete(() =>
                     {
-                        other.gameObject.SetActive(true);
+                        if (other.transform.position.x < player.transform.position.x - 30 ||
+                            other.transform.position.x > player.transform.position.x + 30)
+                        {
+                            other.gameObject.SetActive(true);
+                        }
                     });
                     
                 }
