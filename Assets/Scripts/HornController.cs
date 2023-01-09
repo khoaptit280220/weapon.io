@@ -33,8 +33,8 @@ public class HornController : MonoBehaviour
                     
                     DOTween.Sequence().SetDelay(10).OnComplete(() =>
                     {
-                        if (other.transform.position.x < player.transform.position.x - 30 ||
-                            other.transform.position.x > player.transform.position.x + 30)
+                        if (other.transform.position.x < player.transform.position.x - 100 ||
+                            other.transform.position.x > player.transform.position.x + 100)
                         {
                             other.gameObject.SetActive(true);
                         }
@@ -62,8 +62,8 @@ public class HornController : MonoBehaviour
                         objfood.transform.rotation);
                     DOTween.Sequence().SetDelay(10).OnComplete(() =>
                     {
-                        if (other.transform.position.x < player.transform.position.x - 30 ||
-                            other.transform.position.x > player.transform.position.x + 30)
+                        if (other.transform.position.x < player.transform.position.x - 100 ||
+                            other.transform.position.x > player.transform.position.x + 100)
                         {
                             other.gameObject.SetActive(true);
                         }
@@ -71,15 +71,23 @@ public class HornController : MonoBehaviour
                     
                 }
 
-                if (other.gameObject.CompareTag("Boss"))
-                {
-                    other.gameObject.SetActive(false);
-                    this.enemy.pointEnemy += 50;
-            
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
-                }
+                // if (other.gameObject.CompareTag("Boss"))
+                // {
+                //     other.gameObject.SetActive(false);
+                //     this.enemy.pointEnemy += 50;
+                //
+                //     Instantiate(objfood,
+                //         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
+                //         objfood.transform.rotation);
+                //     DOTween.Sequence().SetDelay(10).OnComplete(() =>
+                //     {
+                //         if (other.transform.position.x < player.transform.position.x - 100 ||
+                //             other.transform.position.x > player.transform.position.x + 100)
+                //         {
+                //             other.gameObject.SetActive(true);
+                //         }
+                //     });
+                // }
                 if (other.gameObject.CompareTag("Player"))
                 {
                     GameManager.Instance.isPlayerDie = true;
@@ -102,8 +110,8 @@ public class HornController : MonoBehaviour
                         objfood.transform.rotation);
                     DOTween.Sequence().SetDelay(10).OnComplete(() =>
                     {
-                        if (other.transform.position.x < player.transform.position.x - 30 ||
-                            other.transform.position.x > player.transform.position.x + 30)
+                        if (other.transform.position.x < player.transform.position.x - 100 ||
+                            other.transform.position.x > player.transform.position.x + 100)
                         {
                             other.gameObject.SetActive(true);
                         }

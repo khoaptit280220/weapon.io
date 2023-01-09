@@ -26,24 +26,43 @@ public class SpawnEnemy : MonoBehaviour
     }
     public Vector3 GetPosSpawnEnemy()
     {
-        float x = 0;
-        float y = 0;
-        float z = 0;
+        float x=0, y=0;
+        float z=0;
+        if (player.transform.position.x >= 0)
+                {
+                    y = Random.Range(yRangeDown, yRangeTop);
+                    if (y > player.transform.position.y - 55 && y < player.transform.position.y + 55)
+                    {
+                        x = Random.Range(xRangeLeft, player.transform.position.x - 100);
+                    }
+                    else
+                    {
+                        x = Random.Range(xRangeLeft, xRangeRight);
+                    }
+                }
+                else if(player.transform.position.x < 0)
+                {
+                    y = Random.Range(yRangeDown, yRangeTop);
+                    if (y > player.transform.position.y - 55 && y < player.transform.position.y + 55)
+                    {
+                        x = Random.Range(player.transform.position.x + 100, 140);
+                    }
+                    else
+                    {
+                        x = Random.Range(xRangeLeft, xRangeRight);
+                    }
+                }
         
         return new Vector3(x, y, z);
     }
     private void Spawn()
     {
-       
-        
-            for (int i = 0; i < 10; i++)
-            {
-               GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, -3.8f), enemy.transform.rotation);
-               EnemyController enemyController = Enemy.GetComponent<EnemyController>();
-               enemyController.ModelEnemy.transform.position = GetPosSpawnEnemy();
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, -3.8f), enemy.transform.rotation);
+            EnemyController enemyController = Enemy.GetComponent<EnemyController>();
+            enemyController.ModelEnemy.transform.position = GetPosSpawnEnemy();
 
-            }
-
-        
+        }
     }
 }

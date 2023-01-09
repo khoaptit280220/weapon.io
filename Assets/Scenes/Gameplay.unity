@@ -637,8 +637,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1768255133992972155, guid: 3af8257b4d7124fec9f260122af0ce3e, type: 3}
   player: {fileID: 6256218781668770739}
-  pointPrefabs: {fileID: 885010232466091744, guid: 073490f349b0c496e9cc74b7628272ce,
-    type: 3}
 --- !u!1 &1281434611
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1313172597
 Transform:
   m_ObjectHideFlags: 0
@@ -743,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1503005174
 Transform:
   m_ObjectHideFlags: 0
@@ -1079,6 +1077,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6256218782548601508, guid: 745eec6847d4f48dfabb6bd9e71522db,
+        type: 3}
+      propertyPath: spe
+      value: 
+      objectReference: {fileID: 1200180819}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 745eec6847d4f48dfabb6bd9e71522db, type: 3}
 --- !u!4 &6256218781668770738 stripped

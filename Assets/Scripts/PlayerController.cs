@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public int tier = 0;
     [SerializeField] private int pointTier = 0;
-
+    [SerializeField] private SpawnEnemy spe;
     public BossEnemyController _boss;
     public bool checkActiveBoss;
     // Start is called before the first frame update
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.Instance.energy > 0)
             {
-                speed2 = speed;
+                //speed2 = speed;
                 speed = 60;
             }
             else
@@ -99,7 +99,9 @@ public class PlayerController : MonoBehaviour
             checkActiveBoss = true;
             float x =  5 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
-            Instantiate(_boss, new Vector3(this.transform.position.x + 30, 0, _boss.transform.position.z), _boss.transform.rotation);
+            BossEnemyController bossenemy = Instantiate(_boss, new Vector3(0, 0, -3.8f), _boss.transform.rotation);
+            bossenemy.GetComponent<EnemyController>();
+            bossenemy.ModelEnemy.transform.position = spe.GetPosSpawnEnemy();
             
         }
         else

@@ -10,10 +10,10 @@ public class BossEnemyController : MonoBehaviour
 {
     public GameObject ModelEnemy;
     public bool isDied;
-    private List<Vector3> WayPoints;
-    public float speedEnemy = 15;
+    private List<Vector3> WayPoints = new List<Vector3>();
+    private float speedEnemy = 20;
     public bool moveLoop;
-    public WayPointController WayPointController;
+    public List<GameObject> Points;
     private TweenerCore<Vector3, Vector3, VectorOptions> t;
     private int indexPoint;
     private int NewIndex;
@@ -35,8 +35,11 @@ public class BossEnemyController : MonoBehaviour
         DOTween.Sequence().AppendInterval(.1f).AppendCallback(() => { firstStartRotate = true; });
         indexPoint = 0;
         pointEnemyBoss = 0;
-       // WayPoints = WayPointController.GetListPosition();
-       // WayPointController.SpawnWayPoint(WayPoints);
+        for (int i = 0; i < Points.Count; i++)
+        {
+            WayPoints.Add(Points[i].transform.position);
+        }
+        
         MoveByPoint();
     }
 
