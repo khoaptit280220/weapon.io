@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 20;
-    private float speed2 = 15;
+    private float speed2 = 25;
     public float speedRotate = 20;
 
     [SerializeField] private Rigidbody rb;
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             pointTier = GameManager.Instance.point;
             tier += 1;
-            speed += 5;
+            speed += 1;
             speed2 = speed;
             checkActiveBoss = true;
             float x =  5 * Mathf.Pow(1.2f, tier);

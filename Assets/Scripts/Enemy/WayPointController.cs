@@ -25,7 +25,7 @@ public class WayPointController : MonoBehaviour
     public List<Vector3> GetListPosition()
     {
       
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 20; i++)
         {
             listPos.Add(Position());
         }

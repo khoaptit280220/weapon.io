@@ -63,12 +63,12 @@ public class EnemyController : MonoBehaviour
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
                                speedEnemy;
                 }
-                 else
-                 { 
+                else
+                { 
                      timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /
                               speedEnemy;
                      
-                 }
+                }
                 if (firstStartRotate)
                 {
                     ModelEnemy.transform.DOLookAt(WayPoints[indexPoint], .2f);
@@ -111,13 +111,21 @@ public class EnemyController : MonoBehaviour
         {
             if (!isDied)
             {
+                if (indexPoint == 2 || indexPoint == 7 || indexPoint == 12 || indexPoint == 17)
+                {
+                    speedEnemy = 60;
+                }
+                else
+                {
+                    speedEnemy = 25;
+                }
                 NewIndex = indexPoint;
                 float timeMove = 0;
                if (firstStartPosition)
                 {
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
                                speedEnemy;
-               }
+                }
                 else
                 { 
                     timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /

@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 5211517779411675912}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelEnemy: {fileID: 4013397177659912202}
   isDied: 0
-  speedEnemy: 15
+  speedEnemy: 25
   moveLoop: 1
   WayPointController: {fileID: 7439623923097237667}
   pointEnemy: 0

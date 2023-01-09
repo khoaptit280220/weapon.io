@@ -11,7 +11,7 @@ public class BossEnemyController : MonoBehaviour
     public GameObject ModelEnemy;
     public bool isDied;
     private List<Vector3> WayPoints = new List<Vector3>();
-    private float speedEnemy = 20;
+    private float speedEnemy = 25;
     public bool moveLoop;
     public List<GameObject> Points;
     private TweenerCore<Vector3, Vector3, VectorOptions> t;
@@ -106,6 +106,7 @@ public class BossEnemyController : MonoBehaviour
         {
             if (!isDied)
             {
+                
                 NewIndex = indexPoint;
                 float timeMove = 0;
                if (firstStartPosition)
