@@ -11,6 +11,9 @@ public class PlayScreen : UIPanel
     [SerializeField] private Image energy;
     [SerializeField] private TMP_Text point;
     [SerializeField] private TMP_Text coin;
+    
+    [SerializeField]
+    
     public static PlayScreen Instance { get; private set; }
 
     public override UiPanelType GetId()
@@ -55,10 +58,15 @@ public class PlayScreen : UIPanel
         if (EventGlobalManager.Instance)
             EventGlobalManager.Instance.OnEverySecondTick.AddListener(UpdateTimer);
     }
+    public void ShowPause()
+    {
+        AudioAssistant.Shot(TypeSound.Button);
+        PopupPauseGame.Show();
+    }
 
     void UpdateTimer()
     {
-        if (GameManager.Instance.isPlayerDie == false)
+        if (GameManager.Instance.GameState==GameState.PLaying)
         {
             if (timeGame > 0)
             {
@@ -68,23 +76,19 @@ public class PlayScreen : UIPanel
 
             if (timeGame == 0)
             {
-                Debug.Log("Victory");   
-               // MainScreen.Show();
+                GameManager.Instance.OnWinGame();
             }
         }
-        else if(GameManager.Instance.isPlayerDie == true)
+        else
         {
             timer.text = timeGame.ToString();
-            //MainScreen.Show();
         }
-
     }
 
     private void Update()
     {
         point.text = "" + GameManager.Instance.point;
         coin.text = "" + GameManager.Instance.coin;
-        //GameManager.Instance.energy = energy.fillAmount;
         if (CnInputManager.GetButton("Jump"))
         {
             if (energy.fillAmount > 0)
@@ -92,16 +96,11 @@ public class PlayScreen : UIPanel
                 energy.fillAmount -= Time.deltaTime * 0.5f;
                 GameManager.Instance.energy = energy.fillAmount;
             }
-            // if (energy.fillAmount == 0)
-            // {
-            //     GameManager.Instance.energy = 0;
-            // }
         }
-        
-        
         if (GameManager.Instance.energy > 0 && energy.fillAmount < GameManager.Instance.energy)
         {
             energy.fillAmount = GameManager.Instance.energy;
         }
+        
     }
 }

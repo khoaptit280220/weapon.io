@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class MainScreen : UIPanel
 {
+   
     public static MainScreen Instance { get; private set; }
 
     [SerializeField]
@@ -46,6 +47,7 @@ public class MainScreen : UIPanel
 
     public void StartGame()
     {
+        GameManager.Instance.StartGame();
         AudioAssistant.Shot(TypeSound.Button);
 
         if (!GameManager.NetworkAvailable)
@@ -53,8 +55,11 @@ public class MainScreen : UIPanel
             PopupNoInternet.Show();
             return;
         }
-
+        
         PlayScreen.Show();
+
+     //   GameManager.Instance.GetPlayer.isPlayerDied = false;
+
     }
 
     public void OnBuyNoAds()

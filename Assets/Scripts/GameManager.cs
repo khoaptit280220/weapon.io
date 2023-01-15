@@ -16,12 +16,14 @@ public class GameManager : Singleton<GameManager>
 {
 #if UNITY_EDITOR
     private bool IsPlaying => EditorApplication.isPlaying;
-    [ShowIf(nameof(IsPlaying))] 
+
+    [ShowIf(nameof(IsPlaying))]
 #endif
+    public GameState GameState = GameState.Prepare;
     public GameData data;
     public bool gameInited;
     public HCGameSetting gameSetting;
-
+    
     private int _secondToRemindComeback;
     
     [HideInInspector] public float lastClaimOnlineGiftTime;
@@ -29,7 +31,10 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public int point = 0;
     [HideInInspector] public int coin = 0;
     [HideInInspector] public float energy = 0;
-    [HideInInspector] public bool isPlayerDie = false;
+   // [HideInInspector] public bool isPlayerDied = true;
+   private PlayerController _playerController;
+   private LevelController _levelController;
+    
     public static bool EnableAds
     {
         get
@@ -76,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         EventGlobalManager.Instance.OnGameInited.Dispatch();
 
         LoadingManager.Instance.LoadScene(SceneIndex.Gameplay, MainScreen.Show);
+        
         
         lastClaimOnlineGiftTime = Time.time;
     }
@@ -203,4 +209,66 @@ public class GameManager : Singleton<GameManager>
 
         Database.SaveData();
     }
+
+    public void SetupPlayer(PlayerController playerController)
+    {
+        if (_playerController != null)
+        {
+            Destroy(_playerController.gameObject);
+        }
+        this._playerController = playerController;
+    }
+
+    public PlayerController GetPlayer => _playerController;
+
+    public void SetupLevelController(LevelController levelController)
+    {
+        this._levelController = levelController;
+    }
+
+    public LevelController GetLevelController => _levelController;
+    public void OnWinGame()
+    {
+        Debug.Log("Victory");
+        GameState = GameState.Win;
+        //show popup win
+    }
+
+    public void OnLoseGame()
+    {
+        GameState = GameState.Lose;
+        //show popup lose
+    }
+
+    public void BackHome()
+    {
+        PrepareGame();
+    }
+
+    public void PauseGame()
+    {
+        GameState = GameState.Pause;
+        //pause play,....
+    }
+
+    public void PrepareGame()
+    {
+        GameState = GameState.Prepare;
+        GetLevelController.GenerateLevel();
+    }
+
+    public void StartGame()
+    {
+        GameState = GameState.PLaying;
+        GetLevelController.CurrentLevel.SetActive(true);
+    }
+}
+
+public enum GameState
+{
+    Prepare,
+    PLaying,
+    Win,
+    Lose,
+    Pause,
 }

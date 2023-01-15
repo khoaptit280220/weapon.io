@@ -411,7 +411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelEnemy: {fileID: 9052266074281956756}
   isDied: 0
-  speedEnemy: 15
   moveLoop: 1
   Points:
   - {fileID: 3160466242102528681}

@@ -14,18 +14,23 @@ public class PopupPauseGame : UIPanel
         newInstance.OnAppear();
     }
 
+    public static void Close()
+    {
+        
+    }
+
     public override void OnAppear()
     {
         if (isInited)
             return;
 
         base.OnAppear();
-
         Init();
     }
 
     private void Init()
     {
+        GameManager.Instance.PauseGame();
     }
 
     protected override void RegisterEvent()
@@ -42,5 +47,13 @@ public class PopupPauseGame : UIPanel
     {
         base.OnDisappear();
         Instance = null;
+    }
+
+    public void OnClickBackHome()
+    {
+        PlayScreen.Instance.Hide();
+        Hide();
+        GameManager.Instance.BackHome();
+        MainScreen.Show();
     }
 }

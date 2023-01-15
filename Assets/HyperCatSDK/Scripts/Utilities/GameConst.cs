@@ -14,4 +14,7 @@ public class GameConst
     public const string NetworkNotAvailble = "Network connection failed. Please try again later.";
 
     public const string FeedbackThanks = "Thank you for your feedback!";
+    public const string SPLASH = "Splash";
+    public const string GAMEPLAY = "Gameplay";
+
 }

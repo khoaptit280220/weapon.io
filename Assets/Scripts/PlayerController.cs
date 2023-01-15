@@ -7,51 +7,58 @@ using UnityEngine.UIElements;
 using Sirenix.OdinInspector;
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 20;
+    public float speed = 25;
     private float speed2 = 25;
-    public float speedRotate = 20;
-
-    [SerializeField] private Rigidbody rb;
+    public float speedRotate = 10;
+    [HideInInspector] public bool isPlayerDied;
+    
     [DisableInEditorMode][SerializeField] private Vector3 direction;
-    //private DynamicJoystick dynamicJoystick => (PopupController.Instance.Get<PopupInGame>() as PopupInGame).DynamicJoystick;
-
+    
     public int tier = 0;
     [SerializeField] private int pointTier = 0;
-    [SerializeField] private SpawnEnemy spe;
-    public BossEnemyController _boss;
-    public bool checkActiveBoss;
+    [SerializeField] private SpawnEnemy spawnEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
-        direction = Vector3.up;
+        Init();
+        GameManager.Instance.SetupPlayer(this);
+        direction = Vector3.right;
+        
     }
 
+    public void Init()
+    {
+        isPlayerDied = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        SetDirection();
-        //rb.velocity = direction.normalized * speed;
-        if (transform.position.y > 70)
+        if (isPlayerDied == false)
         {
-            transform.position = new Vector3(transform.position.x, 70, transform.position.z);
-        }
-        if (transform.position.y < -70)
-        {
-            transform.position = new Vector3(transform.position.x, -70, transform.position.z);
-        }
-        if (transform.position.x > 130)
-        {
-            transform.position = new Vector3(130, transform.position.y, transform.position.z);
-        }
-        if (transform.position.x < -130)
-        {
-            transform.position = new Vector3(-130, transform.position.y, transform.position.z);
-        }
+            SetDirection();
+            if (transform.position.y > 70)
+            {
+                transform.position = new Vector3(transform.position.x, 70, transform.position.z);
+            }
+            if (transform.position.y < -75)
+            {
+                transform.position = new Vector3(transform.position.x, -75, transform.position.z);
+            }
+            if (transform.position.x > 135)
+            {
+                transform.position = new Vector3(135, transform.position.y, transform.position.z);
+            }
+            if (transform.position.x < -130)
+            {
+                transform.position = new Vector3(-130, transform.position.y, transform.position.z);
+            }
 
-        transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * speed * Time.deltaTime;
        
-        ClickTrail();
-        Scale();
+            ClickTrail();
+            Scale();
+        }
     }
     private void SetDirection()
     {
@@ -63,10 +70,7 @@ public class PlayerController : MonoBehaviour
                 , -Mathf.Atan2(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical")) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotation),
                 speedRotate * Time.deltaTime);
-            
         }
-        
-
     }
     private void ClickTrail()
     {
@@ -74,7 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.Instance.energy > 0)
             {
-                //speed2 = speed;
                 speed = 60;
             }
             else
@@ -87,7 +90,6 @@ public class PlayerController : MonoBehaviour
             speed = speed2;
         }
     }
-
     private void Scale()
     {
         if(GameManager.Instance.point > (pointTier - 1 + 4*50*(tier+1)) && tier < 7)
@@ -96,17 +98,9 @@ public class PlayerController : MonoBehaviour
             tier += 1;
             speed += 1;
             speed2 = speed;
-            checkActiveBoss = true;
             float x =  5 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
-            BossEnemyController bossenemy = Instantiate(_boss, new Vector3(0, 0, -3.8f), _boss.transform.rotation);
-            bossenemy.GetComponent<EnemyController>();
-            bossenemy.ModelEnemy.transform.position = spe.GetPosSpawnEnemy();
-            
-        }
-        else
-        {
-            checkActiveBoss = false;
+            spawnEnemy.SpawnBoss();
         }
     }
     
@@ -121,13 +115,11 @@ public class PlayerController : MonoBehaviour
             {
                 GameManager.Instance.energy = 1;
             }
-
             if (GameManager.Instance.energy < 0)
             {
                 GameManager.Instance.energy = 0;
             }
         }
-
         if (other.gameObject.CompareTag("coin"))
         {
             Destroy(other.gameObject);

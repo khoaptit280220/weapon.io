@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class SpawnCoin : MonoBehaviour
 {
     public GameObject coin;
-
+    public Transform parent;
     private float timeDelay = 1;
 
     private float repeat = 15;
@@ -22,7 +22,7 @@ public class SpawnCoin : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            Instantiate(coin, new Vector3(Random.Range(-120, 120), 73, -1), coin.transform.rotation);
+            Instantiate(coin, new Vector3(Random.Range(-120, 120), 73, -1), coin.transform.rotation, parent);
 
         }
     }

@@ -116,17 +116,18 @@ namespace CnControls
         /// <returns>Is the button being currently pressed?</returns>
         public static bool GetButton(string buttonName)
         {
-            // We first check the stadard Button behaviour
-            var standardInputButtonState = Input.GetButton(buttonName);
-            // If the stadard Unity Input button is being pressed, we just retur true
-            if (standardInputButtonState == true) return true;
-
+            
             // If not, we check our virtual buttons
             if (ButtonExists(buttonName))
             {
                 return GetAnyVirtualButton(Instance._virtualButtonsDictionary[buttonName]);
             }
-
+/*
+            // We first check the stadard Button behaviour
+            var standardInputButtonState = Input.GetButton(buttonName);
+            // If the stadard Unity Input button is being pressed, we just retur true
+            if (standardInputButtonState == true) return true;
+*/
             // If there is no such button registered, we return false;
             return false;
         }

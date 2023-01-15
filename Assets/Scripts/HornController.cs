@@ -52,7 +52,7 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    GameManager.Instance.isPlayerDie = true;
+                    GameManager.Instance.GetPlayer.isPlayerDied = true;
                     other.gameObject.SetActive(false);
                     this.enemy.pointEnemy += 50;
             
@@ -74,10 +74,10 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    GameManager.Instance.isPlayerDie = true;
+                    GameManager.Instance.GetPlayer.isPlayerDied = true;
                     other.gameObject.SetActive(false);
-                    this.BossEnemy.pointEnemyBoss += 50;
-            
+                    this.BossEnemy.pointEnemyBoss += 50; 
+                    GameManager.Instance.OnLoseGame();
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
                         objfood.transform.rotation);

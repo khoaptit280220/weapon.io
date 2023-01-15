@@ -42,7 +42,6 @@ public class BossEnemyController : MonoBehaviour
         
         MoveByPoint();
     }
-
     
 
     public void MoveByPoint()
@@ -148,5 +147,4 @@ public class BossEnemyController : MonoBehaviour
         
     }
 
-    
 }
