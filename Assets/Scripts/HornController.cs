@@ -12,7 +12,8 @@ public class HornController : MonoBehaviour
     public GameObject objfood;
     
     public TypeKiem typeKiem;
-   
+
+    public Transform parent;
     public PlayerController player;
     public EnemyController enemy;
     public BossEnemyController BossEnemy;
@@ -27,7 +28,7 @@ public class HornController : MonoBehaviour
                     other.gameObject.SetActive(false);
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
+                        objfood.transform.rotation, parent);
                     GameManager.Instance.point += 50;
                     
                 }
@@ -36,7 +37,7 @@ public class HornController : MonoBehaviour
                     other.gameObject.SetActive(false);
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
+                        objfood.transform.rotation, parent);
                     GameManager.Instance.point += 50;
                 }
                 break;
@@ -48,7 +49,7 @@ public class HornController : MonoBehaviour
             
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
+                        objfood.transform.rotation, parent);
                 }
                 if (other.gameObject.CompareTag("Player"))
                 {
@@ -58,7 +59,7 @@ public class HornController : MonoBehaviour
             
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
+                        objfood.transform.rotation, parent);
                 }
                 break;
             case TypeKiem.KiemEnemyBoss:
@@ -69,7 +70,7 @@ public class HornController : MonoBehaviour
             
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
+                        objfood.transform.rotation, parent);
                    
                 }
                 if (other.gameObject.CompareTag("Player"))
@@ -80,7 +81,7 @@ public class HornController : MonoBehaviour
                     GameManager.Instance.OnLoseGame();
                     Instantiate(objfood,
                         new Vector3(other.transform.position.x, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation);
+                        objfood.transform.rotation, parent);
                 } 
                 break;
         }
