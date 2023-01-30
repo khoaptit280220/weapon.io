@@ -18,12 +18,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int pointTier = 0;
     [SerializeField] private SpawnEnemy spawnEnemy;
 
+    public ParticleSystem trail;
     // Start is called before the first frame update
     void Start()
     {
         Init();
         GameManager.Instance.SetupPlayer(this);
-        direction = Vector3.right;
+        direction = Vector3.up;
     }
 
     public void Init()
@@ -63,10 +64,14 @@ public class PlayerController : MonoBehaviour
     }
     private void SetDirection()
     {
+    // float inputX = CnInputManager.GetAxis("Horizontal");        
+    // float inputZ = CnInputManager.GetAxis("Vertical");         
+    // vectorDirectionMove = new Vector3(inputX, 0f, inputZ);         
+    // vectorDirectionRotate = vectorDirectionMove;
         if (CnInputManager.GetAxis("Horizontal") != 0 || CnInputManager.GetAxis("Vertical") != 0)
         {
             direction = new Vector3(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"),0.0f);
-            Debug.Log(CnInputManager.GetAxis("Horizontal"));
+            //Debug.Log(CnInputManager.GetAxis("Horizontal"));
             Vector3 _rotation = new Vector3(0,0
                 , -Mathf.Atan2(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical")) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotation),
@@ -80,15 +85,21 @@ public class PlayerController : MonoBehaviour
             if (GameManager.Instance.energy > 0)
             {
                 speed = 60;
+                trail.gameObject.SetActive(true);
+                //trail.Play();
             }
             else
             {
                 speed = speed2;
+                //trail.Stop();
+                trail.gameObject.SetActive(false);
             }
         }
         else if (CnInputManager.GetButton("Jump") == false)
         {
             speed = speed2;
+            //trail.Stop();
+            trail.gameObject.SetActive(false);
         }
     }
     private void Scale()

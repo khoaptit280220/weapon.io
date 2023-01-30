@@ -108,13 +108,11 @@ public class BossEnemyController : MonoBehaviour
             {
                 if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
-                    speedEnemy = 60;
-                    //dirtParticle.gameObject.SetActive(true);
+                    speedEnemy = 55;
                 }
                 else
                 {
-                    speedEnemy = 25;
-                   //sss dirtParticle.gameObject.SetActive(false);
+                    speedEnemy = 20;
                 }
                 NewIndex = indexPoint;
                 float timeMove = 0;

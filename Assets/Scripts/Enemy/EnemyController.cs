@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     public GameObject ModelEnemy;
     public bool isDied;
    private List<Vector3> WayPoints;
-    public float speedEnemy = 15;
+    public float speedEnemy = 20;
     public bool moveLoop;
     public WayPointController WayPointController;
     private TweenerCore<Vector3, Vector3, VectorOptions> t;
@@ -127,15 +127,11 @@ public class EnemyController : MonoBehaviour
             {
                 if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
-                    speedEnemy = 60;
-                    //dirtParticle.gameObject.SetActive(true);
-                    Debug.Log("play fx enemy");
+                    speedEnemy = 55;
                 }
                 else
                 {
-                    speedEnemy = 25;
-              //      dirtParticle.gameObject.SetActive(false);
-                    Debug.Log("stop fx enemy");
+                    speedEnemy = 20;
                 }
                 NewIndex = indexPoint;
                 float timeMove = 0;

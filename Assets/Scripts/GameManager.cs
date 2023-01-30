@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public int point = 0;
     [HideInInspector] public int coin = 0;
     [HideInInspector] public float energy = 0;
-
+    [HideInInspector] public bool checkBoss = false;
     [HideInInspector] public int time;
    // [HideInInspector] public bool isPlayerDied = true;
    private PlayerController _playerController;

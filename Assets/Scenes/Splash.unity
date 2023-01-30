@@ -415,6 +415,7 @@ MonoBehaviour:
   point: 0
   coin: 0
   energy: 0
+  checkBoss: 1
   time: 0
 --- !u!4 &845591240
 Transform:

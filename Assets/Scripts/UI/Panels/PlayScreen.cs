@@ -11,8 +11,8 @@ public class PlayScreen : UIPanel
     [SerializeField] private Image energy;
     [SerializeField] private TMP_Text point;
     [SerializeField] private TMP_Text coin;
-    
-    [SerializeField]
+
+    [SerializeField] private Animator AnimTextBossComingControler;
     
     public static PlayScreen Instance { get; private set; }
 
@@ -36,6 +36,7 @@ public class PlayScreen : UIPanel
 
     private void Init()
     {
+        PlayAnimTextBossComing();
     }
 
     public override void OnDisappear()
@@ -102,5 +103,10 @@ public class PlayScreen : UIPanel
             energy.fillAmount = GameManager.Instance.energy;
         }
         
+    }
+
+    private void PlayAnimTextBossComing()
+    {
+        AnimTextBossComingControler.Play("AnimTextBossComing");
     }
 }
