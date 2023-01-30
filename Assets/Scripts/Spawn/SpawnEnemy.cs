@@ -59,7 +59,7 @@ public class SpawnEnemy : MonoBehaviour
     }
     private void Spawn()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 10; i++)
         {
             GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, -3.8f), enemy.transform.rotation, parent);
             EnemyController enemyController = Enemy.GetComponent<EnemyController>();

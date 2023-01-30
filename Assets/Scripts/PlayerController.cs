@@ -7,11 +7,11 @@ using UnityEngine.UIElements;
 using Sirenix.OdinInspector;
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 25;
-    private float speed2 = 25;
+    public float speed = 20;
+    private float speed2 = 20;
     public float speedRotate = 10;
+    [HideInInspector] public int countHeadPlayer;
     [HideInInspector] public bool isPlayerDied;
-    
     [DisableInEditorMode][SerializeField] private Vector3 direction;
     
     public int tier = 0;
@@ -24,17 +24,17 @@ public class PlayerController : MonoBehaviour
         Init();
         GameManager.Instance.SetupPlayer(this);
         direction = Vector3.right;
-        
     }
 
     public void Init()
     {
         isPlayerDied = false;
+        countHeadPlayer = 0;
     }
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerDied == false)
+        if (GameManager.Instance.GameState == GameState.PLaying)
         {
             SetDirection();
             if (transform.position.y > 70)
@@ -49,15 +49,16 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = new Vector3(135, transform.position.y, transform.position.z);
             }
-            if (transform.position.x < -130)
+            if (transform.position.x < -135)
             {
-                transform.position = new Vector3(-130, transform.position.y, transform.position.z);
+                transform.position = new Vector3(-135, transform.position.y, transform.position.z);
             }
 
             transform.position += direction * speed * Time.deltaTime;
        
             ClickTrail();
             Scale();
+
         }
     }
     private void SetDirection()
@@ -96,9 +97,9 @@ public class PlayerController : MonoBehaviour
         {
             pointTier = GameManager.Instance.point;
             tier += 1;
-            speed += 1;
-            speed2 = speed;
-            float x =  5 * Mathf.Pow(1.2f, tier);
+            // speed += 1;
+            // speed2 = speed;
+            float x =  4 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
             spawnEnemy.SpawnBoss();
         }

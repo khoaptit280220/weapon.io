@@ -31,6 +31,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public int point = 0;
     [HideInInspector] public int coin = 0;
     [HideInInspector] public float energy = 0;
+
+    [HideInInspector] public int time;
    // [HideInInspector] public bool isPlayerDied = true;
    private PlayerController _playerController;
    private LevelController _levelController;
@@ -261,6 +263,10 @@ public class GameManager : Singleton<GameManager>
     {
         GameState = GameState.PLaying;
         GetLevelController.CurrentLevel.SetActive(true);
+        coin = 0;
+        point = 0;
+        time = 60;
+        energy = 1;
     }
 }
 

@@ -22,7 +22,7 @@ public class SpawnCoin : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            Instantiate(coin, new Vector3(Random.Range(-120, 120), 73, -1), coin.transform.rotation, parent);
+            Instantiate(coin, new Vector3(Random.Range(-120, 120), 73, -3), coin.transform.rotation, parent);
 
         }
     }

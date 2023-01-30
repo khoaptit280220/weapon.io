@@ -28,7 +28,7 @@ public class SpawnEnergy : MonoBehaviour
     {
         float x = Random.Range(xRangeLeft, xRangeRight);
         float y = Random.Range(yRangeDown, yRangeTop);
-        float z = -1;
+        float z = -3;
         return new Vector3(x, y, z);
     }
 }

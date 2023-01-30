@@ -24,7 +24,9 @@ public class EnemyController : MonoBehaviour
     private bool firstStartPosition;
     private Vector3 startPosition;
     public int pointEnemy;
+   // public ParticleSystem dirtParticle;
 
+    public int countHeadEnemy;
     [SerializeField] private int tier = 0;
     [SerializeField] private int pointTier = 0;
     private void Start()
@@ -38,11 +40,23 @@ public class EnemyController : MonoBehaviour
         pointEnemy = 0;
         SetupWaypoint();
         MoveByPoint();
+        
     }
 
     private void Update()
     {
         Scale();
+        
+        // if (speedEnemy > 58)
+        // {
+        //     dirtParticle.gameObject.SetActive(true);
+        //     Debug.Log("play fx enemy");
+        // }
+        // else
+        // {
+        //     dirtParticle.gameObject.SetActive(false);
+        //     Debug.Log("stop fx enemy");
+        // }
     }
 
     public void SetupWaypoint()
@@ -111,13 +125,17 @@ public class EnemyController : MonoBehaviour
         {
             if (!isDied)
             {
-                if (indexPoint == 2 || indexPoint == 7 || indexPoint == 12 || indexPoint == 17)
+                if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
                     speedEnemy = 60;
+                    //dirtParticle.gameObject.SetActive(true);
+                    Debug.Log("play fx enemy");
                 }
                 else
                 {
                     speedEnemy = 25;
+              //      dirtParticle.gameObject.SetActive(false);
+                    Debug.Log("stop fx enemy");
                 }
                 NewIndex = indexPoint;
                 float timeMove = 0;
@@ -166,7 +184,7 @@ public class EnemyController : MonoBehaviour
         {
             pointTier = pointEnemy;
             tier += 1;
-            float x =  5 * Mathf.Pow(1.2f, tier);
+            float x =  4 * Mathf.Pow(1.2f, tier);
             ModelEnemy.transform.localScale = new Vector3(x,x, x);
         }
     }

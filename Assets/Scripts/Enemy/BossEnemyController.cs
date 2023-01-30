@@ -11,7 +11,7 @@ public class BossEnemyController : MonoBehaviour
     public GameObject ModelEnemy;
     public bool isDied;
     private List<Vector3> WayPoints = new List<Vector3>();
-    private float speedEnemy = 25;
+    private float speedEnemy = 20;
     public bool moveLoop;
     public List<GameObject> Points;
     private TweenerCore<Vector3, Vector3, VectorOptions> t;
@@ -23,8 +23,8 @@ public class BossEnemyController : MonoBehaviour
     private bool firstStartPosition;
     private Vector3 startPosition;
     public int pointEnemyBoss;
-
-   
+    
+    public int countHeadBoss;
     
     private void Start()
     {
@@ -35,6 +35,7 @@ public class BossEnemyController : MonoBehaviour
         DOTween.Sequence().AppendInterval(.1f).AppendCallback(() => { firstStartRotate = true; });
         indexPoint = 0;
         pointEnemyBoss = 0;
+        countHeadBoss = 0;
         for (int i = 0; i < Points.Count; i++)
         {
             WayPoints.Add(Points[i].transform.position);
@@ -105,7 +106,16 @@ public class BossEnemyController : MonoBehaviour
         {
             if (!isDied)
             {
-                
+                if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
+                {
+                    speedEnemy = 60;
+                    //dirtParticle.gameObject.SetActive(true);
+                }
+                else
+                {
+                    speedEnemy = 25;
+                   //sss dirtParticle.gameObject.SetActive(false);
+                }
                 NewIndex = indexPoint;
                 float timeMove = 0;
                if (firstStartPosition)

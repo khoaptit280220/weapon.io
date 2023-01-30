@@ -7,7 +7,7 @@ public class PlayScreen : UIPanel
 {
     
     [SerializeField] private TMP_Text timer;
-    [SerializeField]private int timeGame = 60;
+    
     [SerializeField] private Image energy;
     [SerializeField] private TMP_Text point;
     [SerializeField] private TMP_Text coin;
@@ -68,20 +68,20 @@ public class PlayScreen : UIPanel
     {
         if (GameManager.Instance.GameState==GameState.PLaying)
         {
-            if (timeGame > 0)
+            if (GameManager.Instance.time > 0)
             {
-                timeGame -= 1;
+                GameManager.Instance.time -= 1;
             }
-            timer.text = timeGame.ToString();
+            timer.text = GameManager.Instance.time.ToString();
 
-            if (timeGame == 0)
+            if (GameManager.Instance.time == 0)
             {
                 GameManager.Instance.OnWinGame();
             }
         }
         else
         {
-            timer.text = timeGame.ToString();
+            timer.text = GameManager.Instance.time.ToString();
         }
     }
 

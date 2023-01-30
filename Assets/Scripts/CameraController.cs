@@ -32,25 +32,25 @@ public class CameraController : HCMonoBehaviour
     {
         if (targetFollow == null)
             return;
-        if (targetFollow.position.x > 100 && -60 < targetFollow.position.y && targetFollow.position.y< 55)
+        if (targetFollow.position.x > 105 && -62 < targetFollow.position.y && targetFollow.position.y< 60)
         {
             Transform.position = new Vector3(Transform.position.x, targetFollow.position.y + offset.y,targetFollow.position.z + offset.z);
         }
 
-        else if (targetFollow.position.y > 55 && targetFollow.position.x > -95 && targetFollow.position.x < 100)
+        else if (targetFollow.position.y > 60 && targetFollow.position.x > -95 && targetFollow.position.x < 105)
         {
             Transform.position = new Vector3(targetFollow.position.x + offset.x, Transform.position.y, targetFollow.position.z + offset.z);
         }
 
-        else if (targetFollow.position.x < -95 && targetFollow.position.y > -60 && targetFollow.position.y < 55)
+        else if (targetFollow.position.x < -95 && targetFollow.position.y > -62 && targetFollow.position.y < 60)
         {
             Transform.position = new Vector3(Transform.position.x, targetFollow.position.y + offset.y, targetFollow.position.z +offset.z);
         }
-        else if (targetFollow.position.y < -60 && targetFollow.position.x > -95 && targetFollow.position.x < 100)
+        else if (targetFollow.position.y < -62 && targetFollow.position.x > -95 && targetFollow.position.x < 105)
         {
             Transform.position = new Vector3(targetFollow.position.x + offset.x, Transform.position.y, targetFollow.position.z + offset.z);
         }
-        else if( targetFollow.position.x < 100 && targetFollow.position.x > -95 && targetFollow.position.y >-60 && targetFollow.position.y < 55)
+        else if( targetFollow.position.x < 105 && targetFollow.position.x > -95 && targetFollow.position.y >-62 && targetFollow.position.y < 60)
         {
             Transform.position = Vector3.Lerp(Transform.position,
                 targetFollow.position + offset, Time.deltaTime * transitionSpeed); 

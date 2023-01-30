@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class PointEatFood : MonoBehaviour
 {
-    public BossEnemyController boss;
-    public EnemyController enemy;
     public TypeEnemy TypeEnemy;
+    [ShowIf("TypeEnemy", global::TypeEnemy.EnemyBoss)]
+    public BossEnemyController boss;
+    [ShowIf("TypeEnemy", global::TypeEnemy.EnemyNomal)]
+    public EnemyController enemy;
+    
     private void OnTriggerEnter(Collider other)
     {
         switch (TypeEnemy)
