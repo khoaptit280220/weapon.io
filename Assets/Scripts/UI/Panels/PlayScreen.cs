@@ -1,5 +1,6 @@
 ﻿using System;
 using CnControls;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,6 +38,7 @@ public class PlayScreen : UIPanel
     private void Init()
     {
         PlayAnimTextBossComing();
+        AnimTextBossComingControler.gameObject.SetActive(false);
     }
 
     public override void OnDisappear()
@@ -101,6 +103,16 @@ public class PlayScreen : UIPanel
         if (GameManager.Instance.energy > 0 && energy.fillAmount < GameManager.Instance.energy)
         {
             energy.fillAmount = GameManager.Instance.energy;
+        }
+
+        if (GameManager.Instance.checkBoss == true)
+        {
+            AnimTextBossComingControler.gameObject.SetActive(true);
+            DOTween.Sequence().SetDelay(3).OnComplete(() =>
+            {
+                AnimTextBossComingControler.gameObject.SetActive(false);
+                GameManager.Instance.checkBoss = false;
+            });
         }
         
     }

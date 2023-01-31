@@ -98,6 +98,7 @@ MonoBehaviour:
   moveLoop: 1
   WayPointController: {fileID: 7439623923097237667}
   pointEnemy: 0
+  trail: {fileID: 1700359023681620582}
   countHeadEnemy: 0
   tier: 0
   pointTier: 0
@@ -158,25 +159,25 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 5211517779411675912}
+    - target: {fileID: 181676880107725538, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181676880107725538, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181676880107725538, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
         type: 3}
@@ -238,6 +239,31 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 5211517779411675912}
+    - target: {fileID: 7930108792211483882, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.2779006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930108792211483882, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.569085
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930108792211483882, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.17587416
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930108792211483882, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.40534776
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930108792211483882, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0224192
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae06ae61cd36c439386dac499882f579, type: 3}
 --- !u!1 &4013397177659912202 stripped
@@ -249,6 +275,12 @@ GameObject:
 --- !u!4 &4013397177659912198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
+    type: 3}
+  m_PrefabInstance: {fileID: 2302482636526857541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1700359023681620582 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 607119842404493091, guid: ae06ae61cd36c439386dac499882f579,
     type: 3}
   m_PrefabInstance: {fileID: 2302482636526857541}
   m_PrefabAsset: {fileID: 0}

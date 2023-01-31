@@ -26,6 +26,8 @@ public class BossEnemyController : MonoBehaviour
     
     public int countHeadBoss;
     
+    public ParticleSystem trail;
+    
     private void Start()
     {
         isDied = false;
@@ -106,13 +108,15 @@ public class BossEnemyController : MonoBehaviour
         {
             if (!isDied)
             {
-                if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
+                if (indexPoint == 2 || indexPoint == 5)
                 {
                     speedEnemy = 55;
+                    trail.gameObject.SetActive(true);
                 }
                 else
                 {
                     speedEnemy = 20;
+                    trail.gameObject.SetActive(false);
                 }
                 NewIndex = indexPoint;
                 float timeMove = 0;

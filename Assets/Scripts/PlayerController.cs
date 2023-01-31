@@ -86,19 +86,16 @@ public class PlayerController : MonoBehaviour
             {
                 speed = 60;
                 trail.gameObject.SetActive(true);
-                //trail.Play();
             }
             else
             {
                 speed = speed2;
-                //trail.Stop();
                 trail.gameObject.SetActive(false);
             }
         }
         else if (CnInputManager.GetButton("Jump") == false)
         {
             speed = speed2;
-            //trail.Stop();
             trail.gameObject.SetActive(false);
         }
     }
@@ -113,6 +110,7 @@ public class PlayerController : MonoBehaviour
             float x =  4 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
             spawnEnemy.SpawnBoss();
+            GameManager.Instance.checkBoss = true;
         }
     }
     

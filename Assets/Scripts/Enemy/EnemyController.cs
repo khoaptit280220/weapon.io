@@ -24,8 +24,9 @@ public class EnemyController : MonoBehaviour
     private bool firstStartPosition;
     private Vector3 startPosition;
     public int pointEnemy;
-   // public ParticleSystem dirtParticle;
-
+   
+    public ParticleSystem trail;
+    
     public int countHeadEnemy;
     [SerializeField] private int tier = 0;
     [SerializeField] private int pointTier = 0;
@@ -47,16 +48,6 @@ public class EnemyController : MonoBehaviour
     {
         Scale();
         
-        // if (speedEnemy > 58)
-        // {
-        //     dirtParticle.gameObject.SetActive(true);
-        //     Debug.Log("play fx enemy");
-        // }
-        // else
-        // {
-        //     dirtParticle.gameObject.SetActive(false);
-        //     Debug.Log("stop fx enemy");
-        // }
     }
 
     public void SetupWaypoint()
@@ -128,10 +119,12 @@ public class EnemyController : MonoBehaviour
                 if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
                     speedEnemy = 55;
+                    trail.gameObject.SetActive(true);
                 }
                 else
                 {
                     speedEnemy = 20;
+                    trail.gameObject.SetActive(false);
                 }
                 NewIndex = indexPoint;
                 float timeMove = 0;
