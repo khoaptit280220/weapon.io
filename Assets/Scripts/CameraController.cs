@@ -37,7 +37,7 @@ public class CameraController : HCMonoBehaviour
     {
         if (targetFollow == null)
             return;
-        if (targetFollow.position.x > Right && -Down < targetFollow.position.y && targetFollow.position.y< Top)
+        if (targetFollow.position.x > Right && Down < targetFollow.position.y && targetFollow.position.y< Top)
         {
             Transform.position = new Vector3(Transform.position.x, targetFollow.position.y + offset.y,targetFollow.position.z + offset.z);
         }
