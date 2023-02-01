@@ -15,10 +15,10 @@ public class CameraController : HCMonoBehaviour
 
     public float transitionSpeed;
 
-    private float Left = -95;
-    private float Right = 105;
-    private float Top = 60;
-    private float Down = -62;
+    private float Left = -100;
+    private float Right = 100;
+    private float Top = 61;
+    private float Down = -61;
 
     private void Awake()
     {

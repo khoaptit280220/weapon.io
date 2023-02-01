@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         Init();
         GameManager.Instance.SetupPlayer(this);
-        direction = Vector3.up;
+        direction = Vector3.right;
     }
 
     public void Init()
