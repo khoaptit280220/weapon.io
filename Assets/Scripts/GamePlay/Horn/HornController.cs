@@ -11,6 +11,13 @@ public class HornController : MonoBehaviour
     
     //public GameObject enemy;
     public GameObject objfood;
+    private GameObject parentFood;
+    private GameObject f1;
+    private GameObject f2;
+    private GameObject f3;
+    
+    float time = 0;
+    private Vector3 stratPos;
     
     public TypeKiem typeKiem;
 
@@ -127,33 +134,21 @@ public class HornController : MonoBehaviour
                 {
                     SetupHeadPlayer();
                     other.gameObject.SetActive(false);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x + 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x - 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y + 3, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    GameManager.Instance.point += 50;
                     
+                    parentFood = other.gameObject;
+                    SpamFood();
+
+                    GameManager.Instance.point += 50;
                 }
                 if (other.gameObject.CompareTag("Boss"))
                 {
                     SetupHeadPlayer();
                     other.gameObject.SetActive(false);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x + 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x - 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y + 3, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    GameManager.Instance.point += 50;
                     
+                    parentFood = other.gameObject;
+                    SpamFood();
+                    
+                    GameManager.Instance.point += 50;
                 }
                 break;
             case TypeKiem.KiemEnemy:
@@ -163,17 +158,9 @@ public class HornController : MonoBehaviour
                     SetupHeadEnemy();
                     other.gameObject.SetActive(false);
                     this.enemy.pointEnemy += 50;
-            
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x + 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x - 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y + 3, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
                     
+                    parentFood = other.gameObject;
+                    SpamFood();
                 }
                 if (other.gameObject.CompareTag("Player"))
                 {
@@ -181,17 +168,9 @@ public class HornController : MonoBehaviour
                     GameManager.Instance.GetPlayer.isPlayerDied = true;
                     other.gameObject.SetActive(false);
                     this.enemy.pointEnemy += 50;
-            
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x + 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x - 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y + 3, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
                     
+                    parentFood = other.gameObject;
+                    SpamFood();
                 }
                 break;
             case TypeKiem.KiemEnemyBoss:
@@ -201,17 +180,9 @@ public class HornController : MonoBehaviour
                     SetupHeadBoss();
                     other.gameObject.SetActive(false);
                     this.BossEnemy.pointEnemyBoss += 50;
-            
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x + 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x - 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y + 3, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
                     
+                    parentFood = other.gameObject;
+                    SpamFood();
                 }
                 if (other.gameObject.CompareTag("Player"))
                 {
@@ -220,18 +191,47 @@ public class HornController : MonoBehaviour
                     other.gameObject.SetActive(false);
                     this.BossEnemy.pointEnemyBoss += 50; 
                     GameManager.Instance.OnLoseGame();
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x + 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x - 3, other.transform.position.y, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
-                    Instantiate(objfood,
-                        new Vector3(other.transform.position.x, other.transform.position.y + 3, -3.5f),
-                        objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
                     
+                    parentFood = other.gameObject;
+                    SpamFood();
                 } 
                 break;
+        }
+    }
+
+    private void SpamFood()
+    {
+        stratPos = parentFood.transform.position;
+        time = 0;
+        
+        f1 = Instantiate(objfood,
+            new Vector3(parentFood.transform.position.x + 2, parentFood.transform.position.y, parentFood.transform.position.z),
+            objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
+        f2 = Instantiate(objfood,
+            new Vector3(parentFood.transform.position.x -2, parentFood.transform.position.y, parentFood.transform.position.z),
+            objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
+        f3 = Instantiate(objfood,
+            new Vector3(parentFood.transform.position.x, parentFood.transform.position.y + 2, parentFood.transform.position.z),
+            objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (f1 != null)
+        {
+            f1.transform.localPosition = 
+                Vector3.Lerp(stratPos + new Vector3(2,0,0), stratPos + new Vector3(4,0,0), time);
+        }
+        if (f2 != null)
+        {
+            f2.transform.localPosition = 
+                Vector3.Lerp(stratPos + new Vector3(-2,0,0), stratPos + new Vector3(-4,0,0), time);
+        }
+        if (f3 != null)
+        {
+            f3.transform.localPosition = 
+                Vector3.Lerp(stratPos + new Vector3(0,2,0), stratPos + new Vector3(0,4,0), time);
         }
     }
 }

@@ -15,6 +15,11 @@ public class CameraController : HCMonoBehaviour
 
     public float transitionSpeed;
 
+    private float Left = -95;
+    private float Right = 105;
+    private float Top = 60;
+    private float Down = -62;
+
     private void Awake()
     {
         instance = this;
@@ -32,25 +37,25 @@ public class CameraController : HCMonoBehaviour
     {
         if (targetFollow == null)
             return;
-        if (targetFollow.position.x > 105 && -62 < targetFollow.position.y && targetFollow.position.y< 60)
+        if (targetFollow.position.x > Right && -Down < targetFollow.position.y && targetFollow.position.y< Top)
         {
             Transform.position = new Vector3(Transform.position.x, targetFollow.position.y + offset.y,targetFollow.position.z + offset.z);
         }
 
-        else if (targetFollow.position.y > 60 && targetFollow.position.x > -95 && targetFollow.position.x < 105)
+        else if (targetFollow.position.y > Top && targetFollow.position.x > Left && targetFollow.position.x < Right)
         {
             Transform.position = new Vector3(targetFollow.position.x + offset.x, Transform.position.y, targetFollow.position.z + offset.z);
         }
 
-        else if (targetFollow.position.x < -95 && targetFollow.position.y > -62 && targetFollow.position.y < 60)
+        else if (targetFollow.position.x < Left && targetFollow.position.y > Down && targetFollow.position.y < Top)
         {
             Transform.position = new Vector3(Transform.position.x, targetFollow.position.y + offset.y, targetFollow.position.z +offset.z);
         }
-        else if (targetFollow.position.y < -62 && targetFollow.position.x > -95 && targetFollow.position.x < 105)
+        else if (targetFollow.position.y < Down && targetFollow.position.x > Left && targetFollow.position.x < Right)
         {
             Transform.position = new Vector3(targetFollow.position.x + offset.x, Transform.position.y, targetFollow.position.z + offset.z);
         }
-        else if( targetFollow.position.x < 105 && targetFollow.position.x > -95 && targetFollow.position.y >-62 && targetFollow.position.y < 60)
+        else if( targetFollow.position.x < Right && targetFollow.position.x > Left && targetFollow.position.y >Down && targetFollow.position.y < Top)
         {
             Transform.position = Vector3.Lerp(Transform.position,
                 targetFollow.position + offset, Time.deltaTime * transitionSpeed); 

@@ -7,6 +7,11 @@ using UnityEngine.UIElements;
 using Sirenix.OdinInspector;
 public class PlayerController : MonoBehaviour
 {
+    private float Top = 70;
+    private float Down = -75;
+    private float Left = -135;
+    private float Right = 135;
+    
     public float speed = 20;
     private float speed2 = 20;
     public float speedRotate = 10;
@@ -38,21 +43,21 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.GameState == GameState.PLaying)
         {
             SetDirection();
-            if (transform.position.y > 70)
+            if (transform.position.y > Top)
             {
-                transform.position = new Vector3(transform.position.x, 70, transform.position.z);
+                transform.position = new Vector3(transform.position.x, Top, transform.position.z);
             }
-            if (transform.position.y < -75)
+            if (transform.position.y < Down)
             {
-                transform.position = new Vector3(transform.position.x, -75, transform.position.z);
+                transform.position = new Vector3(transform.position.x, Down, transform.position.z);
             }
-            if (transform.position.x > 135)
+            if (transform.position.x > Right)
             {
-                transform.position = new Vector3(135, transform.position.y, transform.position.z);
+                transform.position = new Vector3(Right, transform.position.y, transform.position.z);
             }
-            if (transform.position.x < -135)
+            if (transform.position.x < Left)
             {
-                transform.position = new Vector3(-135, transform.position.y, transform.position.z);
+                transform.position = new Vector3(Left, transform.position.y, transform.position.z);
             }
 
             transform.position += direction * speed * Time.deltaTime;

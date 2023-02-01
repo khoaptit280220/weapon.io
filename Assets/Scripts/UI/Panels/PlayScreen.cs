@@ -121,4 +121,6 @@ public class PlayScreen : UIPanel
     {
         AnimTextBossComingControler.Play("AnimTextBossComing");
     }
+    
+    
 }

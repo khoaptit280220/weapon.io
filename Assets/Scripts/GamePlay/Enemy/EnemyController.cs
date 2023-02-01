@@ -47,7 +47,6 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         Scale();
-        
     }
 
     public void SetupWaypoint()
