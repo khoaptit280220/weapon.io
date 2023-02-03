@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
 {
 #if UNITY_EDITOR
     private bool IsPlaying => EditorApplication.isPlaying;
+    public TypeMap currentTypeMap;
 
     [ShowIf(nameof(IsPlaying))]
 #endif
@@ -36,6 +37,8 @@ public class GameManager : Singleton<GameManager>
    // [HideInInspector] public bool isPlayerDied = true;
    private PlayerController _playerController;
    private LevelController _levelController;
+
+   private MapController _mapController;
     
     public static bool EnableAds
     {
@@ -229,6 +232,13 @@ public class GameManager : Singleton<GameManager>
     }
 
     public LevelController GetLevelController => _levelController;
+
+    public void SetupMapController(MapController mapController)
+    {
+        this._mapController = mapController;
+    }
+
+    public MapController GetMapController => _mapController;
     public void OnWinGame()
     {
         Debug.Log("Victory");

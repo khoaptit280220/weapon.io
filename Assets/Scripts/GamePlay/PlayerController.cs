@@ -69,10 +69,6 @@ public class PlayerController : MonoBehaviour
     }
     private void SetDirection()
     {
-    // float inputX = CnInputManager.GetAxis("Horizontal");        
-    // float inputZ = CnInputManager.GetAxis("Vertical");         
-    // vectorDirectionMove = new Vector3(inputX, 0f, inputZ);         
-    // vectorDirectionRotate = vectorDirectionMove;
         if (CnInputManager.GetAxis("Horizontal") != 0 || CnInputManager.GetAxis("Vertical") != 0)
         {
             direction = new Vector3(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"),0.0f);
@@ -110,8 +106,6 @@ public class PlayerController : MonoBehaviour
         {
             pointTier = GameManager.Instance.point;
             tier += 1;
-            // speed += 1;
-            // speed2 = speed;
             float x =  4 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
             spawnEnemy.SpawnBoss();

@@ -30,6 +30,12 @@ public class EnemyController : MonoBehaviour
     public int countHeadEnemy;
     [SerializeField] private int tier = 0;
     [SerializeField] private int pointTier = 0;
+
+   // public GameObject Indicator;
+    //public GameObject target;
+
+   // private Renderer rd;
+    
     private void Start()
     {
         isDied = false;
@@ -41,12 +47,39 @@ public class EnemyController : MonoBehaviour
         pointEnemy = 0;
         SetupWaypoint();
         MoveByPoint();
-        
+
+      //  rd = GetComponent<Renderer>();
     }
 
     private void Update()
     {
         Scale();
+        // Debug.Log(rd.isVisible);
+        // if (rd.isVisible == false)
+        // {
+        //     Debug.Log("isvisible = false");
+        //     if (Indicator.activeSelf == false)
+        //     {
+        //          Indicator.SetActive(true);
+        //     }
+        //
+        //     Vector3 vectorToPlayer = target.transform.position - transform.position;
+        //     Vector2 thisEnemy = new Vector2(transform.position.x, transform.position.y);
+        //     Vector2 direction = new Vector2(vectorToPlayer.x, vectorToPlayer.y);
+        //     RaycastHit2D ray = Physics2D.Raycast(thisEnemy, direction);
+        //
+        //     if (ray.collider != null)
+        //     {
+        //         Indicator.transform.position = ray.point;
+        //     }
+        // }
+        // else
+        // {
+        //     if (Indicator.activeSelf == true)
+        //     {
+        //         Indicator.SetActive(false);
+        //     }
+        // }
     }
 
     public void SetupWaypoint()

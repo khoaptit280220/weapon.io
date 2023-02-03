@@ -65,7 +65,7 @@ public class GameData
     }
 }
 
-public static class Database
+public static partial class Database
 {
     private static string dataKey = "GameData";
 
@@ -83,4 +83,30 @@ public static class Database
 
         return JsonConvert.DeserializeObject<GameData>(PlayerPrefs.GetString(dataKey));
     }
+
+    public static bool IsMapUnlock
+    {
+        get => GetBool(IS_CHECK_UNLOCK_MAP,false);
+        set => SetBool(IS_CHECK_UNLOCK_MAP, value);
+    }
+
+    #region KEY
+
+    public static string IS_CHECK_UNLOCK_MAP = "";
+
+    #endregion
+
+}
+public static partial class Database
+{
+    private static bool GetBool(string key, bool defaultValue = false) =>
+        PlayerPrefs.GetInt(key, defaultValue ? 1 : 0) > 0;
+
+    private static void SetBool(string id, bool value) => PlayerPrefs.SetInt(id, value ? 1 : 0);
+
+    private static int GetInt(string key, int defaultValue) => PlayerPrefs.GetInt(key, defaultValue);
+    private static void SetInt(string id, int value) => PlayerPrefs.SetInt(id, value);
+
+    private static string GetString(string key, string defaultValue) => PlayerPrefs.GetString(key, defaultValue);
+    private static void SetString(string id, string value) => PlayerPrefs.SetString(id, value);
 }

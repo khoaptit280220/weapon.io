@@ -133,7 +133,8 @@ public class HornController : MonoBehaviour
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadPlayer();
-                    other.gameObject.SetActive(false);
+                //    PlayScreen.Instance.RemoveItemInIndicatorDic(other.transform.parent.GetComponent<EnemyController>());
+                    other.transform.parent.gameObject.SetActive(false);
                     
                     parentFood = other.gameObject;
                     SpamFood();
@@ -143,7 +144,7 @@ public class HornController : MonoBehaviour
                 if (other.gameObject.CompareTag("Boss"))
                 {
                     SetupHeadPlayer();
-                    other.gameObject.SetActive(false);
+                    other.transform.parent.gameObject.SetActive(false);
                     
                     parentFood = other.gameObject;
                     SpamFood();
@@ -156,7 +157,10 @@ public class HornController : MonoBehaviour
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadEnemy();
-                    other.gameObject.SetActive(false);
+                //    PlayScreen.Instance.RemoveItemInIndicatorDic(other.transform.parent.GetComponent<EnemyController>());
+
+                    other.transform.parent.gameObject.SetActive(false);
+
                     this.enemy.pointEnemy += 50;
                     
                     parentFood = other.gameObject;
@@ -178,7 +182,9 @@ public class HornController : MonoBehaviour
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadBoss();
-                    other.gameObject.SetActive(false);
+                   // PlayScreen.Instance.RemoveItemInIndicatorDic(other.transform.parent.GetComponent<EnemyController>());
+                    other.transform.parent.gameObject.SetActive(false);
+
                     this.BossEnemy.pointEnemyBoss += 50;
                     
                     parentFood = other.gameObject;

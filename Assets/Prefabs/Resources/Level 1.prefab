@@ -237,7 +237,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -59, z: -74.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1887508945392660578}
   m_Father: {fileID: 933905948801188272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -481,6 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: {fileID: 9100066834534262155, guid: e8af8f33cd2874b33bf06f651ea587d3, type: 3}
   parent: {fileID: 933905948801188272}
+  torpedo: {fileID: 7897457612642993197, guid: caa162fb9a4344f84845f1a9e363c9d5, type: 3}
 --- !u!1 &933905949691971093
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +648,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 319.6781, y: 0, z: 160.92233}
   m_Center: {x: -0.06323242, y: -4.4526443, z: -79.96117}
+--- !u!1 &3431404081494028897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887508945392660578}
+  - component: {fileID: 6631358363805133942}
+  m_Layer: 6
+  m_Name: CamBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1887508945392660578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3431404081494028897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 933905948866988129}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &6631358363805133942
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3431404081494028897}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 35.40451, y: 19.219471}
+  - {x: 34.524323, y: 19.00346}
+  - {x: -35.037598, y: 19.075905}
+  - {x: -35.01681, y: 5.997345}
+  - {x: -34.97607, y: -19.634262}
+  - {x: 35.018158, y: -19.485214}
+  - {x: 34.85428, y: -16.586208}
+  - {x: 34.93282, y: 18.894867}
+  - {x: 34.921936, y: 19.800098}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1001 &4333633882053224352
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,11 +26,4 @@ public class LevelController : MonoBehaviour
         CurrentLevel = Instantiate(level);
         CurrentLevel.gameObject.SetActive(false);
     }
-    public void Update()
-    {
-        // if (GameManager.Instance.GetPlayer.isPlayerDied == false)
-        // {
-        //     CurrentLevel.gameObject.SetActive(true);
-        // }
-    }
 }
