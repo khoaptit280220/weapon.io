@@ -40,7 +40,7 @@ public class SpawnCoin : MonoBehaviour
 
     private void SpawnTorpedo()
     {
-        if (GameManager.Instance.GetMapController.isMap5 == true)
+       // if (GameManager.Instance.GetMapController.isMap5 == true)
         {
             for (int i = 0; i < 20; i++)
             {

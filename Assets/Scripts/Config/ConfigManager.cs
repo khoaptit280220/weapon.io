@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Sirenix.OdinInspector;
@@ -19,6 +20,12 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
     public GameConfig gameCfg;
     public UiConfig uiConfig;
     public IapConfig iapConfig;
+    public MapConfig mapConfig;
+
+    private void Start()
+    {
+        mapConfig.UnlockMapDefault();
+    }
 
     #region Odin
 
@@ -30,6 +37,7 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
         gameCfg = HCTools.GetGameConfig();
         uiConfig = HCTools.GetUiConfig();
         iapConfig = HCTools.GetIapConfig();
+        mapConfig = HCTools.GetMapConfig();
     }
 #endif
 

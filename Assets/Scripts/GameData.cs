@@ -90,9 +90,16 @@ public static partial class Database
         set => SetBool(IS_CHECK_UNLOCK_MAP, value);
     }
 
+    public static int CurrentIdMap
+    {
+        get => GetInt(CURRENT_MAP_ID, 1);
+        set => SetInt(CURRENT_MAP_ID, value);
+    }
+
     #region KEY
 
     public static string IS_CHECK_UNLOCK_MAP = "";
+    public static string CURRENT_MAP_ID = "CURRENT_MAP_ID";
 
     #endregion
 

@@ -491,6 +491,22 @@ public class HCTools : Editor
         return null;
     }
 
+    public static MapConfig GetMapConfig()
+    {
+        var path = "Assets/Configs/";
+        var fileEntries = Directory.GetFiles(path);
+        for (var i = 0; i < fileEntries.Length; i++)
+        if (fileEntries[i].EndsWith(".asset"))
+        {
+            var item =
+                AssetDatabase.LoadAssetAtPath<MapConfig>(fileEntries[i].Replace("\\", "/"));
+            if (item != null)
+                return item;
+        }
+
+        return null;
+    }
+
     public static T GetConfig<T>(string path) where T : ScriptableObject
     {
         var fileEntries = Directory.GetFiles(path, ".", SearchOption.AllDirectories);

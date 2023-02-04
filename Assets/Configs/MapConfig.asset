@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: MapConfig
   m_EditorClassIdentifier: 
   ListMapDatas:
-  - typeMap: 0
-    imageBackground: {fileID: 0}
-  - typeMap: 1
-    imageBackground: {fileID: 0}
-  - typeMap: 2
-    imageBackground: {fileID: 0}
-  - typeMap: 3
-    imageBackground: {fileID: 0}
-  - typeMap: 4
-    imageBackground: {fileID: 0}
-  - typeMap: 5
-    imageBackground: {fileID: 0}
-  - typeMap: 6
-    imageBackground: {fileID: 0}
+  - idMap: 1
+    typeMap: 0
+  - idMap: 2
+    typeMap: 1
+  - idMap: 3
+    typeMap: 2
+  - idMap: 4
+    typeMap: 3
+  - idMap: 5
+    typeMap: 4
+  - idMap: 6
+    typeMap: 5
+  - idMap: 7
+    typeMap: 6

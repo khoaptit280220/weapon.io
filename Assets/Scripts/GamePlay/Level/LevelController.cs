@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CnControls;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
     
     public GameObject level;
-    public GameObject CurrentLevel;
+    [ReadOnly] public Level CurrentLevel;
 
     private void Start()
     {
@@ -23,7 +24,9 @@ public class LevelController : MonoBehaviour
         {
             Destroy(CurrentLevel);
         }
-        CurrentLevel = Instantiate(level);
+        CurrentLevel = Instantiate(level).GetComponent<Level>();
         CurrentLevel.gameObject.SetActive(false);
+        CurrentLevel.SetupMap();
+        
     }
 }

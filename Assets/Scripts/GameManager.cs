@@ -272,7 +272,7 @@ public class GameManager : Singleton<GameManager>
     public void StartGame()
     {
         GameState = GameState.PLaying;
-        GetLevelController.CurrentLevel.SetActive(true);
+        GetLevelController.CurrentLevel.gameObject.SetActive(true);
         coin = 0;
         point = 0;
         time = 60;
