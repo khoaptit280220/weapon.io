@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetColor: {r: 0.34901962, g: 0.34901962, b: 0.9137255, a: 1}
-  needBoxIndicator: 1
+  needBoxIndicator: 0
   needArrowIndicator: 1
   needDistanceText: 1
   indicator: {fileID: 0}

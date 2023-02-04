@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.SearchService;
+// using UnityEditor.SearchService;
 using UnityEngine;
 
 /// <summary>
@@ -11,9 +11,9 @@ using UnityEngine;
 [DefaultExecutionOrder(-1)]
 public class OffScreenIndicator : MonoBehaviour
 {
-    [Range(0.5f, 0.9f)]
+    [Range(0.5f, 0.95f)]
     [Tooltip("Distance offset of the indicators from the centre of the screen")]
-    [SerializeField] private float screenBoundOffset = 0.9f;
+    [SerializeField] private float screenBoundOffset = 0.95f;
 
     private Camera mainCamera;
     private Vector3 screenCentre;
@@ -31,7 +31,6 @@ public class OffScreenIndicator : MonoBehaviour
     void Awake()
     {
         mainCamera = Camera.main;
-        Debug.Log("tag camera " + mainCamera.orthographic );
         screenCentre = new Vector3(Screen.width, Screen.height, 0) / 2;
         screenBounds = screenCentre * screenBoundOffset;
         TargetStateChanged += HandleTargetStateChanged;

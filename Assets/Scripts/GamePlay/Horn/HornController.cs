@@ -207,17 +207,17 @@ public class HornController : MonoBehaviour
 
     private void SpamFood()
     {
-        stratPos = parentFood.transform.position;
+        stratPos = new Vector3(parentFood.transform.position.x, parentFood.transform.position.y, -3);
         time = 0;
         
         f1 = Instantiate(objfood,
-            new Vector3(parentFood.transform.position.x + 2, parentFood.transform.position.y, parentFood.transform.position.z),
+            new Vector3(parentFood.transform.position.x + 2, parentFood.transform.position.y, -3),
             objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
         f2 = Instantiate(objfood,
-            new Vector3(parentFood.transform.position.x -2, parentFood.transform.position.y, parentFood.transform.position.z),
+            new Vector3(parentFood.transform.position.x -2, parentFood.transform.position.y, -3),
             objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
         f3 = Instantiate(objfood,
-            new Vector3(parentFood.transform.position.x, parentFood.transform.position.y + 2, parentFood.transform.position.z),
+            new Vector3(parentFood.transform.position.x, parentFood.transform.position.y + 2, -3),
             objfood.transform.rotation, GameManager.Instance.GetLevelController.CurrentLevel.transform);
     }
 
