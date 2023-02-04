@@ -23,9 +23,11 @@ public class CameraController : HCMonoBehaviour
     private void Awake()
     {
         instance = this;
+        this.transform.position = new Vector3(targetFollow.position.x, transform.position.y, transform.position.z);
         if (targetFollow != null)
             offset = Transform.position - targetFollow.transform.position;
         _originOffset = offset;
+        
     }
 
     public void ResetOffset()
