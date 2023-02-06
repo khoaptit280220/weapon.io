@@ -2,6 +2,7 @@ public enum UiPanelType
 {
     None,
     MainScreen,
+    MapScreen,
     PopupSetting,
     PopupRate,
     PopupTutorial,
@@ -19,5 +20,6 @@ public enum UiPanelType
     PopupDailyReward,
     PopupLeaderboard,
     PopupPauseGame,
+    PopupSelectMap,
     SdkPlaceHolder //Do not rename or re-arrange
 }

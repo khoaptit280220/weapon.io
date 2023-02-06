@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     
     public int tier = 0;
     [SerializeField] private int pointTier = 0;
-    [SerializeField] private SpawnEnemy spawnEnemy;
+    [SerializeField] private SpawnTrail spawnTrail;
 
     public ParticleSystem trail;
     // Start is called before the first frame update
@@ -69,10 +69,13 @@ public class PlayerController : MonoBehaviour
     }
     private void SetDirection()
     {
-        if (CnInputManager.GetAxis("Horizontal") != 0 || CnInputManager.GetAxis("Vertical") != 0)
+        // float inputX = CnInputManager.GetAxis("Horizontal");         
+        // float inputY = CnInputManager.GetAxis("Vertical");         
+        // vectorDirectionMove = new Vector3(inputX, inputY, 0);        
+        // vectorDirectionRotate = vectorDirectionMove;
+        if (CnInputManager.GetAxis("Horizontal") != 0 && CnInputManager.GetAxis("Vertical") != 0)
         {
             direction = new Vector3(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"),0.0f);
-            //Debug.Log(CnInputManager.GetAxis("Horizontal"));
             Vector3 _rotation = new Vector3(0,0
                 , -Mathf.Atan2(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical")) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotation),
@@ -87,6 +90,10 @@ public class PlayerController : MonoBehaviour
             {
                 speed = 60;
                 trail.gameObject.SetActive(true);
+                if (Database.CurrentIdMap == 3)
+                {
+                    //spawnTrail.SpawnSnow(this.gameObject);
+                }
             }
             else
             {
@@ -108,8 +115,6 @@ public class PlayerController : MonoBehaviour
             tier += 1;
             float x =  4 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x,x, x);
-            spawnEnemy.SpawnBoss();
-            GameManager.Instance.checkBoss = true;
         }
     }
     

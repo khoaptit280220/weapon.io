@@ -16,6 +16,9 @@ TagManager:
   - PlayerModel
   - Boss
   - CameraUi
+  - Snow
+  - Torpedo
+  - Dart
   layers:
   - Default
   - TransparentFX

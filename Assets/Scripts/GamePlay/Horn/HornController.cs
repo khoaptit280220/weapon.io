@@ -32,11 +32,14 @@ public class HornController : MonoBehaviour
     public List<GameObject> ListHead;
     private int countHead;
     private int indexHead = 0;
+
+    private float speedPlayer;
+    private float speedenemy;
+    private float speedEnemyBoss;
     private void Start()
     {
         ResetHead();
         ListHead.ForEach(x=>x.SetActive(false));
-      
     }
 
     public void SetupHeadPlayer()
@@ -129,11 +132,18 @@ public class HornController : MonoBehaviour
         switch (typeKiem)
         { 
             case TypeKiem.KiemPlayer:
-                
+                if (other.gameObject.CompareTag("Snow"))
+                {
+                    speedPlayer = playerController.speed;
+                    playerController.speed = 10;
+                    DOTween.Sequence().SetDelay(3).OnComplete(() =>
+                    {
+                        playerController.speed = speedPlayer;
+                    });
+                }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadPlayer();
-                //    PlayScreen.Instance.RemoveItemInIndicatorDic(other.transform.parent.GetComponent<EnemyController>());
                     other.transform.parent.gameObject.SetActive(false);
                     
                     parentFood = other.gameObject;
@@ -153,12 +163,19 @@ public class HornController : MonoBehaviour
                 }
                 break;
             case TypeKiem.KiemEnemy:
+                if (other.gameObject.CompareTag("Snow"))
+                {
+                    speedenemy = enemy.speedEnemy;
+                    enemy.speedEnemy = 10;
+                    DOTween.Sequence().SetDelay(3).OnComplete(() =>
+                    {
+                        enemy.speedEnemy = speedenemy;
+                    });
+                }
                 
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadEnemy();
-                //    PlayScreen.Instance.RemoveItemInIndicatorDic(other.transform.parent.GetComponent<EnemyController>());
-
                     other.transform.parent.gameObject.SetActive(false);
 
                     this.enemy.pointEnemy += 50;
@@ -178,11 +195,19 @@ public class HornController : MonoBehaviour
                 }
                 break;
             case TypeKiem.KiemEnemyBoss:
-                
+                if (other.gameObject.CompareTag("Snow"))
+                {
+                    speedEnemyBoss = BossEnemy.speedBoss;
+                    BossEnemy.speedBoss = 10;
+                    DOTween.Sequence().SetDelay(3).OnComplete(() =>
+                    {
+                        BossEnemy.speedBoss = speedEnemyBoss;
+                    });
+                }
+
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadBoss();
-                   // PlayScreen.Instance.RemoveItemInIndicatorDic(other.transform.parent.GetComponent<EnemyController>());
                     other.transform.parent.gameObject.SetActive(false);
 
                     this.BossEnemy.pointEnemyBoss += 50;
@@ -204,7 +229,11 @@ public class HornController : MonoBehaviour
                 break;
         }
     }
-
+    
+    private void checkCollideDart()
+    {
+        GameManager.Instance.GetPlayer.isPlayerDied = true;
+    }
     private void SpamFood()
     {
         stratPos = new Vector3(parentFood.transform.position.x, parentFood.transform.position.y, -3);

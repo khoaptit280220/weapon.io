@@ -59,7 +59,12 @@ public class MainScreen : UIPanel
         PlayScreen.Show();
 
      //   GameManager.Instance.GetPlayer.isPlayerDied = false;
+    }
 
+    public void ShowMap()
+    {
+        AudioAssistant.Shot(TypeSound.Button);
+        MapScreen.Show();
     }
 
     public void OnBuyNoAds()

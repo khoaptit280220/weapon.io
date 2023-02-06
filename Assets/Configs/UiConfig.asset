@@ -31,6 +31,8 @@ MonoBehaviour:
   - {fileID: 223020296290832533, guid: 58bc9348b36b23845a04396a2c6f0181, type: 3}
   - {fileID: 7817573483265218733, guid: 0292f4ec69d380143b77dcaaaa269a92, type: 3}
   - {fileID: 4206680505263662064, guid: 3cc8bc07a50977a4689b2c0c5a3d5751, type: 3}
+  - {fileID: 1002355577577978168, guid: 19adcfcb3d7df4cfcbf3683ef4fedda0, type: 3}
+  - {fileID: 1349983670622410164, guid: 1a05401642d6e406eae98bfa918c3343, type: 3}
   prefabScreen: {fileID: 4707995532972556235, guid: c47dce81ad4845d47b1516bde2af87a3,
     type: 3}
   prefabPopup: {fileID: 1150493129258228202, guid: 515b3bb974d3ee943a509da33eb22b83,

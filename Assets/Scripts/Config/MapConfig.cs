@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+
 [CreateAssetMenu(fileName = "MapConfig", menuName = "Configs/MapConfig")]
 public class MapConfig : ScriptableObject
 {
@@ -9,6 +11,7 @@ public class MapConfig : ScriptableObject
 
     public void UnlockMapDefault()
     {
+        
         GetMapDataByTypeMap(TypeMap.BlackPearlRuin).IsUnlock = true;
     }
     public MapData GetMapDataByTypeMap(TypeMap _typeMap)

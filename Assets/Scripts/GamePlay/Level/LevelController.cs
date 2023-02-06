@@ -22,7 +22,7 @@ public class LevelController : MonoBehaviour
         
         if (CurrentLevel != null)
         {
-            Destroy(CurrentLevel);
+            Destroy(CurrentLevel.gameObject);
         }
         CurrentLevel = Instantiate(level).GetComponent<Level>();
         CurrentLevel.gameObject.SetActive(false);

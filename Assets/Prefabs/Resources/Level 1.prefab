@@ -571,6 +571,7 @@ Transform:
   - {fileID: 933905949392399587}
   - {fileID: 933905949426920263}
   - {fileID: 933905949557197152}
+  - {fileID: 3318890995734075414}
   m_Father: {fileID: 933905948801188272}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -662,6 +663,54 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 319.6781, y: 0, z: 160.92233}
   m_Center: {x: -0.06323242, y: -4.4526443, z: -79.96117}
+--- !u!1 &3038710017889849338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3318890995734075414}
+  - component: {fileID: 6580683858490820910}
+  m_Layer: 0
+  m_Name: SpawnTrail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3318890995734075414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3038710017889849338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 933905949771183486}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6580683858490820910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3038710017889849338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a4a6c0cec9347edbfe87733e05ab30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 933905948801188272}
+  snowPrefab: {fileID: 9021628719676488451, guid: 1edd51d837f9e4112b5610051545faf1,
+    type: 3}
+  dartPrefab: {fileID: 2914300906330812863, guid: e9ab90e076e4849e1922eee3091104b8,
+    type: 3}
 --- !u!1 &3431404081494028897
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,9 +780,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2594076405468963878, guid: 745eec6847d4f48dfabb6bd9e71522db,
         type: 3}
-      propertyPath: spawnEnemy
+      propertyPath: spawnTrail
       value: 
-      objectReference: {fileID: 933905949426920262}
+      objectReference: {fileID: 6580683858490820910}
     - target: {fileID: 2594076405468963879, guid: 745eec6847d4f48dfabb6bd9e71522db,
         type: 3}
       propertyPath: m_Name
@@ -794,6 +843,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 3269180696463523546, guid: 745eec6847d4f48dfabb6bd9e71522db,
+        type: 3}
+      propertyPath: spawnEnemy
+      value: 
+      objectReference: {fileID: 933905949426920262}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 745eec6847d4f48dfabb6bd9e71522db, type: 3}
 --- !u!114 &1739563396125295494 stripped
@@ -824,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 1502632342833292418, guid: 2871c32f49e3849ada295c08c2677e8c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2517571588996765022, guid: 2871c32f49e3849ada295c08c2677e8c,
         type: 3}
@@ -846,6 +900,11 @@ PrefabInstance:
       propertyPath: listMaps.Array.data[2]
       value: 
       objectReference: {fileID: 9050795614430971966}
+    - target: {fileID: 5879846761605710383, guid: 2871c32f49e3849ada295c08c2677e8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6481324851298205798, guid: 2871c32f49e3849ada295c08c2677e8c,
         type: 3}
       propertyPath: m_Name

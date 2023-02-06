@@ -20,14 +20,9 @@ public class SpawnEnemy : MonoBehaviour
     private float xRangeRight = 135;
     private float yRangeTop = 70;
     private float yRangeDown = -75;
-  
-   // public List<EnemyController> enemyList;
-   // public List<BossEnemyController> bossList;
     void Start()
     {
-        //Spawn();
         InvokeRepeating("Spawn", timeDelay, repeat);
-        
     }
     public Vector3 GetPosSpawnEnemy()
     {
@@ -61,28 +56,18 @@ public class SpawnEnemy : MonoBehaviour
     }
     private void Spawn()
     {
-        //enemyList.Clear();
         for (int i = 0; i < 10; i++)
         {
             GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, -3.8f), enemy.transform.rotation, parent);
             EnemyController enemyController = Enemy.GetComponent<EnemyController>();
             enemyController.ModelEnemy.transform.position = GetPosSpawnEnemy();
             enemyController.ModelEnemy.transform.localScale = player.transform.localScale;
-          //  enemyList.Add(enemyController);
         }
-       // Init();
     }
-
     public void SpawnBoss()
     {
         GameObject obj = Instantiate(_boss, new Vector3(0, 0, -3.8f), _boss.transform.rotation, parent);
         BossEnemyController bossenemy = obj.GetComponent<BossEnemyController>();
         bossenemy.ModelEnemy.transform.position = GetPosSpawnEnemy();
-       // bossList.Add(bossenemy);
     }
-
-    // private void Init()
-    // {
-    //     PlayScreen.Instance.InitDirectionIndicator(enemyList);
-    // }
 }

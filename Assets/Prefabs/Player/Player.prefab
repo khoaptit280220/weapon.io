@@ -118,7 +118,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   tier: 0
   pointTier: 0
-  spawnEnemy: {fileID: 0}
+  spawnTrail: {fileID: 0}
   trail: {fileID: 8659092099181687079}
 --- !u!54 &2594076405468963881
 Rigidbody:

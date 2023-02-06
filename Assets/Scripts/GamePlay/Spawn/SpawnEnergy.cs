@@ -12,15 +12,12 @@ public class SpawnEnergy : MonoBehaviour
     public int count = 50;
     public GameObject energy;
     public Transform parent;
-    private GameObject obj;
-    private List<GameObject> listEnergy;
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < count; i++)
         {
-            obj = Instantiate(energy, Position(), energy.transform.rotation, parent);
-   //         listEnergy.Add(obj);
+            Instantiate(energy, Position(), energy.transform.rotation, parent);
         }
     }
 

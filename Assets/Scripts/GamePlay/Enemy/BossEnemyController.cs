@@ -11,7 +11,7 @@ public class BossEnemyController : MonoBehaviour
     public GameObject ModelEnemy;
     public bool isDied;
     private List<Vector3> WayPoints = new List<Vector3>();
-    private float speedEnemy = 20;
+    public float speedBoss = 20;
     public bool moveLoop;
     public List<GameObject> Points;
     private TweenerCore<Vector3, Vector3, VectorOptions> t;
@@ -58,12 +58,12 @@ public class BossEnemyController : MonoBehaviour
                 if (firstStartPosition)
                 {
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
-                               speedEnemy;
+                               speedBoss;
                 }
                 else
                 { 
                     timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /
-                             speedEnemy;
+                             speedBoss;
                     
                 }
                 if (firstStartRotate)
@@ -110,12 +110,12 @@ public class BossEnemyController : MonoBehaviour
             {
                 if (indexPoint == 2 || indexPoint == 5)
                 {
-                    speedEnemy = 55;
+                    speedBoss = 55;
                     trail.gameObject.SetActive(true);
                 }
                 else
                 {
-                    speedEnemy = 20;
+                    speedBoss = 20;
                     trail.gameObject.SetActive(false);
                 }
                 NewIndex = indexPoint;
@@ -123,12 +123,12 @@ public class BossEnemyController : MonoBehaviour
                if (firstStartPosition)
                 {
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
-                               speedEnemy;
+                               speedBoss;
                 }
                 else
                 { 
                     timeMove = Vector3.Distance(startPosition, WayPoints[NewIndex]) /
-                             speedEnemy;
+                             speedBoss;
                     
                 }
                 if (firstStartRotate)
