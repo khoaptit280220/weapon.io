@@ -99,6 +99,11 @@ MonoBehaviour:
   WayPointController: {fileID: 7439623923097237667}
   pointEnemy: 0
   trail: {fileID: 1700359023681620582}
+  parent: {fileID: 933905948801188272, guid: 3fed3379d2abc4d9eb3cb250287103ff, type: 3}
+  snowPrefab: {fileID: 9021628719676488451, guid: 1edd51d837f9e4112b5610051545faf1,
+    type: 3}
+  dartPrefab: {fileID: 2914300906330812863, guid: e9ab90e076e4849e1922eee3091104b8,
+    type: 3}
   countHeadEnemy: 0
   tier: 0
   pointTier: 0

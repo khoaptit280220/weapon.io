@@ -36,7 +36,7 @@ public class PopupSelectMap : UIPanel
     }
     private void Init()
     {
-        GameManager.Instance.PrepareGame();
+        //GameManager.Instance.PrepareGame();
         textMap.text = MapScreen.Instance.textMap;
     }
 
@@ -48,6 +48,7 @@ public class PopupSelectMap : UIPanel
     
     public void StartGame()
     {
+        GameManager.Instance.PrepareGame();
         Hide();
         GameManager.Instance.StartGame();
         AudioAssistant.Shot(TypeSound.Button);

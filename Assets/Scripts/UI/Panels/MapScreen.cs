@@ -36,7 +36,6 @@ public class MapScreen : UIPanel
     {
         AudioAssistant.Shot(TypeSound.Button);
         Hide();
-        GameManager.Instance.BackHome();
         MainScreen.Show();
     }
 

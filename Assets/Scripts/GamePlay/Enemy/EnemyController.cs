@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
 {
     public GameObject ModelEnemy;
     public bool isDied;
-   private List<Vector3> WayPoints;
+    private List<Vector3> WayPoints;
     public float speedEnemy = 20;
     public bool moveLoop;
     public WayPointController WayPointController;
@@ -26,62 +26,81 @@ public class EnemyController : MonoBehaviour
     public int pointEnemy;
    
     public ParticleSystem trail;
+  //  public Transform parent;
+    public GameObject snowPrefab;
+    public GameObject dartPrefab;
     
     public int countHeadEnemy;
     [SerializeField] private int tier = 0;
     [SerializeField] private int pointTier = 0;
-
-   // public GameObject Indicator;
-    //public GameObject target;
-
-   // private Renderer rd;
-    
+    private float timeE = 0;
     private void Start()
     {
         isDied = false;
         firstStartRotate = true;
         firstStartPosition = false;
-        startPosition =ModelEnemy.transform.localPosition;
+        startPosition = ModelEnemy.transform.localPosition;
         DOTween.Sequence().AppendInterval(.1f).AppendCallback(() => { firstStartRotate = true; });
         indexPoint = 0;
         pointEnemy = 0;
         SetupWaypoint();
         MoveByPoint();
 
-      //  rd = GetComponent<Renderer>();
     }
 
     private void Update()
     {
         Scale();
-        // Debug.Log(rd.isVisible);
-        // if (rd.isVisible == false)
-        // {
-        //     Debug.Log("isvisible = false");
-        //     if (Indicator.activeSelf == false)
-        //     {
-        //          Indicator.SetActive(true);
-        //     }
-        //
-        //     Vector3 vectorToPlayer = target.transform.position - transform.position;
-        //     Vector2 thisEnemy = new Vector2(transform.position.x, transform.position.y);
-        //     Vector2 direction = new Vector2(vectorToPlayer.x, vectorToPlayer.y);
-        //     RaycastHit2D ray = Physics2D.Raycast(thisEnemy, direction);
-        //
-        //     if (ray.collider != null)
-        //     {
-        //         Indicator.transform.position = ray.point;
-        //     }
-        // }
-        // else
-        // {
-        //     if (Indicator.activeSelf == true)
-        //     {
-        //         Indicator.SetActive(false);
-        //     }
-        // }
+        if (speedEnemy > 30)
+        {
+            SpawnTrail();
+        }
     }
 
+    private void SpawnTrail()
+    {
+        if (Database.CurrentIdMap == 3)
+        {
+            Debug.Log("enemy spawn snow");
+            timeE += Time.deltaTime;
+            if (timeE > 0.3f)
+            {
+                timeE = 0f;
+                GameObject snow = Instantiate(snowPrefab, 
+                    new Vector3(this.ModelEnemy.transform.position.x, this.ModelEnemy.transform.position.y, -2),
+                    snowPrefab.transform.rotation);
+                snow.SetActive(false);
+                DOTween.Sequence().SetDelay(0.15f).OnComplete(() =>
+                {
+                    snow.SetActive(true);
+                }); 
+                DOTween.Sequence().SetDelay(4).OnComplete(() =>
+                {
+                   Destroy(snow);
+                }); 
+            }
+        }
+        if (Database.CurrentIdMap == 4)
+        {
+            timeE += Time.deltaTime;
+            if (timeE > 0.3f)
+            {
+                timeE = 0f;
+                GameObject dart = Instantiate(dartPrefab, 
+                    new Vector3(this.ModelEnemy.transform.position.x, this.ModelEnemy.transform.position.y, -2),
+                    dartPrefab.transform.rotation);
+                dart.SetActive(false);
+                DOTween.Sequence().SetDelay(0.15f).OnComplete(() =>
+                {
+                    dart.SetActive(true);
+                });
+                DOTween.Sequence().SetDelay(4).OnComplete(() =>
+                {
+                    Destroy(dart);
+                });
+            }
+        }
+    }
     public void SetupWaypoint()
     {
         WayPoints = WayPointController.GetListPosition();
@@ -150,7 +169,7 @@ public class EnemyController : MonoBehaviour
             {
                 if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
-                    speedEnemy = 55;
+                    speedEnemy = 50;
                     trail.gameObject.SetActive(true);
                 }
                 else

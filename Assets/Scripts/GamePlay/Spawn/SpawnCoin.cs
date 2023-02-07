@@ -35,7 +35,7 @@ public class SpawnCoin : MonoBehaviour
                 checkspawnTorpedo = false;
                 for (int i = 0; i < 15; i++)
                 {
-                    Instantiate(torpedo, new Vector3(Random.Range(-110, 110), Random.Range(-60, 60), -1),
+                    Instantiate(torpedo, new Vector3(Random.Range(-110, 110), Random.Range(-60, 60), -3),
                         torpedo.transform.rotation, parent);
                 }
             }

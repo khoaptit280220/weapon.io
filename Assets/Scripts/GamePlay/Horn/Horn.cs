@@ -7,7 +7,7 @@ using UnityEngine;
 public class Horn : MonoBehaviour
 {
     public HornController hornController;
-    [SerializeField] private SpawnEnemy spawnEnemy;
+
     private void OnTriggerEnter(Collider other)
     {
         hornController.SetTriggerHorn(other);
@@ -17,7 +17,6 @@ public class Horn : MonoBehaviour
     {
         transform.localScale += new Vector3(0, 0.2f, 0);
         transform.localPosition += new Vector3(0, 0.2f, 0);
-        spawnEnemy.SpawnBoss();
-        GameManager.Instance.checkBoss = true;
+        
     }
 }

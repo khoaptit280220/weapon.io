@@ -58,9 +58,6 @@ public class PlayScreen : UIPanel
         AnimTextEventMap5.gameObject.SetActive(false);
         AnimTextEventMap6.gameObject.SetActive(false);
         
-        // cam = Camera.main;
-        // indicatorList = new List<GameObject>();
-        // directionDic = new Dictionary<EnemyController, GameObject>();
     }
 
     public override void OnDisappear()
@@ -142,8 +139,8 @@ public class PlayScreen : UIPanel
             DOTween.Sequence().SetDelay(3).OnComplete(() =>
             {
                 AnimTextBossComingControler.gameObject.SetActive(false);
-                GameManager.Instance.checkBoss = false;
             });
+            GameManager.Instance.checkBoss = false;
         }
         
         if(Database.CurrentIdMap == 2)

@@ -405,8 +405,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 933905948801188272}
   enemy: {fileID: 1768255133992972155, guid: 3af8257b4d7124fec9f260122af0ce3e, type: 3}
-  player: {fileID: 1739563396125295494}
   _boss: {fileID: 3794125942071937926, guid: 7d74e409d4e7444b8a1aa9431c5e2f79, type: 3}
+  player: {fileID: 1739563396125295494}
+  enemyController: {fileID: 5211517779411675912, guid: 3af8257b4d7124fec9f260122af0ce3e,
+    type: 3}
+  bossEnemyController: {fileID: 3594593414545931622, guid: 7d74e409d4e7444b8a1aa9431c5e2f79,
+    type: 3}
+  spawnTrail: {fileID: 6580683858490820910}
 --- !u!1 &933905949467338627
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +785,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2594076405468963878, guid: 745eec6847d4f48dfabb6bd9e71522db,
         type: 3}
+      propertyPath: spawnEnemy
+      value: 
+      objectReference: {fileID: 933905949426920262}
+    - target: {fileID: 2594076405468963878, guid: 745eec6847d4f48dfabb6bd9e71522db,
+        type: 3}
       propertyPath: spawnTrail
       value: 
       objectReference: {fileID: 6580683858490820910}
@@ -843,11 +853,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 3269180696463523546, guid: 745eec6847d4f48dfabb6bd9e71522db,
-        type: 3}
-      propertyPath: spawnEnemy
-      value: 
-      objectReference: {fileID: 933905949426920262}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 745eec6847d4f48dfabb6bd9e71522db, type: 3}
 --- !u!114 &1739563396125295494 stripped

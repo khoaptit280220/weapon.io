@@ -80,6 +80,7 @@ public class HornController : MonoBehaviour
                     indexHead = 1;
                     ListHead.ForEach(x=>x.SetActive(false));
                     horn.Scale();
+                    GameManager.Instance.checkBoss = true;
                 }
 
                 if (playerController.countHeadPlayer == 6 && indexHead == 1)
@@ -88,6 +89,7 @@ public class HornController : MonoBehaviour
                     indexHead = 2;
                     ListHead.ForEach(x=>x.SetActive(false));
                     horn.Scale();
+                    GameManager.Instance.checkBoss = true;
                 }
                 if (playerController.countHeadPlayer == 8 && indexHead == 2)
                 {
@@ -95,6 +97,7 @@ public class HornController : MonoBehaviour
                     indexHead = 3;
                     ListHead.ForEach(x=>x.SetActive(false));
                     horn.Scale();
+                    GameManager.Instance.checkBoss = true;
                 }
                 break;
             case TypeKiem.KiemEnemy:
@@ -132,14 +135,22 @@ public class HornController : MonoBehaviour
         switch (typeKiem)
         { 
             case TypeKiem.KiemPlayer:
-                if (other.gameObject.CompareTag("Snow"))
+                if (other.gameObject.CompareTag("Torpedo"))
                 {
-                    speedPlayer = playerController.speed;
-                    playerController.speed = 10;
-                    DOTween.Sequence().SetDelay(3).OnComplete(() =>
-                    {
-                        playerController.speed = speedPlayer;
-                    });
+                    this.transform.parent.gameObject.SetActive(false);
+                    other.gameObject.SetActive(false);
+                    GameManager.Instance.GetPlayer.isPlayerDied = true;
+                    parentFood = this.gameObject;
+                    SpamFood();
+                    GameManager.Instance.OnLoseGame();
+                }
+                if (other.gameObject.CompareTag("Dart"))
+                {
+                    this.transform.parent.gameObject.SetActive(false);
+                    GameManager.Instance.GetPlayer.isPlayerDied = true;
+                    parentFood = this.gameObject;
+                    SpamFood();
+                    GameManager.Instance.OnLoseGame();
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
@@ -172,7 +183,20 @@ public class HornController : MonoBehaviour
                         enemy.speedEnemy = speedenemy;
                     });
                 }
-                
+                if (other.gameObject.CompareTag("Dart"))
+                {
+                    this.transform.parent.gameObject.SetActive(false);
+                    
+                    parentFood = this.gameObject;
+                    SpamFood();
+                }
+                if (other.gameObject.CompareTag("Torpedo"))
+                {
+                    this.transform.parent.gameObject.SetActive(false);
+                    other.gameObject.SetActive(false);
+                    parentFood = this.gameObject;
+                    SpamFood();
+                }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadEnemy();
@@ -204,7 +228,13 @@ public class HornController : MonoBehaviour
                         BossEnemy.speedBoss = speedEnemyBoss;
                     });
                 }
-
+                if (other.gameObject.CompareTag("Dart"))
+                {
+                    this.transform.parent.gameObject.SetActive(false);
+                    
+                    parentFood = this.gameObject;
+                    SpamFood();
+                }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
                     SetupHeadBoss();
@@ -230,10 +260,6 @@ public class HornController : MonoBehaviour
         }
     }
     
-    private void checkCollideDart()
-    {
-        GameManager.Instance.GetPlayer.isPlayerDied = true;
-    }
     private void SpamFood()
     {
         stratPos = new Vector3(parentFood.transform.position.x, parentFood.transform.position.y, -3);

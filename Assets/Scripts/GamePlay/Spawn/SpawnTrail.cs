@@ -9,32 +9,33 @@ public class SpawnTrail : MonoBehaviour
     public GameObject snowPrefab;
     public GameObject dartPrefab;
 
-    private GameObject snow;
-    private GameObject dart;
-    
-    private List<GameObject> listSnow;
-    private List<GameObject> listDart;
-    
     public void SpawnSnow(GameObject obj)
     {
-        DOTween.Sequence().SetDelay(2).OnComplete(() =>
+        GameObject snow = Instantiate(snowPrefab, new Vector3(obj.transform.position.x, obj.transform.position.y, -2),
+            snowPrefab.transform.rotation, parent);
+        snow.SetActive(false);
+        DOTween.Sequence().SetDelay(0.15f).OnComplete(() =>
         {
-            snow = Instantiate(snowPrefab, obj.transform.position, snowPrefab.transform.rotation, parent);
-            listSnow.Add(snow);
+            snow.SetActive(true);
+        }); 
+        DOTween.Sequence().SetDelay(4).OnComplete(() =>
+        {
+            snow.SetActive(false);
         });
-        for (int i = 0; i < listSnow.Count; i++)
-        {
-            DOTween.Sequence().SetDelay(4).OnComplete(() =>
-            {
-                listSnow[i].SetActive(false);
-            });
-            
-        }
-        
     }
 
     public void SpawnDart(GameObject obj)
     {
-        Instantiate(dartPrefab, obj.transform.position, dartPrefab.transform.rotation, parent);
+        GameObject dart = Instantiate(dartPrefab, new Vector3(obj.transform.position.x, obj.transform.position.y, -2),
+            dartPrefab.transform.rotation, parent);
+        dart.SetActive(false);
+        DOTween.Sequence().SetDelay(0.15f).OnComplete(() =>
+        {
+            dart.SetActive(true);
+        });
+        DOTween.Sequence().SetDelay(4).OnComplete(() =>
+        {
+            dart.SetActive(false);
+        });
     }
 }

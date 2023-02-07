@@ -12,14 +12,19 @@ public class SpawnEnemy : MonoBehaviour
     private float repeat = 8;
     public Transform parent;
     public GameObject enemy;
-    public PlayerController player;
-    
     public GameObject _boss;
+    public PlayerController player;
+    public EnemyController enemyController;
+    public BossEnemyController bossEnemyController;
+    
     //test
     private float xRangeLeft = -130;
     private float xRangeRight = 135;
     private float yRangeTop = 70;
     private float yRangeDown = -75;
+
+   
+    private float timeB = 0;
     void Start()
     {
         InvokeRepeating("Spawn", timeDelay, repeat);

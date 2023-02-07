@@ -23,13 +23,19 @@ public class BossEnemyController : MonoBehaviour
     private bool firstStartPosition;
     private Vector3 startPosition;
     public int pointEnemyBoss;
+    public WayPointController WayPointController;
     
     public int countHeadBoss;
     
     public ParticleSystem trail;
-    
+ //   public Transform parent;
+    public GameObject snowPrefab;
+    public GameObject dartPrefab;
+
+    private float timeB = 0;
     private void Start()
     {
+        timeB = 0;
         isDied = false;
         firstStartRotate = true;
         firstStartPosition = false;
@@ -38,15 +44,52 @@ public class BossEnemyController : MonoBehaviour
         indexPoint = 0;
         pointEnemyBoss = 0;
         countHeadBoss = 0;
-        for (int i = 0; i < Points.Count; i++)
-        {
-            WayPoints.Add(Points[i].transform.position);
-        }
+        SetupWaypoint();
         
         MoveByPoint();
     }
-    
 
+    private void Update()
+    {
+        if (speedBoss > 30)
+        {
+            SpawnTrail();
+        }
+    }
+
+    private void SpawnTrail()
+    {
+        if (Database.CurrentIdMap == 3)
+        {
+            Debug.Log("boss spawn snow");
+            timeB += Time.deltaTime;
+            if (timeB > 0.3f)
+            {
+                timeB = 0f;
+                GameObject snow = Instantiate(snowPrefab,
+                    new Vector3(transform.position.x, transform.position.y, -2),
+                    snowPrefab.transform.rotation);
+                snow.SetActive(false);
+                DOTween.Sequence().SetDelay(0.15f).OnComplete(() => { snow.SetActive(true); });
+                DOTween.Sequence().SetDelay(4).OnComplete(() => { Destroy(snow); });
+            }
+        }
+
+        if (Database.CurrentIdMap == 4)
+        {
+            timeB += Time.deltaTime;
+            if (timeB > 0.3f)
+            {
+                timeB = 0f;
+                GameObject dart = Instantiate(dartPrefab,
+                    new Vector3(transform.position.x, transform.position.y, -2),
+                    dartPrefab.transform.rotation);
+                dart.SetActive(false);
+                DOTween.Sequence().SetDelay(0.15f).OnComplete(() => { dart.SetActive(true); });
+                DOTween.Sequence().SetDelay(4).OnComplete(() => { Destroy(dart); });
+            }
+        }
+    }
     public void MoveByPoint()
     {
         if (!moveLoop)
@@ -108,9 +151,9 @@ public class BossEnemyController : MonoBehaviour
         {
             if (!isDied)
             {
-                if (indexPoint == 2 || indexPoint == 5)
+                if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
-                    speedBoss = 55;
+                    speedBoss = 50;
                     trail.gameObject.SetActive(true);
                 }
                 else
@@ -159,4 +202,9 @@ public class BossEnemyController : MonoBehaviour
         
     }
 
+    public void SetupWaypoint()
+    {
+        WayPoints = WayPointController.GetListPosition();
+        WayPointController.SpawnWayPoint(WayPoints);
+    }
 }
