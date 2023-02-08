@@ -172,7 +172,7 @@ public class PlayScreen : UIPanel
 
         if(Database.CurrentIdMap == 6)
         {
-            if (GameManager.Instance.time == 50 || GameManager.Instance.time == 25)
+            if (GameManager.Instance.time == 52 || GameManager.Instance.time == 28)
             {
                 AnimTextEventMap6.gameObject.SetActive(true);
                 DOTween.Sequence().SetDelay(15).OnComplete(() =>

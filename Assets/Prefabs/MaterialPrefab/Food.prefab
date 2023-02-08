@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8233283384939902886}
   - component: {fileID: 8630045479454343398}
   - component: {fileID: 6883961103103797430}
+  - component: {fileID: 992431847334449707}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -96,3 +97,17 @@ CapsuleCollider:
   m_Height: 2.1174827
   m_Direction: 1
   m_Center: {x: -0.0065267086, y: 0.0065267086, z: 0.0012139082}
+--- !u!114 &992431847334449707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2206084994753595220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a671e7bf638ad4c978cff5d3dee16587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 3594593414545931622, guid: 7d74e409d4e7444b8a1aa9431c5e2f79, type: 3}
+  enemy: {fileID: 5211517779411675912, guid: 3af8257b4d7124fec9f260122af0ce3e, type: 3}

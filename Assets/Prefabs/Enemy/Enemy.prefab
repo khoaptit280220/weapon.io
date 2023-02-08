@@ -94,12 +94,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelEnemy: {fileID: 4013397177659912202}
   isDied: 0
-  speedEnemy: 20
+  speedEnemy: 30
   moveLoop: 1
   WayPointController: {fileID: 7439623923097237667}
-  pointEnemy: 0
+  pointEnemy: 3200
   trail: {fileID: 1700359023681620582}
-  parent: {fileID: 933905948801188272, guid: 3fed3379d2abc4d9eb3cb250287103ff, type: 3}
   snowPrefab: {fileID: 9021628719676488451, guid: 1edd51d837f9e4112b5610051545faf1,
     type: 3}
   dartPrefab: {fileID: 2914300906330812863, guid: e9ab90e076e4849e1922eee3091104b8,
@@ -107,6 +106,8 @@ MonoBehaviour:
   countHeadEnemy: 0
   tier: 0
   pointTier: 0
+  checkShieldEnemy: 0
+  shield: {fileID: 1753264870700188511}
 --- !u!1 &6568216249289117878
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,21 +160,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4817977607666807296}
     m_Modifications:
-    - target: {fileID: -5678480882694711714, guid: ae06ae61cd36c439386dac499882f579,
-        type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 5211517779411675912}
-    - target: {fileID: 2799188290406962895, guid: ae06ae61cd36c439386dac499882f579,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2799188290406962895, guid: ae06ae61cd36c439386dac499882f579,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 2902144149791268163, guid: ae06ae61cd36c439386dac499882f579,
         type: 3}
       propertyPath: m_RootOrder
@@ -259,20 +245,9 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 2302482636526857541}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2980746633104403657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &1753264870700188511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 549675403861667354, guid: ae06ae61cd36c439386dac499882f579,
+    type: 3}
+  m_PrefabInstance: {fileID: 2302482636526857541}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4013397177659912202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetColor: {r: 0.34901962, g: 0.34901962, b: 0.9137255, a: 1}
-  needBoxIndicator: 0
-  needArrowIndicator: 1
-  needDistanceText: 1
-  indicator: {fileID: 0}

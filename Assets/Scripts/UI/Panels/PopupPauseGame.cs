@@ -14,9 +14,10 @@ public class PopupPauseGame : UIPanel
         newInstance.OnAppear();
     }
 
-    public static void Close()
+    public void Close()
     {
-        
+        GameManager.Instance.GameState = GameState.PLaying;
+        Hide();
     }
 
     public override void OnAppear()

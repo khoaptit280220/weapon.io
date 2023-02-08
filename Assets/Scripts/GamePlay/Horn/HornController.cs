@@ -108,7 +108,6 @@ public class HornController : MonoBehaviour
                     ListHead.ForEach(x=>x.SetActive(false));
                     horn.Scale();
                 }
-
                 if (enemy.countHeadEnemy == 6 && countHead == 1)
                 {
                     enemy.countHeadEnemy = 0;
@@ -154,35 +153,32 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                    SetupHeadPlayer();
-                    other.transform.parent.gameObject.SetActive(false);
+                    if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
+                    {
+                        SetupHeadPlayer();
+                        other.transform.parent.gameObject.SetActive(false);
                     
-                    parentFood = other.gameObject;
-                    SpamFood();
+                        parentFood = other.gameObject;
+                        SpamFood();
 
-                    GameManager.Instance.point += 50;
+                        GameManager.Instance.point += 50;
+                    }
                 }
                 if (other.gameObject.CompareTag("Boss"))
                 {
-                    SetupHeadPlayer();
-                    other.transform.parent.gameObject.SetActive(false);
+                    if (other.gameObject.GetComponentInParent<BossEnemyController>().checkShieldBoss == false)
+                    {
+                        SetupHeadPlayer();
+                        other.transform.parent.gameObject.SetActive(false);
                     
-                    parentFood = other.gameObject;
-                    SpamFood();
+                        parentFood = other.gameObject;
+                        SpamFood();
                     
-                    GameManager.Instance.point += 50;
+                        GameManager.Instance.point += 50;
+                    }
                 }
                 break;
             case TypeKiem.KiemEnemy:
-                if (other.gameObject.CompareTag("Snow"))
-                {
-                    speedenemy = enemy.speedEnemy;
-                    enemy.speedEnemy = 10;
-                    DOTween.Sequence().SetDelay(3).OnComplete(() =>
-                    {
-                        enemy.speedEnemy = speedenemy;
-                    });
-                }
                 if (other.gameObject.CompareTag("Dart"))
                 {
                     this.transform.parent.gameObject.SetActive(false);
@@ -199,35 +195,33 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                    SetupHeadEnemy();
-                    other.transform.parent.gameObject.SetActive(false);
+                    if (enemy.checkShieldEnemy == false)
+                    {
+                        SetupHeadEnemy();
+                        other.transform.parent.gameObject.SetActive(false);
 
-                    this.enemy.pointEnemy += 50;
+                        this.enemy.pointEnemy += 50;
                     
-                    parentFood = other.gameObject;
-                    SpamFood();
+                        parentFood = other.gameObject;
+                        SpamFood();
+                    }
                 }
+
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    SetupHeadEnemy();
-                    GameManager.Instance.GetPlayer.isPlayerDied = true;
-                    other.gameObject.SetActive(false);
-                    this.enemy.pointEnemy += 50;
+                    if (GameManager.Instance.GetPlayer.checkShield == false)
+                    {
+                        SetupHeadEnemy();
+                        GameManager.Instance.GetPlayer.isPlayerDied = true;
+                        other.gameObject.SetActive(false);
+                        this.enemy.pointEnemy += 50;
                     
-                    parentFood = other.gameObject;
-                    SpamFood();
+                        parentFood = other.gameObject;
+                        SpamFood();
+                    }
                 }
                 break;
             case TypeKiem.KiemEnemyBoss:
-                if (other.gameObject.CompareTag("Snow"))
-                {
-                    speedEnemyBoss = BossEnemy.speedBoss;
-                    BossEnemy.speedBoss = 10;
-                    DOTween.Sequence().SetDelay(3).OnComplete(() =>
-                    {
-                        BossEnemy.speedBoss = speedEnemyBoss;
-                    });
-                }
                 if (other.gameObject.CompareTag("Dart"))
                 {
                     this.transform.parent.gameObject.SetActive(false);
@@ -237,25 +231,32 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                    SetupHeadBoss();
-                    other.transform.parent.gameObject.SetActive(false);
+                    if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
+                    {
+                        SetupHeadBoss();
+                        other.transform.parent.gameObject.SetActive(false);
 
-                    this.BossEnemy.pointEnemyBoss += 50;
+                        this.BossEnemy.pointEnemyBoss += 50;
                     
-                    parentFood = other.gameObject;
-                    SpamFood();
+                        parentFood = other.gameObject;
+                        SpamFood();
+                    }
                 }
+
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    SetupHeadBoss();
-                    GameManager.Instance.GetPlayer.isPlayerDied = true;
-                    other.gameObject.SetActive(false);
-                    this.BossEnemy.pointEnemyBoss += 50; 
-                    GameManager.Instance.OnLoseGame();
+                    if (GameManager.Instance.GetPlayer.checkShield == false)
+                    {
+                        SetupHeadBoss();
+                        GameManager.Instance.GetPlayer.isPlayerDied = true;
+                        other.gameObject.SetActive(false);
+                        this.BossEnemy.pointEnemyBoss += 50; 
+                        GameManager.Instance.OnLoseGame();
                     
-                    parentFood = other.gameObject;
-                    SpamFood();
-                } 
+                        parentFood = other.gameObject;
+                        SpamFood();
+                    } 
+                }
                 break;
         }
     }

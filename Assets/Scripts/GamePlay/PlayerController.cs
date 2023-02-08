@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     private bool checkFisrtJoy = false;
     
     float time = 0f;
-    
+    public bool checkShield;
+    public GameObject shield;
+
     [HideInInspector] public int countHeadPlayer;
     [HideInInspector] public bool isPlayerDied;
     [DisableInEditorMode][SerializeField] private Vector3 direction;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public void Init()
     {
+        checkShield = true;
         isPlayerDied = false;
         countHeadPlayer = 0;
         checkFisrtJoy = false;
@@ -48,6 +51,18 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance.GameState == GameState.PLaying)
         {
+            if (checkShield == true)
+            {
+                shield.SetActive(true);
+            }
+            else
+            {
+                shield.SetActive(false);
+            }
+            if (GameManager.Instance.time == 55)
+            {
+                checkShield = false;
+            }
             SetDirection();
             if (transform.position.y > Top)
             {
@@ -148,29 +163,20 @@ public class PlayerController : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Food"))
-        {
-            Destroy(other.gameObject);
-            GameManager.Instance.point += 20;
-            GameManager.Instance.energy += 0.3f;
-            if (GameManager.Instance.energy > 1)
-            {
-                GameManager.Instance.energy = 1;
-            }
-            if (GameManager.Instance.energy < 0)
-            {
-                GameManager.Instance.energy = 0;
-            }
-        }
-        if (other.gameObject.CompareTag("coin"))
-        {
-            Destroy(other.gameObject);
-            GameManager.Instance.coin += 1;
-        }
         if (other.gameObject.CompareTag("Snow"))
         {
             speed = 10;
             speed2 = 10;
+            DOTween.Sequence().SetDelay(3).OnComplete(() =>
+            {
+                speed2 = 20;
+            });
+        }
+
+        if (other.gameObject.CompareTag("Shoe"))
+        {
+            speed = 35;
+            speed2 = 35;
             DOTween.Sequence().SetDelay(3).OnComplete(() =>
             {
                 speed2 = 20;

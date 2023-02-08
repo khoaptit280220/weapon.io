@@ -105,11 +105,12 @@ MonoBehaviour:
   WayPointController: {fileID: 6438313859394605491}
   countHeadBoss: 0
   trail: {fileID: 6740354777956249592}
-  parent: {fileID: 933905948801188272, guid: 3fed3379d2abc4d9eb3cb250287103ff, type: 3}
   snowPrefab: {fileID: 9021628719676488451, guid: 1edd51d837f9e4112b5610051545faf1,
     type: 3}
   dartPrefab: {fileID: 2914300906330812863, guid: e9ab90e076e4849e1922eee3091104b8,
     type: 3}
+  checkShieldBoss: 0
+  shield: {fileID: 5928626537981912769}
 --- !u!1 &6155081149062329945
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +194,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 549675403861667354, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189947111327689848, guid: ae06ae61cd36c439386dac499882f579,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2902144149791268161, guid: ae06ae61cd36c439386dac499882f579,
         type: 3}
@@ -371,6 +382,12 @@ Transform:
 --- !u!198 &6740354777956249592 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 607119842404493091, guid: ae06ae61cd36c439386dac499882f579,
+    type: 3}
+  m_PrefabInstance: {fileID: 6189741058820933851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5928626537981912769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 549675403861667354, guid: ae06ae61cd36c439386dac499882f579,
     type: 3}
   m_PrefabInstance: {fileID: 6189741058820933851}
   m_PrefabAsset: {fileID: 0}

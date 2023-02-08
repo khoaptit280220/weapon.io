@@ -19,6 +19,9 @@ TagManager:
   - Snow
   - Torpedo
   - Dart
+  - Shield
+  - Shoe
+  - Weapon
   layers:
   - Default
   - TransparentFX

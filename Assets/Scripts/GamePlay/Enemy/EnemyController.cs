@@ -34,8 +34,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int tier = 0;
     [SerializeField] private int pointTier = 0;
     private float timeE = 0;
+
+    public bool checkShieldEnemy;
+    public GameObject shield;
     private void Start()
     {
+        checkShieldEnemy = false;
         isDied = false;
         firstStartRotate = true;
         firstStartPosition = false;
@@ -50,6 +54,14 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (checkShieldEnemy == true)
+        {
+            shield.SetActive(true);
+        }
+        else
+        {
+            shield.SetActive(false);
+        }
         Scale();
         if (speedEnemy > 30)
         {
@@ -63,7 +75,7 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("enemy spawn snow");
             timeE += Time.deltaTime;
-            if (timeE > 0.3f)
+            if (timeE > 0.4f)
             {
                 timeE = 0f;
                 GameObject snow = Instantiate(snowPrefab, 
@@ -83,7 +95,7 @@ public class EnemyController : MonoBehaviour
         if (Database.CurrentIdMap == 4)
         {
             timeE += Time.deltaTime;
-            if (timeE > 0.3f)
+            if (timeE > 0.4f)
             {
                 timeE = 0f;
                 GameObject dart = Instantiate(dartPrefab, 
@@ -179,7 +191,7 @@ public class EnemyController : MonoBehaviour
                 }
                 NewIndex = indexPoint;
                 float timeMove = 0;
-               if (firstStartPosition)
+                if (firstStartPosition)
                 {
                     timeMove = Vector3.Distance(WayPoints[OldIndex], WayPoints[NewIndex]) /
                                speedEnemy;
@@ -195,6 +207,14 @@ public class EnemyController : MonoBehaviour
                     ModelEnemy.transform.DOLookAt(WayPoints[indexPoint], .2f);
                 }
 
+                if (indexPoint == 3 || indexPoint == 9 || indexPoint == 15)
+                {
+                    checkShieldEnemy = true;
+                }
+                else
+                {
+                    checkShieldEnemy = false;
+                }
                 t = ModelEnemy.transform.DOLocalMove(WayPoints[indexPoint], timeMove).SetEase(Ease.Linear)
                     .OnComplete((() =>
                     {

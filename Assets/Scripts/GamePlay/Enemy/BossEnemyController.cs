@@ -33,8 +33,11 @@ public class BossEnemyController : MonoBehaviour
     public GameObject dartPrefab;
 
     private float timeB = 0;
+    public bool checkShieldBoss;
+    public GameObject shield;
     private void Start()
     {
+        checkShieldBoss = false;
         timeB = 0;
         isDied = false;
         firstStartRotate = true;
@@ -51,6 +54,15 @@ public class BossEnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (checkShieldBoss == true)
+        {
+            shield.SetActive(true);
+        }
+        else
+        {
+            shield.SetActive(false);
+        }
+        
         if (speedBoss > 30)
         {
             SpawnTrail();
@@ -63,7 +75,7 @@ public class BossEnemyController : MonoBehaviour
         {
             Debug.Log("boss spawn snow");
             timeB += Time.deltaTime;
-            if (timeB > 0.3f)
+            if (timeB > 0.4f)
             {
                 timeB = 0f;
                 GameObject snow = Instantiate(snowPrefab,
@@ -78,7 +90,7 @@ public class BossEnemyController : MonoBehaviour
         if (Database.CurrentIdMap == 4)
         {
             timeB += Time.deltaTime;
-            if (timeB > 0.3f)
+            if (timeB > 0.4f)
             {
                 timeB = 0f;
                 GameObject dart = Instantiate(dartPrefab,
@@ -151,6 +163,14 @@ public class BossEnemyController : MonoBehaviour
         {
             if (!isDied)
             {
+                if (indexPoint == 3 || indexPoint == 9 || indexPoint == 15)
+                {
+                    checkShieldBoss = true;
+                }
+                else
+                {
+                    checkShieldBoss = false;
+                }
                 if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
                 {
                     speedBoss = 50;

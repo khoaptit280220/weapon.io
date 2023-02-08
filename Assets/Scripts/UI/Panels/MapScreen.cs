@@ -8,6 +8,8 @@ public class MapScreen : UIPanel
 {
     [SerializeField] private List<TMP_Text> listTextMap;
     public string textMap;
+
+    private int currentIdMap;
     public static MapScreen Instance { get; private set; }
     
     public override UiPanelType GetId()
@@ -25,6 +27,12 @@ public class MapScreen : UIPanel
     public override void OnAppear()
     {
         base.OnAppear();
+        Init();
+    }
+
+    private void Init()
+    {
+        currentIdMap = Database.CurrentIdMap;
     }
     public override void OnDisappear()
     {
@@ -37,6 +45,7 @@ public class MapScreen : UIPanel
         AudioAssistant.Shot(TypeSound.Button);
         Hide();
         MainScreen.Show();
+        Database.CurrentIdMap = currentIdMap;
     }
 
     public void ButtonMap1()
