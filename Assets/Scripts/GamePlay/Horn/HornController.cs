@@ -145,11 +145,14 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Dart"))
                 {
-                    this.transform.parent.gameObject.SetActive(false);
-                    GameManager.Instance.GetPlayer.isPlayerDied = true;
-                    parentFood = this.gameObject;
-                    SpamFood();
-                    GameManager.Instance.OnLoseGame();
+                    if (GameManager.Instance.GetPlayer.checkShield == false)
+                    {
+                        this.transform.parent.gameObject.SetActive(false);
+                        GameManager.Instance.GetPlayer.isPlayerDied = true;
+                        parentFood = this.gameObject;
+                        SpamFood();
+                        GameManager.Instance.OnLoseGame();
+                    }
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
@@ -181,10 +184,14 @@ public class HornController : MonoBehaviour
             case TypeKiem.KiemEnemy:
                 if (other.gameObject.CompareTag("Dart"))
                 {
-                    this.transform.parent.gameObject.SetActive(false);
+                    if (this.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
+                    {
+                        this.transform.parent.gameObject.SetActive(false);
                     
-                    parentFood = this.gameObject;
-                    SpamFood();
+                        parentFood = this.gameObject;
+                        SpamFood();
+                    }
+                    
                 }
                 if (other.gameObject.CompareTag("Torpedo"))
                 {
@@ -195,7 +202,7 @@ public class HornController : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                    if (enemy.checkShieldEnemy == false)
+                    if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
                     {
                         SetupHeadEnemy();
                         other.transform.parent.gameObject.SetActive(false);
@@ -224,10 +231,13 @@ public class HornController : MonoBehaviour
             case TypeKiem.KiemEnemyBoss:
                 if (other.gameObject.CompareTag("Dart"))
                 {
-                    this.transform.parent.gameObject.SetActive(false);
+                    if (this.gameObject.GetComponentInParent<BossEnemyController>().checkShieldBoss == false)
+                    {
+                        this.transform.parent.gameObject.SetActive(false);
                     
-                    parentFood = this.gameObject;
-                    SpamFood();
+                        parentFood = this.gameObject;
+                        SpamFood();
+                    }
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {

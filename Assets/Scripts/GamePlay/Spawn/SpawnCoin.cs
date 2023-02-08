@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class SpawnCoin : MonoBehaviour
 {
     public GameObject coin;
+    public GameObject treasure;
     public Transform parent;
     private float timeDelay = 1;
 
@@ -25,6 +26,7 @@ public class SpawnCoin : MonoBehaviour
     {
         InvokeRepeating("SpawnCoii", timeDelay, repeat);
         SpawnItem();
+        SpawnTreasure();
     }
 
     // Update is called once per frame
@@ -55,6 +57,13 @@ public class SpawnCoin : MonoBehaviour
         }
     }
 
+    private void SpawnTreasure()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(treasure, new Vector3(Random.Range(-110, 110), -73, -3), treasure.transform.rotation, parent);
+        }
+    }
     private void SpawnItem()
     {
         if (Database.CurrentIdMap == 7)

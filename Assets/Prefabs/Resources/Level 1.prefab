@@ -602,6 +602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 9100066834534262155, guid: e8af8f33cd2874b33bf06f651ea587d3, type: 3}
+  treasure: {fileID: 2859304823928928276, guid: cb37dce820aed4f0abc59a0f8acd203a,
+    type: 3}
   parent: {fileID: 933905948801188272}
   torpedo: {fileID: 7897457612642993197, guid: caa162fb9a4344f84845f1a9e363c9d5, type: 3}
   shield: {fileID: 1952964762388462928, guid: fd3333d5c024243058e4f21169ce072e, type: 3}
