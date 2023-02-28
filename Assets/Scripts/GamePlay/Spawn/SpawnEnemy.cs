@@ -8,31 +8,35 @@ using Random = UnityEngine.Random;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    private float timeDelay = 1f;
-    private float repeat = 8;
+    private float timeDelay = 0f;
+    private float repeat = 9;
     public Transform parent;
     public GameObject enemy;
     public GameObject _boss;
     public PlayerController player;
     public EnemyController enemyController;
     public BossEnemyController bossEnemyController;
-    
-    //test
-    private float xRangeLeft = -130;
-    private float xRangeRight = 135;
-    private float yRangeTop = 70;
+
+    private float xRangeLeft = -125;
+    private float xRangeRight = 125;
+    private float yRangeTop = 165;
     private float yRangeDown = -75;
 
-   
-    private float timeB = 0;
+
+    private bool addP;
+
+    public static List<EntityInfo> cells = new List<EntityInfo>();
+
     void Start()
     {
+        addP = true;
         InvokeRepeating("Spawn", timeDelay, repeat);
     }
+
     public Vector3 GetPosSpawnEnemy()
     {
-        float x=0, y=0;
-        float z=0;
+        float x = 0, y = 0;
+        float z = 0;
         if (player.transform.position.x >= 0)
         {
             y = Random.Range(yRangeDown, yRangeTop);
@@ -45,7 +49,7 @@ public class SpawnEnemy : MonoBehaviour
                 x = Random.Range(xRangeLeft, xRangeRight);
             }
         }
-        else if(player.transform.position.x < 0)
+        else if (player.transform.position.x < 0)
         {
             y = Random.Range(yRangeDown, yRangeTop);
             if (y > player.transform.position.y - 55 && y < player.transform.position.y + 55)
@@ -57,22 +61,33 @@ public class SpawnEnemy : MonoBehaviour
                 x = Random.Range(xRangeLeft, xRangeRight);
             }
         }
+
         return new Vector3(x, y, z);
     }
+
     private void Spawn()
     {
         for (int i = 0; i < 10; i++)
         {
-            GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, -3.8f), enemy.transform.rotation, parent);
+            GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, 0), enemy.transform.rotation, parent);
             EnemyController enemyController = Enemy.GetComponent<EnemyController>();
             enemyController.ModelEnemy.transform.position = GetPosSpawnEnemy();
             enemyController.ModelEnemy.transform.localScale = player.transform.localScale;
+            if (addP)
+            {
+                addP = false;
+                cells.Add(GameManager.Instance.GetPlayer.entityInfo);
+            }
+
+            cells.Add(enemyController.GetComponent<EnemyController>().entityInfo);
         }
     }
+
     public void SpawnBoss()
     {
-        GameObject obj = Instantiate(_boss, new Vector3(0, 0, -3.8f), _boss.transform.rotation, parent);
+        GameObject obj = Instantiate(_boss, new Vector3(0, 0, 0), _boss.transform.rotation, parent);
         BossEnemyController bossenemy = obj.GetComponent<BossEnemyController>();
         bossenemy.ModelEnemy.transform.position = GetPosSpawnEnemy();
+        cells.Add(bossenemy.GetComponent<BossEnemyController>().entityInfo);
     }
 }

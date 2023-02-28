@@ -21,7 +21,7 @@ public class SpawnCoin : MonoBehaviour
     public GameObject shoe;
 
     private bool checkspawnTorpedo = true;
-    // Start is called before the first frame update
+
     void Start()
     {
         InvokeRepeating("SpawnCoii", timeDelay, repeat);
@@ -29,21 +29,22 @@ public class SpawnCoin : MonoBehaviour
         SpawnTreasure();
     }
 
-    // Update is called once per frame
     private void SpawnCoii()
     {
         if (Database.CurrentIdMap == 5 && GameManager.Instance.time < 30)
         {
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 60; i++)
             {
-                Instantiate(coin, new Vector3(Random.Range(-120, 120), Random.Range(-50, 73), -3), coin.transform.rotation, parent);
+                Instantiate(coin, new Vector3(Random.Range(-120, 120), Random.Range(-50, 140), 0),
+                    coin.transform.rotation, parent);
             }
+
             if (checkspawnTorpedo == true)
             {
                 checkspawnTorpedo = false;
                 for (int i = 0; i < 15; i++)
                 {
-                    Instantiate(torpedo, new Vector3(Random.Range(-110, 110), Random.Range(-60, 60), -3),
+                    Instantiate(torpedo, new Vector3(Random.Range(-110, 110), Random.Range(-60, 140), 0),
                         torpedo.transform.rotation, parent);
                 }
             }
@@ -51,32 +52,36 @@ public class SpawnCoin : MonoBehaviour
         else
         {
             for (int i = 0; i < 2; i++)
-            { 
-                Instantiate(coin, new Vector3(Random.Range(-120, 120), 73, -3), coin.transform.rotation, parent);
+            {
+                Instantiate(coin, new Vector3(Random.Range(-120, 120), 165, 0), coin.transform.rotation, parent);
             }
         }
     }
 
     private void SpawnTreasure()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Instantiate(treasure, new Vector3(Random.Range(-110, 110), -73, -3), treasure.transform.rotation, parent);
+            Instantiate(treasure, new Vector3(Random.Range(-110, 110), -78, 0), treasure.transform.rotation, parent);
         }
     }
+
     private void SpawnItem()
     {
         if (Database.CurrentIdMap == 7)
         {
-            for (int i = 0; i < 5; i++)
+            DOTween.Sequence().SetDelay(2).OnComplete(() =>
             {
-                Instantiate(shield, new Vector3(Random.Range(-120, 120), Random.Range(-60, 60), -3),
-                    shield.transform.rotation, parent);
-                Instantiate(weapon, new Vector3(Random.Range(-120, 120), Random.Range(-60, 60), -3),
-                    weapon.transform.rotation, parent);
-                Instantiate(shoe, new Vector3(Random.Range(-120, 120), Random.Range(-60, 60), -3),
-                    shoe.transform.rotation, parent);
-            }
+                for (int i = 0; i < 3; i++)
+                {
+                    Instantiate(shield, new Vector3(Random.Range(-120, 120), Random.Range(-60, 130), 0),
+                        shield.transform.rotation, parent);
+                    Instantiate(weapon, new Vector3(Random.Range(-120, 120), Random.Range(-60, 130), 0),
+                        weapon.transform.rotation, parent);
+                    Instantiate(shoe, new Vector3(Random.Range(-120, 120), Random.Range(-60, 130), 0),
+                        shoe.transform.rotation, parent);
+                }
+            });
         }
     }
 }

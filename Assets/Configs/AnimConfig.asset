@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b9dbf6dc5c1415c9eaefea6ed49a8a, type: 3}
+  m_Name: AnimConfig
+  m_EditorClassIdentifier: 
+  listAnim:
+  - Id: 1
+    typeModelSkin: 0
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 7e2e0d5c851da4bd593b8f3d024efd73, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 262918bb6116946138974fb805b47831, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 491d8e27f0ca24897b357d36d8a2ef4c, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 2
+    typeModelSkin: 1
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 04969803078fa4490b28fa1f3df69494, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 209bf389715bb43798a6517353d0205e, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: af46f936130474d6f9fdd8e471c05b8c, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0

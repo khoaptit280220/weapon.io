@@ -8,18 +8,23 @@ public class ItemShieldController : MonoBehaviour
 {
     public EnemyController enemy;
     public BossEnemyController boss;
+    private bool va;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
             GameManager.Instance.GetPlayer.checkShield = true;
-            DOTween.Sequence().SetDelay(10).OnComplete(() =>
+            if (va)
             {
-                gameObject.SetActive(true);
-                GameManager.Instance.GetPlayer.checkShield = false;
-            });
+                GameManager.Instance.GetPlayer.timeShield += 8;
+                va = false;
+            }
+
+            DOTween.Sequence().SetDelay(10).OnComplete(() => { gameObject.SetActive(true); });
         }
+
         if (other.gameObject.CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
@@ -30,14 +35,15 @@ public class ItemShieldController : MonoBehaviour
                 enemy.checkShieldEnemy = false;
             });
         }
+
         if (other.gameObject.CompareTag("Boss"))
         {
             gameObject.SetActive(false);
-           // boss.checkShieldBoss = true;
+            // boss.checkShieldBoss = true;
             DOTween.Sequence().SetDelay(8).OnComplete(() =>
             {
                 gameObject.SetActive(true);
-           //     boss.checkShieldBoss = false;
+                //     boss.checkShieldBoss = false;
             });
         }
     }

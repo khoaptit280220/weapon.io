@@ -21,5 +21,8 @@ public enum UiPanelType
     PopupLeaderboard,
     PopupPauseGame,
     PopupSelectMap,
+    PopupShop,
+    ScreenLose,
+    ScreenWin,
     SdkPlaceHolder //Do not rename or re-arrange
 }

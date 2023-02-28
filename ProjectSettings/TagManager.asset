@@ -23,6 +23,7 @@ TagManager:
   - Shoe
   - Weapon
   - Treasure
+  - RangeSuck
   layers:
   - Default
   - TransparentFX

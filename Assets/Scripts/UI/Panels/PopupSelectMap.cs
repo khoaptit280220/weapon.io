@@ -7,14 +7,13 @@ using UnityEngine.UI;
 public class PopupSelectMap : UIPanel
 {
     public static PopupSelectMap Instance { get; private set; }
-    
-    [SerializeField]
-    private Button closeBg;
 
-    [SerializeField]
-    private Button closeButton;
+    [SerializeField] private Button closeBg;
+
+    [SerializeField] private Button closeButton;
 
     [SerializeField] private TMP_Text textMap;
+
     public override UiPanelType GetId()
     {
         return UiPanelType.PopupSelectMap;
@@ -22,10 +21,11 @@ public class PopupSelectMap : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupSelectMap) GUIManager.Instance.NewPanel(UiPanelType.PopupSelectMap);
+        var newInstance = (PopupSelectMap)GUIManager.Instance.NewPanel(UiPanelType.PopupSelectMap);
         Instance = newInstance;
         newInstance.OnAppear();
     }
+
     public override void OnAppear()
     {
         if (isInited)
@@ -34,9 +34,9 @@ public class PopupSelectMap : UIPanel
         base.OnAppear();
         Init();
     }
+
     private void Init()
     {
-        //GameManager.Instance.PrepareGame();
         textMap.text = MapScreen.Instance.textMap;
     }
 
@@ -45,7 +45,7 @@ public class PopupSelectMap : UIPanel
         base.OnDisappear();
         Instance = null;
     }
-    
+
     public void StartGame()
     {
         GameManager.Instance.PrepareGame();
@@ -58,9 +58,9 @@ public class PopupSelectMap : UIPanel
             PopupNoInternet.Show();
             return;
         }
-        
+
         PlayScreen.Show();
-        
+
         //   GameManager.Instance.GetPlayer.isPlayerDied = false;
     }
 }

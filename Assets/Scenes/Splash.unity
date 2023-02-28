@@ -388,6 +388,7 @@ MonoBehaviour:
   gameSetting: {fileID: 11400000, guid: d172709798da3024bac32a854c7c7788, type: 2}
   lastClaimOnlineGiftTime: 0
   point: 0
+  kill: 0
   coin: 0
   energy: 0
   checkBoss: 0
@@ -871,6 +872,10 @@ MonoBehaviour:
   uiConfig: {fileID: 11400000, guid: 451943dea9394f84faa7b5bde47aced6, type: 2}
   iapConfig: {fileID: 11400000, guid: 42e1bed5d23161a42b60b6987e710a4a, type: 2}
   mapConfig: {fileID: 11400000, guid: df1df9d96aa3d433e9a61b0bd1ae3591, type: 2}
+  modelSkinConfig: {fileID: 11400000, guid: ff3ea8cb51795418a9dab2f13d729f17, type: 2}
+  modelHornConfig: {fileID: 11400000, guid: a6c41d8f451e2406698fd6b182cbcf28, type: 2}
+  itemConfig: {fileID: 11400000, guid: 4992a3d5d73954421bfc99f7d21b1f40, type: 2}
+  animConfig: {fileID: 11400000, guid: c81899cc5b74e4be087d8bd050ed3406, type: 2}
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 

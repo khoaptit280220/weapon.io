@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Khoant;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public class GameData
     public class UserData
     {
         public DateTime lastTimeLogOut = DateTime.Now;
-        
+
         public int level = 1;
 
         //Progress Data
@@ -58,7 +59,7 @@ public class GameData
         public bool haptic = true;
         public float soundVolume = 1;
         public float musicVolume = 1;
-        
+
         public int highPerformance = 1;
 
         public bool iOsTrackingRequested;
@@ -86,7 +87,7 @@ public static partial class Database
 
     public static bool IsMapUnlock
     {
-        get => GetBool(IS_CHECK_UNLOCK_MAP,false);
+        get => GetBool(IS_CHECK_UNLOCK_MAP, false);
         set => SetBool(IS_CHECK_UNLOCK_MAP, value);
     }
 
@@ -96,14 +97,61 @@ public static partial class Database
         set => SetInt(CURRENT_MAP_ID, value);
     }
 
+    public static bool IsModelSkinUnlock
+    {
+        get => GetBool(IS_CHECK_UNLOCK_MODEL_SKIN, false);
+        set => SetBool(IS_CHECK_UNLOCK_MODEL_SKIN, value);
+    }
+
+    public static int CurrentIdModelSkin
+    {
+        get => GetInt(CURRENT_ID_MODEL_SKIN, 1);
+        set
+        {
+            SetInt(CURRENT_ID_MODEL_SKIN, value);
+            EventController.OnChangeModelSkin?.Invoke();
+        }
+    }
+
+    public static bool isModelHornUnlock
+    {
+        get => GetBool(IS_CHECK_UNLOCK_HORN, false);
+        set => SetBool(IS_CHECK_UNLOCK_HORN, value);
+    }
+
+    public static int CurrentIdHorn
+    {
+        get => GetInt(CURRENT_ID_HORN, 1);
+        set => SetInt(CURRENT_ID_HORN, value);
+    }
+
+    public static int CurrentIdTrail
+    {
+        get => GetInt(CURRENT_ID_TRAIL, 1);
+        set => SetInt(CURRENT_ID_TRAIL, value);
+    }
+
+    public static bool IsItemUnlocked
+    {
+        get => GetBool(KeyItemCheckUnlocked, false);
+        set => SetBool(KeyItemCheckUnlocked, value);
+    }
+
     #region KEY
 
     public static string IS_CHECK_UNLOCK_MAP = "";
     public static string CURRENT_MAP_ID = "CURRENT_MAP_ID";
+    public static string IS_CHECK_UNLOCK_MODEL_SKIN = "";
+    public static string CURRENT_ID_MODEL_SKIN = "CURRENT_ID_MODEL_SKIN";
+    public static string IS_CHECK_UNLOCK_HORN = "";
+    public static string CURRENT_ID_HORN = "CURRENT_ID_HORN";
+    public static string CURRENT_ID_TRAIL = "CURRENT_ID_TRAIL";
+
+    public static string KeyItemCheckUnlocked = "";
 
     #endregion
-
 }
+
 public static partial class Database
 {
     private static bool GetBool(string key, bool defaultValue = false) =>

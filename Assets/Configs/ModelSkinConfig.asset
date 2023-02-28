@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad2adb7f0a6f4ee4b47f2b6440c1d00, type: 3}
+  m_Name: ModelSkinConfig
+  m_EditorClassIdentifier: 
+  ListModelSkinDatas:
+  - idModelSkin: 1
+    typeModelSkin: 0
+  - idModelSkin: 2
+    typeModelSkin: 1
+  - idModelSkin: 3
+    typeModelSkin: 2
+  - idModelSkin: 4
+    typeModelSkin: 3
+  - idModelSkin: 5
+    typeModelSkin: 4
+  - idModelSkin: 6
+    typeModelSkin: 5
+  - idModelSkin: 7
+    typeModelSkin: 6
+  - idModelSkin: 8
+    typeModelSkin: 7
+  - idModelSkin: 9
+    typeModelSkin: 8
+  - idModelSkin: 10
+    typeModelSkin: 9
+  - idModelSkin: 11
+    typeModelSkin: 10
+  - idModelSkin: 12
+    typeModelSkin: 11
+  - idModelSkin: 13
+    typeModelSkin: 12
+  - idModelSkin: 14
+    typeModelSkin: 13
+  - idModelSkin: 15
+    typeModelSkin: 14
+  - idModelSkin: 16
+    typeModelSkin: 15
+  - idModelSkin: 17
+    typeModelSkin: 16
+  - idModelSkin: 18
+    typeModelSkin: 17
+  - idModelSkin: 19
+    typeModelSkin: 18
+  - idModelSkin: 20
+    typeModelSkin: 19
+  - idModelSkin: 21
+    typeModelSkin: 20
+  - idModelSkin: 22
+    typeModelSkin: 21
+  - idModelSkin: 23
+    typeModelSkin: 22
+  - idModelSkin: 24
+    typeModelSkin: 23
+  - idModelSkin: 25
+    typeModelSkin: 24
+  - idModelSkin: 26
+    typeModelSkin: 25

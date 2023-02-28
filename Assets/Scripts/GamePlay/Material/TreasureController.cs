@@ -12,18 +12,13 @@ public class TreasureController : MonoBehaviour
         {
             gameObject.SetActive(false);
             GameManager.Instance.coin += 10;
-            DOTween.Sequence().SetDelay(15).OnComplete(() =>
-            {
-                gameObject.SetActive(true);
-            });
+            DOTween.Sequence().SetDelay(18).OnComplete(() => { gameObject.SetActive(true); });
         }
+
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Boss"))
         {
             gameObject.SetActive(false);
-            DOTween.Sequence().SetDelay(15).OnComplete(() =>
-            {
-                gameObject.SetActive(true);
-            });
+            DOTween.Sequence().SetDelay(18).OnComplete(() => { gameObject.SetActive(true); });
         }
     }
 }

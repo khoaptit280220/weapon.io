@@ -28,32 +28,4 @@ public class MapController : MonoBehaviour
         }
     }
     
-    // public void SetupLogicMap()
-    // {
-    //     switch (currentMapData.typeMap)
-    //     {
-    //         case TypeMap.BlackPearlRuin:
-    //             
-    //             break;
-    //         case TypeMap.AtlantisCity:
-    //            
-    //             break;
-    //         case TypeMap.SnowWonderland:
-    //             
-    //             break;
-    //         case TypeMap.LostSector:
-    //             
-    //             break;
-    //         case TypeMap.TwilightShrine:
-    //            
-    //             break;
-    //         case TypeMap.MidnightRift:
-    //           
-    //             break;
-    //         case TypeMap.DreamTowers:
-    //             
-    //             break;
-    //     }
-    // }
-    
 }

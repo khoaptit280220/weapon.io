@@ -5,33 +5,29 @@ using UnityEngine;
 
 public class SnowController : MonoBehaviour
 {
-    public EnemyController enemy;
-    public BossEnemyController BossEnemy;
-    
-    private float speedenemy;
-    private float speedEnemyBoss;
+    //public EnemyController enemy;
+    // public BossEnemyController BossEnemy;
+
+    //private float speedenemy;
+    // private float speedEnemyBoss;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            
-        }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            speedenemy = enemy.speedEnemy;
-            enemy.speedEnemy = 10;
+            other.gameObject.GetComponentInParent<EnemyController>().speedEnemy = 8;
             DOTween.Sequence().SetDelay(3).OnComplete(() =>
             {
-                enemy.speedEnemy = speedenemy;
+                other.gameObject.GetComponentInParent<EnemyController>().speedEnemy = 20;
             });
         }
+
         if (other.gameObject.CompareTag("Boss"))
         {
-            speedEnemyBoss = BossEnemy.speedBoss;
-            BossEnemy.speedBoss = 10;
+            other.gameObject.GetComponentInParent<BossEnemyController>().speedBoss = 8;
             DOTween.Sequence().SetDelay(3).OnComplete(() =>
             {
-                BossEnemy.speedBoss = speedEnemyBoss;
+                other.gameObject.GetComponentInParent<BossEnemyController>().speedBoss = 20;
             });
         }
     }

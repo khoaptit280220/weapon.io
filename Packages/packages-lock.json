@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.graywolves.animancer": {
+      "version": "https://github.com/GrayWolves/Animancer-Unity.git#1.0.4",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "aff89de59d9c96746547a075e0980123b4be8413"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -14,7 +21,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.cinemachine": {
-      "version": "2.8.9",
+      "version": "2.9.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {

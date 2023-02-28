@@ -21,10 +21,16 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
     public UiConfig uiConfig;
     public IapConfig iapConfig;
     public MapConfig mapConfig;
+    public ModelSkinConfig modelSkinConfig;
+    public ModelHornConfig modelHornConfig;
+    public ItemConfig itemConfig;
+    public AnimConfig animConfig;
 
     private void Start()
     {
         mapConfig.UnlockMapDefault();
+        modelSkinConfig.UnlockModelSkinDefault();
+        itemConfig.InitItem();
     }
 
     #region Odin
@@ -38,12 +44,14 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
         uiConfig = HCTools.GetUiConfig();
         iapConfig = HCTools.GetIapConfig();
         mapConfig = HCTools.GetMapConfig();
+        modelSkinConfig = HCTools.GetConfig<ModelSkinConfig>("Assets/Configs/");
+        modelHornConfig = HCTools.GetConfig<ModelHornConfig>("Assets/Configs/");
+        itemConfig = HCTools.GetConfig<ItemConfig>("Assets/Configs/");
+        animConfig = HCTools.GetConfig<AnimConfig>("Assets/Configs/");
     }
 #endif
 
-    [SerializeField]
-    [HideInInspector]
-    private SerializationData serializationData;
+    [SerializeField] [HideInInspector] private SerializationData serializationData;
 
     SerializationData ISupportsPrefabSerialization.SerializationData
     {

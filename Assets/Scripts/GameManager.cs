@@ -21,25 +21,26 @@ public class GameManager : Singleton<GameManager>
     [ShowIf(nameof(IsPlaying))]
 #endif
     public GameState GameState = GameState.Prepare;
+
     public GameData data;
     public bool gameInited;
     public HCGameSetting gameSetting;
-    
+
     private int _secondToRemindComeback;
-    
+
     [HideInInspector] public float lastClaimOnlineGiftTime;
 
     [HideInInspector] public int point = 0;
+    [HideInInspector] public int kill = 0;
     [HideInInspector] public int coin = 0;
     [HideInInspector] public float energy = 0;
     [HideInInspector] public bool checkBoss = false;
     [HideInInspector] public int time;
-   // [HideInInspector] public bool isPlayerDied = true;
-   private PlayerController _playerController;
-   private LevelController _levelController;
+    private PlayerController _playerController;
+    private LevelController _levelController;
 
-   private MapController _mapController;
-    
+    private MapController _mapController;
+
     public static bool EnableAds
     {
         get
@@ -56,7 +57,8 @@ public class GameManager : Singleton<GameManager>
 
     public static bool NetworkAvailable => Application.internetReachability != NetworkReachability.NotReachable;
 
-    public string GameVersion => string.Format("{0}.{1}.{2}", gameSetting.gameVersion, gameSetting.bundleVersion, gameSetting.buildVersion);
+    public string GameVersion => string.Format("{0}.{1}.{2}", gameSetting.gameVersion, gameSetting.bundleVersion,
+        gameSetting.buildVersion);
 
 
 #if UNITY_EDITOR
@@ -86,8 +88,8 @@ public class GameManager : Singleton<GameManager>
         EventGlobalManager.Instance.OnGameInited.Dispatch();
 
         LoadingManager.Instance.LoadScene(SceneIndex.Gameplay, MainScreen.Show);
-        
-        
+
+
         lastClaimOnlineGiftTime = Time.time;
     }
 
@@ -221,6 +223,7 @@ public class GameManager : Singleton<GameManager>
         {
             Destroy(_playerController.gameObject);
         }
+
         this._playerController = playerController;
     }
 
@@ -239,16 +242,23 @@ public class GameManager : Singleton<GameManager>
     }
 
     public MapController GetMapController => _mapController;
+
     public void OnWinGame()
     {
-        Debug.Log("Victory");
-        GameState = GameState.Win;
-        //show popup win
+        if (GameState != GameState.Lose)
+        {
+            Debug.Log("Victory");
+            GameState = GameState.Win;
+            AddMoney(coin);
+            //show popup win
+        }
     }
 
     public void OnLoseGame()
     {
+        Debug.Log("Lose");
         GameState = GameState.Lose;
+        AddMoney(coin);
         //show popup lose
     }
 
@@ -275,6 +285,7 @@ public class GameManager : Singleton<GameManager>
         GetLevelController.CurrentLevel.gameObject.SetActive(true);
         coin = 0;
         point = 0;
+        kill = 0;
         time = 60;
         energy = 1;
     }

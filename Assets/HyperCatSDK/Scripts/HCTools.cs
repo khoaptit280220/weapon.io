@@ -102,13 +102,15 @@ public class HCTools : Editor
     [MenuItem("HyperCat Toolkit/Documents/Applovin Adapters Status")]
     public static void OpenApplovinAdaptersStatus()
     {
-        Application.OpenURL("https://hypercatstudio.notion.site/4d15ddac180048fcbe26df95d83c7079?v=5fb09f0cdc094b4a89da872a11f22f3f");
+        Application.OpenURL(
+            "https://hypercatstudio.notion.site/4d15ddac180048fcbe26df95d83c7079?v=5fb09f0cdc094b4a89da872a11f22f3f");
     }
 
     [MenuItem("HyperCat Toolkit/Documents/Submit Build Double Check Manual")]
     public static void SubmitBuildDoubleCheckManual()
     {
-        Application.OpenURL("https://hypercatstudio.notion.site/Quy-tr-nh-double-check-build-aab-6291703a8a0c4648a05f47650da82428");
+        Application.OpenURL(
+            "https://hypercatstudio.notion.site/Quy-tr-nh-double-check-build-aab-6291703a8a0c4648a05f47650da82428");
     }
 
     #region Third-party SDK
@@ -230,7 +232,8 @@ public class HCTools : Editor
         PlayerSettings.productName = GameSetting.gameName;
         if (Application.HasProLicense())
             PlayerSettings.SplashScreen.showUnityLogo = false;
-        PlayerSettings.bundleVersion = string.Format("{0}.{1}.{2}", GameSetting.gameVersion, GameSetting.bundleVersion, GameSetting.buildVersion);
+        PlayerSettings.bundleVersion = string.Format("{0}.{1}.{2}", GameSetting.gameVersion, GameSetting.bundleVersion,
+            GameSetting.buildVersion);
 
 #if UNITY_ANDROID || UNITY_IOS
         PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
@@ -303,7 +306,8 @@ public class HCTools : Editor
 
         if (string.IsNullOrEmpty(PlayerSettings.keyaliasPass))
         {
-            ShowNotification(HcNotiType.Warning, "Publishing Setting - Verify your keystore setting before performing a submit build!", "Yes, sir!");
+            ShowNotification(HcNotiType.Warning,
+                "Publishing Setting - Verify your keystore setting before performing a submit build!", "Yes, sir!");
             SettingsService.OpenProjectSettings("Project/Player");
             return;
         }
@@ -320,7 +324,9 @@ public class HCTools : Editor
 
         if (!hasGoogleServiceFile)
         {
-            ShowNotification(HcNotiType.Warning, "google-services.json file not found. Please contact your manager to get the correct file!", "Yes, sir!");
+            ShowNotification(HcNotiType.Warning,
+                "google-services.json file not found. Please contact your manager to get the correct file!",
+                "Yes, sir!");
             HCDebug.LogError("google-services.json file not found at Assets/StreamingAssets/");
             return;
         }
@@ -350,7 +356,8 @@ public class HCTools : Editor
         else if (Application.platform == RuntimePlatform.OSXEditor)
             buildPath = BuildSupport.macOsBuildPath;
 
-        var playerPath = $"{buildPath}/{GameSetting.packageName} {PlayerSettings.bundleVersion}.aab";;
+        var playerPath = $"{buildPath}/{GameSetting.packageName} {PlayerSettings.bundleVersion}.aab";
+        ;
         BuildPipeline.BuildPlayer(GetScenePaths(), playerPath, BuildTarget.Android, BuildOptions.None);
     }
 
@@ -496,16 +503,33 @@ public class HCTools : Editor
         var path = "Assets/Configs/";
         var fileEntries = Directory.GetFiles(path);
         for (var i = 0; i < fileEntries.Length; i++)
-        if (fileEntries[i].EndsWith(".asset"))
-        {
-            var item =
-                AssetDatabase.LoadAssetAtPath<MapConfig>(fileEntries[i].Replace("\\", "/"));
-            if (item != null)
-                return item;
-        }
+            if (fileEntries[i].EndsWith(".asset"))
+            {
+                var item =
+                    AssetDatabase.LoadAssetAtPath<MapConfig>(fileEntries[i].Replace("\\", "/"));
+                if (item != null)
+                    return item;
+            }
 
         return null;
     }
+
+    public static ModelSkinConfig GetModelSkinConfig()
+    {
+        var path = "Assets/Configs/";
+        var fileEntries = Directory.GetFiles(path);
+        for (var i = 0; i < fileEntries.Length; i++)
+            if (fileEntries[i].EndsWith(".asset"))
+            {
+                var item =
+                    AssetDatabase.LoadAssetAtPath<ModelSkinConfig>(fileEntries[i].Replace("\\", "/"));
+                if (item != null)
+                    return item;
+            }
+
+        return null;
+    }
+
 
     public static T GetConfig<T>(string path) where T : ScriptableObject
     {
@@ -563,7 +587,8 @@ public class HCTools : Editor
             while (!www.isDone)
                 await Task.Yield();
 
-            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+            if (www.result == UnityWebRequest.Result.ConnectionError ||
+                www.result == UnityWebRequest.Result.ProtocolError)
             {
                 HCDebug.LogError(www.error);
                 return null;
@@ -642,7 +667,8 @@ public class HCTools : Editor
             while (!www.isDone)
                 await Task.Yield();
 
-            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+            if (www.result == UnityWebRequest.Result.ConnectionError ||
+                www.result == UnityWebRequest.Result.ProtocolError)
             {
                 HCDebug.LogError(www.error);
                 return null;
@@ -673,7 +699,8 @@ public class HCTools : Editor
             .Where(network => !string.IsNullOrEmpty(network.CurrentVersions.Unity))
             .Select(network => network.DisplayName));
 
-        var missingNetworks = requiredNetworks.Where(displayName => !installedNetworkDisplayNames.Contains(displayName)).ToArray();
+        var missingNetworks = requiredNetworks.Where(displayName => !installedNetworkDisplayNames.Contains(displayName))
+            .ToArray();
 
         onComplete?.Invoke(missingNetworks);
     }

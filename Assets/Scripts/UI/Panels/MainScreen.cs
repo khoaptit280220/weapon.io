@@ -1,5 +1,8 @@
 ﻿#region
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -7,11 +10,11 @@ using UnityEngine;
 
 public class MainScreen : UIPanel
 {
-   
     public static MainScreen Instance { get; private set; }
 
-    [SerializeField]
-    public GameObject btnNoAds;
+    [SerializeField] public GameObject btnNoAds;
+    [SerializeField] private TMP_InputField nameInput;
+    [SerializeField] private TMP_Text coin;
 
     public override UiPanelType GetId()
     {
@@ -20,7 +23,7 @@ public class MainScreen : UIPanel
 
     public static void Show()
     {
-        var newInstance = (MainScreen) GUIManager.Instance.NewPanel(UiPanelType.MainScreen);
+        var newInstance = (MainScreen)GUIManager.Instance.NewPanel(UiPanelType.MainScreen);
         Instance = newInstance;
         newInstance.OnAppear();
     }
@@ -37,6 +40,7 @@ public class MainScreen : UIPanel
 
     private void Init()
     {
+        UpdateText();
     }
 
     public void ShowSetting()
@@ -55,10 +59,8 @@ public class MainScreen : UIPanel
             PopupNoInternet.Show();
             return;
         }
-        
-        PlayScreen.Show();
 
-     //   GameManager.Instance.GetPlayer.isPlayerDied = false;
+        PlayScreen.Show();
     }
 
     public void ShowMap()
@@ -67,10 +69,27 @@ public class MainScreen : UIPanel
         MapScreen.Show();
     }
 
+    public void ShowShop()
+    {
+        AudioAssistant.Shot(TypeSound.Button);
+        PopupShop.Show();
+    }
+
     public void OnBuyNoAds()
     {
         AudioAssistant.Shot(TypeSound.Button);
         IAPManager.Instance.BuyProduct(IapProductName.NoAds);
+    }
+
+    public void ChangeName()
+    {
+        Gm.data.user.name = nameInput.text;
+    }
+
+    public void UpdateText()
+    {
+        nameInput.text = Gm.data.user.name;
+        coin.text = "" + Gm.data.user.money;
     }
 
     protected override void RegisterEvent()
@@ -87,5 +106,10 @@ public class MainScreen : UIPanel
     {
         base.OnDisappear();
         Instance = null;
+    }
+
+    private void Update()
+    {
+        UpdateText();
     }
 }

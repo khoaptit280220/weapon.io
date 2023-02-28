@@ -9,7 +9,7 @@ public class PopupPauseGame : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupPauseGame) GUIManager.Instance.NewPanel(UiPanelType.PopupPauseGame);
+        var newInstance = (PopupPauseGame)GUIManager.Instance.NewPanel(UiPanelType.PopupPauseGame);
         Instance = newInstance;
         newInstance.OnAppear();
     }
@@ -24,7 +24,6 @@ public class PopupPauseGame : UIPanel
     {
         if (isInited)
             return;
-
         base.OnAppear();
         Init();
     }

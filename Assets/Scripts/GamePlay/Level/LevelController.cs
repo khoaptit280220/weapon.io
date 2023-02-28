@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    
     public GameObject level;
     [ReadOnly] public Level CurrentLevel;
 
@@ -19,14 +18,15 @@ public class LevelController : MonoBehaviour
 
     public void GenerateLevel()
     {
-        
         if (CurrentLevel != null)
         {
             Destroy(CurrentLevel.gameObject);
         }
+
         CurrentLevel = Instantiate(level).GetComponent<Level>();
         CurrentLevel.gameObject.SetActive(false);
         CurrentLevel.SetupMap();
-        
+        CurrentLevel.SetupSkin();
+        SpawnEnemy.cells.Clear();
     }
 }
