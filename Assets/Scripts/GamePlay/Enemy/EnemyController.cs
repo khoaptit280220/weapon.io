@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public EntityInfo entityInfo;
     public GameObject ModelEnemy;
     public RandomModelEnemy ModelSkin;
+    public RandomWeaponEnemy WeaponEnemy;
     public bool isDied;
     private List<Vector3> WayPoints;
     public float speedEnemy = 20;

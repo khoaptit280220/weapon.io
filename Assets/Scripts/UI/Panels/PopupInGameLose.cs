@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Khoant;
+using NSubstitute.Exceptions;
 using UnityEngine;
 
 public class PopupInGameLose : UIPanel
@@ -32,14 +34,20 @@ public class PopupInGameLose : UIPanel
     {
         GameManager.Instance.GameState = GameState.Lose;
 
-        DOTween.Sequence().SetDelay(3).OnComplete(() =>
+        StartCoroutine((DelayShowScreenLose(() =>
         {
             GameManager.Instance.previewAfterGame.SetActive(true);
-           
             Hide();
             ScreenLose.Show();
+            EventController.AfterWeapon?.Invoke();
             EventController.Lose?.Invoke();
-            
-        });
+        })));
+    }
+
+
+    IEnumerator DelayShowScreenLose(Action cb = null)
+    {
+        yield return new WaitForSeconds(3f);
+        cb?.Invoke();
     }
 }

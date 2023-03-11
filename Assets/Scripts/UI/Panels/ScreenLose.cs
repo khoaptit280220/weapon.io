@@ -42,7 +42,7 @@ public class ScreenLose : UIPanel
         txtCoin.text = "" + GameManager.Instance.coin;
 
         _itemGiftLevel.Init();
-       
+
         //GameManager.Instance.ViewModelWeponController.SetupModelWeapon();
     }
 

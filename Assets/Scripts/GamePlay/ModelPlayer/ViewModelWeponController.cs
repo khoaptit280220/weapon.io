@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class ViewModelWeponController : MonoBehaviour
 {
-    public TypeViewModel TypeViewModel;
     [ReadOnly] public ModelHornData currentModelWeaponData;
 
     public List<ModelHorn> listModelWeapon = new List<ModelHorn>();
@@ -31,7 +30,19 @@ public class ViewModelWeponController : MonoBehaviour
         {
             if (VARIABLE.idHorn == currentModelWeaponData.idModelHorn)
             {
-                Debug.Log("kiem main ");
+                VARIABLE.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void SetupModelWeaponAfter()
+    {
+        currentModelWeaponData = ConfigManager.Instance.modelHornConfig.GetModelHornById(Database.CurrentIdHorn);
+        SetupModelWeaponDefault();
+        foreach (var VARIABLE in listModelWeapon)
+        {
+            if (VARIABLE.idHorn == currentModelWeaponData.idModelHorn)
+            {
                 VARIABLE.gameObject.SetActive(true);
             }
         }
@@ -40,17 +51,13 @@ public class ViewModelWeponController : MonoBehaviour
     private void OnEnable()
     {
         EventController.MainWeapon += MainWeaponGame;
-        EventController.Lose += AfterWeapon;
-        EventController.Win += AfterWeapon;
-
-        // GameManager.Instance.ViewModelWeponController = this;
+        EventController.AfterWeapon += AfterWeapon;
     }
 
     private void OnDestroy()
     {
         EventController.MainWeapon -= MainWeaponGame;
-        EventController.Lose -= AfterWeapon;
-        EventController.Win -= AfterWeapon;
+        EventController.AfterWeapon -= AfterWeapon;
     }
 
     public void MainWeaponGame()
@@ -60,7 +67,7 @@ public class ViewModelWeponController : MonoBehaviour
 
     public void AfterWeapon()
     {
-        SetupModelWeapon();
+        SetupModelWeaponAfter();
     }
 }
 

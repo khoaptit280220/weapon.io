@@ -112,10 +112,6 @@ public class ItemGiftLevel : HCMonoBehaviour
 
             Init();
         }
-        else
-        {
-            UpdateProgress();
-        }
     }
 
     // private void OnEnable()

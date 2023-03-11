@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -28,14 +29,25 @@ public class PopupIngameWin : UIPanel
         Init();
     }
 
+
     private void Init()
     {
-        DOTween.Sequence().SetDelay(3).OnComplete(() =>
+        GameManager.Instance.GameState = GameState.Lose;
+
+        StartCoroutine((DelayShowScreenLose(() =>
         {
             Hide();
             ScreenWin.Show();
             GameManager.Instance.previewAfterGame.SetActive(true);
+            EventController.AfterWeapon?.Invoke();
             EventController.Win?.Invoke();
-        });
+        })));
+    }
+
+
+    IEnumerator DelayShowScreenLose(Action cb = null)
+    {
+        yield return new WaitForSeconds(3f);
+        cb?.Invoke();
     }
 }

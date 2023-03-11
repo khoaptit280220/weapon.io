@@ -21,6 +21,7 @@ public class GameData
 
         public int level = 1;
 
+        public bool checkRanGift = false;
 
         public int giftLevelID;
         public int giftMainID;
@@ -82,7 +83,7 @@ public class GameData
 public static partial class Database
 {
     private static string dataKey = "GameData";
-    
+
     public static void SaveData()
     {
         var dataString = JsonConvert.SerializeObject(GameManager.Instance.data);

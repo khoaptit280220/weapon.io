@@ -76,6 +76,8 @@ public class SpawnEnemy : MonoBehaviour
             int id = Random.Range(1, 26);
             enemyController.ModelSkin.SetupModelSkin(id);
             enemyController.animEnemy.SetupAnim(id);
+            int idWeapon = Random.Range(1, 40);
+            enemyController.WeaponEnemy.SetupModelWeapon(idWeapon);
             cells.Add(enemyController.GetComponent<EnemyController>().entityInfo);
         }
 

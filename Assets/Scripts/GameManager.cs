@@ -61,6 +61,7 @@ public class GameManager : Singleton<GameManager>
             _viewModelWeponController = value;
         }
     }
+
     public static bool EnableAds
     {
         get
@@ -123,6 +124,15 @@ public class GameManager : Singleton<GameManager>
         previewAfterGame.SetActive(false);
         previewMain.SetActive(false);
 
+        if (data.user.checkRanGift == false)
+        {
+            Random();
+        }
+    }
+
+    private void Random()
+    {
+        data.user.checkRanGift = true;
         var giftLevel = ConfigManager.Instance.itemConfig.GetRandomItemLevel();
         data.user.giftLevelID = giftLevel.id;
         data.user.giftLevelType = giftLevel.typeItem;
