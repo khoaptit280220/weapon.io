@@ -20,7 +20,7 @@ public class CoinController : MonoBehaviour
     private void Suck()
     {
         // transform.DOKill();
-        if (GameManager.Instance.GetPlayer.speed > 40)
+        if (GameManager.Instance.GetPlayer.speed > 50)
         {
             transform.DOMove(GameManager.Instance.GetPlayer.transform.position, 0.05f);
         }

@@ -20,13 +20,6 @@ public class ItemConfig : ScriptableObject
 
     public void UnlockItemDefaul()
     {
-        // foreach (var VARIABLE in ListSkinDatas)
-        // {
-        //     if (VARIABLE.typeBuy == TypeBuy.Default)
-        //     {
-        //         VARIABLE.IsUnlock = true;
-        //     }
-        // }
         ListSkinDatas.First(dt => dt.typeBuy == TypeBuy.Default).IsUnlock = true;
         ListSwordDatas.First(dt => dt.typeBuy == TypeBuy.Default).IsUnlock = true;
 //        ListTrailDatas.First(dt => dt.typeBuy == TypeBuy.Default).IsUnlock = true;
@@ -41,6 +34,141 @@ public class ItemConfig : ScriptableObject
     }
 
     #endregion
+
+    public ItemData GetItemData(TypeItem typeItem, int _id)
+    {
+        switch (typeItem)
+        {
+            case TypeItem.Skin:
+                return ListSkinDatas.First(dt => dt.id == _id);
+                break;
+            case TypeItem.Sword:
+                return ListSwordDatas.First(dt => dt.id == _id);
+                break;
+            case TypeItem.Trail:
+                return ListSwordDatas.First(dt => dt.id == _id);
+                break;
+        }
+
+        return null;
+    }
+
+    public ItemData GetRandomItemDaily()
+    {
+        List<ItemData> _listTemp = new List<ItemData>();
+
+        foreach (var VARIABLE in ListSkinDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.DailyReward)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        foreach (var VARIABLE in ListSwordDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.DailyReward)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        foreach (var VARIABLE in ListTrailDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.DailyReward)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        _listTemp.Shuffle();
+        if (_listTemp.Count > 0)
+        {
+            return _listTemp[0];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public ItemData GetRandomItemAds()
+    {
+        List<ItemData> _listTemp = new List<ItemData>();
+
+        foreach (var VARIABLE in ListSkinDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.Ads)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        foreach (var VARIABLE in ListSwordDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.Ads)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        foreach (var VARIABLE in ListTrailDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.Ads)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        _listTemp.Shuffle();
+        if (_listTemp.Count > 0)
+        {
+            return _listTemp[0];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public ItemData GetRandomItemLevel()
+    {
+        List<ItemData> _listTemp = new List<ItemData>();
+
+        foreach (var VARIABLE in ListSkinDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.Coin)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        foreach (var VARIABLE in ListSwordDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.Coin)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        foreach (var VARIABLE in ListTrailDatas)
+        {
+            if (!VARIABLE.IsUnlock && VARIABLE.typeBuy == TypeBuy.Coin)
+            {
+                _listTemp.Add(VARIABLE);
+            }
+        }
+
+        _listTemp.Shuffle();
+        if (_listTemp.Count > 0)
+        {
+            return _listTemp[0];
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
 
 [Serializable]
@@ -49,6 +177,7 @@ public class ItemData
     public TypeItem typeItem;
     public int id;
     [ShowIf("typeItem", TypeItem.Skin)] public SkinName skinName;
+    [ShowIf("typeItem", TypeItem.Skin)] public string descripSkin;
 
     [ShowIf("typeItem", TypeItem.Sword)] public SwordName swordName;
 
@@ -95,7 +224,7 @@ public enum TypeBuy
 
 public enum SkinName
 {
-    SkinDefaultA,
+    A,
     B,
     C,
     D,
@@ -125,7 +254,46 @@ public enum SkinName
 
 public enum SwordName
 {
-    SwordDefault,
+    Laser,
+    AmericanFlag,
+    Mace,
+    Saw,
+    Ice,
+    Flame,
+    Thunder,
+    Hammer,
+    Poison,
+    Bouquet,
+    Cannon,
+    Broom,
+    Reaper,
+    Kunai,
+    Cowbar,
+    PirateSword,
+    Trumpet,
+    KrakenSlayer,
+    EngineSword,
+    TrafficLamp,
+    Poseidon,
+    Arm,
+    Candle,
+    Bell,
+    Cinder,
+    Frostbite,
+    Enchanted,
+    MoonSickle,
+    Sickle,
+    Saron,
+    Spear,
+    DragonBrade,
+    Hook,
+    Demon,
+    Angelic,
+    Runic,
+    FrostAxe,
+    Satan,
+    RapierSword,
+    PowerPole,
 }
 
 public enum TrailName

@@ -11,8 +11,11 @@ using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
+    public AnimSkinEnemyController animEnemy;
+
     public EntityInfo entityInfo;
     public GameObject ModelEnemy;
+    public RandomModelEnemy ModelSkin;
     public bool isDied;
     private List<Vector3> WayPoints;
     public float speedEnemy = 20;
@@ -72,7 +75,7 @@ public class EnemyController : MonoBehaviour
     {
         entityInfo.point = pointEnemy;
         MoveByPoint();
-        if (GameManager.Instance.GameState == GameState.Pause)
+        if (GameManager.Instance.GameState == GameState.Pause || GameManager.Instance.GameState == GameState.Win)
         {
             isDied = true;
         }
@@ -171,12 +174,16 @@ public class EnemyController : MonoBehaviour
 
             if (indexPoint == 2 || indexPoint == 6 || indexPoint == 10 || indexPoint == 14 || indexPoint == 18)
             {
+                animEnemy.PlaySwinTrail();
+                animEnemy.eye.PlaySpeedEye();
                 speedE = 50;
                 trail.gameObject.SetActive(true);
                 SpawnTrail();
             }
             else
             {
+                animEnemy.PlaySwin();
+                animEnemy.eye.OffSpeedEye();
                 trail.gameObject.SetActive(false);
                 speedE = speedEnemy;
             }
@@ -209,7 +216,7 @@ public class EnemyController : MonoBehaviour
         {
             pointTier = pointEnemy;
             tier += 1;
-            float x = 3 * Mathf.Pow(1.2f, tier);
+            float x = 2 * Mathf.Pow(1.2f, tier);
             ModelEnemy.transform.localScale = new Vector3(x, x, x);
         }
     }

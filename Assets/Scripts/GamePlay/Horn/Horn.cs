@@ -12,10 +12,10 @@ public class Horn : MonoBehaviour
     {
         hornController.SetTriggerHorn(other);
     }
-    
+
     public void ScalePlayer()
     {
-        transform.localScale += new Vector3(0, 0, 0.2f);
+        transform.localScale += new Vector3(0, 0.15f, 0);
     }
 
     public void ScaleEnemy()

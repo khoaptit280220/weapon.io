@@ -59,7 +59,7 @@ public class AnimSkinController : MonoBehaviour
             animancer.Play(idle);
         }
     }
-
+    
     public void PlaySwin()
     {
         if (!animancer.IsPlaying(swim))
@@ -67,7 +67,7 @@ public class AnimSkinController : MonoBehaviour
             animancer.Play(swim);
         }
     }
-
+    
     public void PlaySwinTrail()
     {
         if (!animancer.IsPlaying(swimTrail))
@@ -75,5 +75,4 @@ public class AnimSkinController : MonoBehaviour
             animancer.Play(swimTrail);
         }
     }
-    
 }

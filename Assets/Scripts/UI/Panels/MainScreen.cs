@@ -3,8 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
+using Khoant;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 #endregion
 
@@ -15,6 +18,8 @@ public class MainScreen : UIPanel
     [SerializeField] public GameObject btnNoAds;
     [SerializeField] private TMP_InputField nameInput;
     [SerializeField] private TMP_Text coin;
+
+    [SerializeField] private ItemGiftMain _itemGiftMain;
 
     public override UiPanelType GetId()
     {
@@ -40,7 +45,28 @@ public class MainScreen : UIPanel
 
     private void Init()
     {
+        GameManager.Instance.previewMain.SetActive(true);
         UpdateText();
+        EventController.MainSkin?.Invoke();
+        EventController.MainWeapon?.Invoke();
+        _itemGiftMain.InitItemData();
+    }
+
+    public void ClaimItemAds()
+    {
+        AdManager.Instance.ShowRewardedAds("AddGiftMain", () =>
+        {
+            _itemGiftMain.itemData.IsUnlock = true;
+
+            _itemGiftMain.ShowReward();
+
+            var giftMain = ConfigManager.Instance.itemConfig.GetRandomItemAds();
+            Gm.data.user.giftMainID = giftMain.id;
+            Gm.data.user.giftMainType = giftMain.typeItem;
+            _itemGiftMain.InitItemData();
+        });
+
+        // }), () => { _itemGiftMain.itemData.IsUnlock = false; });
     }
 
     public void ShowSetting()
@@ -51,7 +77,6 @@ public class MainScreen : UIPanel
 
     public void StartGame()
     {
-        GameManager.Instance.StartGame();
         AudioAssistant.Shot(TypeSound.Button);
 
         if (!GameManager.NetworkAvailable)
@@ -60,17 +85,22 @@ public class MainScreen : UIPanel
             return;
         }
 
-        PlayScreen.Show();
+        GameManager.Instance.previewMain.SetActive(false);
+        //PlayScreen.Show();
+        PopupMatch.Show();
     }
 
     public void ShowMap()
     {
+        GameManager.Instance.previewMain.SetActive(false);
         AudioAssistant.Shot(TypeSound.Button);
         MapScreen.Show();
     }
 
     public void ShowShop()
     {
+        GameManager.Instance.previewMain.SetActive(false);
+        GameManager.Instance.previewShop.SetActive(true);
         AudioAssistant.Shot(TypeSound.Button);
         PopupShop.Show();
     }
@@ -106,10 +136,5 @@ public class MainScreen : UIPanel
     {
         base.OnDisappear();
         Instance = null;
-    }
-
-    private void Update()
-    {
-        UpdateText();
     }
 }

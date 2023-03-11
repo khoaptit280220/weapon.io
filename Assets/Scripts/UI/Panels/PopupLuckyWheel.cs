@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class PopupLuckyWheel : UIPanel
 {
+    [SerializeField] private GameObject ImageNotSpin;
     [SerializeField] private List<WheelItem> wheelItems;
     [SerializeField] private Transform spin;
     [SerializeField] private HCButton spinBtn;
@@ -15,9 +16,11 @@ public class PopupLuckyWheel : UIPanel
     [SerializeField, Range(0, 100)] private float giftRate;
     [SerializeField] private LuckyWheelProgress luckyWheelProgress;
 
-    private bool _isSpinning;    
+
+    private bool _isSpinning;
     private int _giftRewardIndex;
-    
+
+
     public static PopupLuckyWheel Instance { get; private set; }
 
     public override UiPanelType GetId()
@@ -27,7 +30,7 @@ public class PopupLuckyWheel : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupLuckyWheel) GUIManager.Instance.NewPanel(UiPanelType.PopupLuckyWheel);
+        var newInstance = (PopupLuckyWheel)GUIManager.Instance.NewPanel(UiPanelType.PopupLuckyWheel);
         Instance = newInstance;
         newInstance.OnAppear();
     }
@@ -45,12 +48,12 @@ public class PopupLuckyWheel : UIPanel
     private void Init()
     {
         _isSpinning = false;
-        
+
         InitItems();
         UpdateSpinBtn();
         luckyWheelProgress.Init();
     }
-    
+
     void InitItems()
     {
         _giftRewardIndex = Random.Range(0, wheelItems.Count);
@@ -93,13 +96,13 @@ public class PopupLuckyWheel : UIPanel
     void Spin()
     {
         _isSpinning = true;
-        
-        if (Gm.data.user.luckyWheelProgress == 10)
+
+        if (Gm.data.user.luckyWheelProgress == 25)
             Gm.data.user.luckyWheelProgress = 0;
 
         Gm.data.user.luckyWheelProgress++;
         luckyWheelProgress.UpdateProgress();
-        
+
         int rd = (Random.Range(0f, 100f) < giftRate ? _giftRewardIndex : GetRandomCoinItemIndex())
                  + wheelItems.Count * Random.Range(5, 8);
         var rewardItem = wheelItems[rd % wheelItems.Count];
@@ -119,14 +122,18 @@ public class PopupLuckyWheel : UIPanel
         var remainTime = GetRemainTime();
 
         if (remainTime >= 0)
+        {
             spinBtnLabel.text = remainTime.ToTimeFormat();
+            ImageNotSpin.SetActive(true);
+        }
         else
         {
-            spinBtnLabel.text = "Spin";
+            spinBtnLabel.text = "Free Spin";
             spinBtn.interactable = true;
+            ImageNotSpin.SetActive(false);
         }
     }
-    
+
     int GetRandomCoinItemIndex()
     {
         int result = Random.Range(0, wheelItems.Count);
@@ -138,7 +145,8 @@ public class PopupLuckyWheel : UIPanel
     }
 
     public static int GetRemainTime() => ConfigManager.Instance.gameCfg.extraFeatureConfig.freeSpinInterval
-                         - (int) (DateTime.Now - GameManager.Instance.data.user.lastFreeSpinTime).TotalSeconds;
+                                         - (int)(DateTime.Now - GameManager.Instance.data.user.lastFreeSpinTime)
+                                         .TotalSeconds;
 
     protected override void RegisterEvent()
     {
@@ -150,7 +158,7 @@ public class PopupLuckyWheel : UIPanel
     protected override void UnregisterEvent()
     {
         base.UnregisterEvent();
-        
+
         if (Evm)
             Evm.OnEverySecondTick.RemoveListener(UpdateSpinBtn);
     }

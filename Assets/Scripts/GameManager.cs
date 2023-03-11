@@ -4,6 +4,7 @@
 using Unity.Advertisement.IosSupport;
 #endif
 using System;
+using DG.Tweening;
 using UnityEngine;
 using Sirenix.OdinInspector;
 #if UNITY_EDITOR
@@ -28,8 +29,13 @@ public class GameManager : Singleton<GameManager>
 
     private int _secondToRemindComeback;
 
+    public GameObject previewShop;
+    public GameObject previewAfterGame;
+    public GameObject previewMain;
+
     [HideInInspector] public float lastClaimOnlineGiftTime;
 
+    [HideInInspector] public int rank = 0;
     [HideInInspector] public int point = 0;
     [HideInInspector] public int kill = 0;
     [HideInInspector] public int coin = 0;
@@ -40,7 +46,21 @@ public class GameManager : Singleton<GameManager>
     private LevelController _levelController;
 
     private MapController _mapController;
+    private ViewModelWeponController _viewModelWeponController;
 
+    public ViewModelWeponController ViewModelWeponController
+    {
+        get => _viewModelWeponController;
+        set
+        {
+            if (_viewModelWeponController != null)
+            {
+                Destroy(_viewModelWeponController);
+            }
+
+            _viewModelWeponController = value;
+        }
+    }
     public static bool EnableAds
     {
         get
@@ -97,6 +117,27 @@ public class GameManager : Singleton<GameManager>
     {
         AdManager.Instance.Init();
         EventGlobalManager.Instance.OnUpdateSetting.Dispatch();
+
+        previewShop.SetActive(false);
+
+        previewAfterGame.SetActive(false);
+        previewMain.SetActive(false);
+
+        var giftLevel = ConfigManager.Instance.itemConfig.GetRandomItemLevel();
+        data.user.giftLevelID = giftLevel.id;
+        data.user.giftLevelType = giftLevel.typeItem;
+
+        var giftMain = ConfigManager.Instance.itemConfig.GetRandomItemAds();
+        data.user.giftMainID = giftMain.id;
+        data.user.giftMainType = giftMain.typeItem;
+
+        var giftDaily = ConfigManager.Instance.itemConfig.GetRandomItemDaily();
+        data.user.giftDailyID = giftDaily.id;
+        data.user.giftDailyType = giftDaily.typeItem;
+
+        var giftLucky = ConfigManager.Instance.itemConfig.GetRandomItemAds();
+        data.user.giftLuckyID = giftLucky.id;
+        data.user.giftLuckyType = giftLucky.typeItem;
     }
 
     [Button]
@@ -247,9 +288,11 @@ public class GameManager : Singleton<GameManager>
     {
         if (GameState != GameState.Lose)
         {
+            PopupIngameWin.Show();
             Debug.Log("Victory");
             GameState = GameState.Win;
             AddMoney(coin);
+
             //show popup win
         }
     }
@@ -257,8 +300,18 @@ public class GameManager : Singleton<GameManager>
     public void OnLoseGame()
     {
         Debug.Log("Lose");
+        if (GetPlayer.countDie == 0)
+        {
+            Debug.Log("kill show");
+            DOTween.Sequence().SetDelay(1).OnComplete(() => { PopupKilled.Show(); });
+        }
+        else
+        {
+            Debug.Log("lose show");
+            DOTween.Sequence().SetDelay(1).OnComplete(() => { PopupInGameLose.Show(); });
+        }
+
         GameState = GameState.Lose;
-        AddMoney(coin);
         //show popup lose
     }
 
@@ -283,6 +336,7 @@ public class GameManager : Singleton<GameManager>
     {
         GameState = GameState.PLaying;
         GetLevelController.CurrentLevel.gameObject.SetActive(true);
+        rank = 0;
         coin = 0;
         point = 0;
         kill = 0;

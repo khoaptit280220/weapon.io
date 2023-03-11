@@ -6,10 +6,10 @@ using Random = UnityEngine.Random;
 
 public class WayPointController : MonoBehaviour
 {
-    private float xRangeLeft = -120;
-    private float xRangeRight = 120;
-    private float yRangeTop = 160;
-    private float yRangeDown = -80;
+    private float xRangeLeft = -123;
+    private float xRangeRight = 123;
+    private float yRangeTop = 157;
+    private float yRangeDown = -78;
     public GameObject pointPrefabs;
     List<Vector3> listPos = new List<Vector3>();
 

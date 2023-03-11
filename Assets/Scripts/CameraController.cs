@@ -14,8 +14,8 @@ public class CameraController : HCMonoBehaviour
 
     public Transform targetFollow;
 
-    private float Left = -84;
-    private float Right = 84;
+    private float Left = -100;
+    private float Right = 100;
     private float Top = 155;
     private float Down = -62;
 

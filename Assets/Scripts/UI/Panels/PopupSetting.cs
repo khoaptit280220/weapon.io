@@ -10,32 +10,21 @@ public class PopupSetting : UIPanel
 {
     public static PopupSetting Instance { get; private set; }
 
-    [SerializeField]
-    private Button btnRestorePurchase;
+    // [SerializeField]
+    // private Button closeBg;
 
-    [SerializeField]
-    private Button btnSound;
+    [SerializeField] private Button closeButton;
 
-    [SerializeField]
-    private Button btnVibrate;
+    [SerializeField] private GameObject soundOff;
 
-    [SerializeField]
-    private Button closeBg;
+    [SerializeField] private GameObject soundOn;
+    [SerializeField] private GameObject musicOff;
 
-    [SerializeField]
-    private Button closeButton;
+    [SerializeField] private GameObject mucsicOn;
 
-    [SerializeField]
-    private GameObject soundOff;
+    [SerializeField] private GameObject hapticOff;
 
-    [SerializeField]
-    private GameObject soundOn;
-
-    [SerializeField]
-    private GameObject vibrateOff;
-
-    [SerializeField]
-    private GameObject vibrateOn;
+    [SerializeField] private GameObject hapticOn;
 
     public override UiPanelType GetId()
     {
@@ -44,7 +33,7 @@ public class PopupSetting : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupSetting) GUIManager.Instance.NewPanel(UiPanelType.PopupSetting);
+        var newInstance = (PopupSetting)GUIManager.Instance.NewPanel(UiPanelType.PopupSetting);
         Instance = newInstance;
         newInstance.OnAppear();
     }
@@ -60,8 +49,11 @@ public class PopupSetting : UIPanel
 
     private void Init()
     {
-        vibrateOn.SetActive(Gm.data.setting.haptic);
-        vibrateOff.SetActive(!Gm.data.setting.haptic);
+        hapticOn.SetActive(Gm.data.setting.haptic);
+        hapticOff.SetActive(!Gm.data.setting.haptic);
+
+        mucsicOn.SetActive(Gm.data.setting.musicVolume > 0);
+        musicOff.SetActive(Gm.data.setting.musicVolume == 0);
 
         soundOn.SetActive(Gm.data.setting.soundVolume > 0);
         soundOff.SetActive(Gm.data.setting.soundVolume == 0);
@@ -80,13 +72,26 @@ public class PopupSetting : UIPanel
         AudioAssistant.Shot(TypeSound.Button);
     }
 
-    public void SwitchVibrate()
+    public void SwitchMusic()
+    {
+        Gm.data.setting.musicVolume = Gm.data.setting.musicVolume > 0 ? 0 : 1;
+
+        mucsicOn.SetActive(Gm.data.setting.musicVolume > 0);
+        musicOff.SetActive(Gm.data.setting.musicVolume == 0);
+
+        Database.SaveData();
+        EventGlobalManager.Instance.OnUpdateSetting.Dispatch();
+
+        AudioAssistant.Shot(TypeSound.Button);
+    }
+
+    public void SwitchHaptic()
     {
         Gm.data.setting.haptic = !Gm.data.setting.haptic;
         HCVibrate.Haptic(HcHapticTypes.RigidImpact);
 
-        vibrateOn.SetActive(Gm.data.setting.haptic);
-        vibrateOff.SetActive(!Gm.data.setting.haptic);
+        hapticOn.SetActive(Gm.data.setting.haptic);
+        hapticOff.SetActive(!Gm.data.setting.haptic);
 
         Database.SaveData();
         EventGlobalManager.Instance.OnUpdateSetting.Dispatch();
@@ -106,14 +111,14 @@ public class PopupSetting : UIPanel
     {
         base.RegisterEvent();
         closeButton.onClick.AddListener(Close);
-        closeBg.onClick.AddListener(Close);
+        //closeBg.onClick.AddListener(Close);
     }
 
     protected override void UnregisterEvent()
     {
         base.UnregisterEvent();
         closeButton.onClick.RemoveListener(Close);
-        closeBg.onClick.RemoveListener(Close);
+        //closeBg.onClick.RemoveListener(Close);
     }
 
     public override void OnDisappear()

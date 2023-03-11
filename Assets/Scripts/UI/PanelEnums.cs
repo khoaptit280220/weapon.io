@@ -24,5 +24,12 @@ public enum UiPanelType
     PopupShop,
     ScreenLose,
     ScreenWin,
+    PopupKilled,
+    PopupInGameLose,
+    PopupIngameWin,
+    PopupRateThanks,
+    PopupReward,
+    PopupMatch,
+    PopupSelectGiftLevel,
     SdkPlaceHolder //Do not rename or re-arrange
 }

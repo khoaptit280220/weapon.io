@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public class ModelHornController : MonoBehaviour
 
     public void SetupModelHorn()
     {
-        currentModelHornData = ConfigManager.Instance.modelHornConfig.GetModelHornById(Database.CurrentIdModelSkin);
+        currentModelHornData = ConfigManager.Instance.modelHornConfig.GetModelHornById(Database.CurrentIdHorn);
         SetupModelHornDefault();
         foreach (var VARIABLE in listModelHorns)
         {

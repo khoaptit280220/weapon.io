@@ -6,6 +6,7 @@ using System.IO;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -30,8 +31,10 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
     {
         mapConfig.UnlockMapDefault();
         modelSkinConfig.UnlockModelSkinDefault();
+        modelHornConfig.UnlockModelHornDefault();
         itemConfig.InitItem();
     }
+    
 
     #region Odin
 

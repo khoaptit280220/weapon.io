@@ -8,11 +8,13 @@ public class PopupOnlineReward : UIPanel
     [SerializeField] private Transform claimableRoot;
     [SerializeField] private Transform notClaimableRoot;
     [SerializeField] private TMP_Text timer;
+
     [SerializeField] private TMP_Text rewardValueTxt;
-    
+    // [SerializeField] private MoneyClaimFx moneyClaimFx;
+
     private int _rewardValue;
     private bool _claimable;
-    
+
     public static PopupOnlineReward Instance { get; private set; }
 
     public override UiPanelType GetId()
@@ -22,7 +24,7 @@ public class PopupOnlineReward : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupOnlineReward) GUIManager.Instance.NewPanel(UiPanelType.PopupOnlineReward);
+        var newInstance = (PopupOnlineReward)GUIManager.Instance.NewPanel(UiPanelType.PopupOnlineReward);
         Instance = newInstance;
         newInstance.OnAppear();
     }
@@ -45,21 +47,21 @@ public class PopupOnlineReward : UIPanel
         rewardValueTxt.text = _rewardValue.ToFormatString();
 
         #endregion
-        
+
         _claimable = GetRemainTime() < 0;
-        
+
         if (_claimable)
             ShowGift(true);
         else
             HideGift(true);
-        
+
         UpdateTimer();
     }
-    
+
     void ShowGift(bool isInit = false)
     {
         _claimable = true;
-        
+
         if (isInit)
             ShowClaimable();
         else
@@ -101,7 +103,7 @@ public class PopupOnlineReward : UIPanel
             notClaimableRoot.DOScale(1, .3f);
         }
     }
-    
+
     void UpdateTimer()
     {
         if (_claimable)
@@ -114,18 +116,23 @@ public class PopupOnlineReward : UIPanel
         else
             timer.text = timeRemain.ToTimeFormatCompact();
     }
-    
-    public static int GetRemainTime() => Mathf.RoundToInt(ConfigManager.Instance.gameCfg.extraFeatureConfig.onlineRewardInterval -
-                                                          (Time.time - GameManager.Instance.lastClaimOnlineGiftTime));
+
+    public static int GetRemainTime() => Mathf.RoundToInt(
+        ConfigManager.Instance.gameCfg.extraFeatureConfig.onlineRewardInterval -
+        (Time.time - GameManager.Instance.lastClaimOnlineGiftTime));
 
     public void Claim()
     {
         #region Claim logic
 
-        Gm.AddMoney(_rewardValue);
+        //Gm.AddMoney(_rewardValue);
+        //moneyClaimFx.ClaimMoney(_rewardValue);
+
+        PopupReward.Show();
+        PopupReward.Instance.InitCoin(_rewardValue);
 
         #endregion
-        
+
         ResetGiftTimer();
         Close();
     }
@@ -136,7 +143,10 @@ public class PopupOnlineReward : UIPanel
         {
             #region Claim ads logic
 
-            Gm.AddMoney(_rewardValue * 3);
+            //Gm.AddMoney(_rewardValue * 3);
+
+            PopupReward.Show();
+            PopupReward.Instance.InitCoin(_rewardValue * 3);
 
             #endregion
 
@@ -144,23 +154,23 @@ public class PopupOnlineReward : UIPanel
             Close();
         });
     }
-    
+
     void ResetGiftTimer()
     {
         Gm.lastClaimOnlineGiftTime = Time.time;
     }
-    
+
     protected override void RegisterEvent()
     {
         base.RegisterEvent();
-        
+
         EventGlobalManager.Instance.OnEverySecondTick.AddListener(UpdateTimer);
     }
 
     protected override void UnregisterEvent()
     {
         base.UnregisterEvent();
-        
+
         if (EventGlobalManager.Instance)
             EventGlobalManager.Instance.OnEverySecondTick.RemoveListener(UpdateTimer);
     }

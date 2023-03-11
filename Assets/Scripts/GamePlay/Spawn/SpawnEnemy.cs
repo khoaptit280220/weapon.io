@@ -17,10 +17,10 @@ public class SpawnEnemy : MonoBehaviour
     public EnemyController enemyController;
     public BossEnemyController bossEnemyController;
 
-    private float xRangeLeft = -125;
-    private float xRangeRight = 125;
-    private float yRangeTop = 165;
-    private float yRangeDown = -75;
+    private float xRangeLeft = -123;
+    private float xRangeRight = 126;
+    private float yRangeTop = 157;
+    private float yRangeDown = -78;
 
 
     private bool addP;
@@ -67,19 +67,22 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Spawn()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 15; i++)
         {
             GameObject Enemy = Instantiate(enemy, new Vector3(0, 0, 0), enemy.transform.rotation, parent);
             EnemyController enemyController = Enemy.GetComponent<EnemyController>();
             enemyController.ModelEnemy.transform.position = GetPosSpawnEnemy();
             enemyController.ModelEnemy.transform.localScale = player.transform.localScale;
-            if (addP)
-            {
-                addP = false;
-                cells.Add(GameManager.Instance.GetPlayer.entityInfo);
-            }
-
+            int id = Random.Range(1, 26);
+            enemyController.ModelSkin.SetupModelSkin(id);
+            enemyController.animEnemy.SetupAnim(id);
             cells.Add(enemyController.GetComponent<EnemyController>().entityInfo);
+        }
+
+        if (addP)
+        {
+            addP = false;
+            cells.Add(GameManager.Instance.GetPlayer.entityInfo);
         }
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Khoant;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -27,5 +28,27 @@ public class ModelSkinController : MonoBehaviour
                 VARIABLE.gameObject.SetActive(true);
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        EventController.Win += WinGame;
+        EventController.Lose += LoseGame;
+    }
+
+    private void OnDestroy()
+    {
+        EventController.Win -= WinGame;
+        EventController.Lose -= LoseGame;
+    }
+
+    public void WinGame()
+    {
+        SetupModelSkin();
+    }
+
+    public void LoseGame()
+    {
+        SetupModelSkin();
     }
 }

@@ -13,6 +13,7 @@ public class PopupSelectMap : UIPanel
     [SerializeField] private Button closeButton;
 
     [SerializeField] private TMP_Text textMap;
+    [SerializeField] private TMP_Text desMap;
 
     public override UiPanelType GetId()
     {
@@ -38,6 +39,7 @@ public class PopupSelectMap : UIPanel
     private void Init()
     {
         textMap.text = MapScreen.Instance.textMap;
+        desMap.text = MapScreen.Instance.desMap;
     }
 
     public override void OnDisappear()

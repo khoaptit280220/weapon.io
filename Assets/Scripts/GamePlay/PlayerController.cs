@@ -14,16 +14,17 @@ public class PlayerController : HCMonoBehaviour
 {
     public AnimSkinController anim;
     public EntityInfo entityInfo;
-    private float Top = 165;
-    private float Down = -80;
-    private float Left = -125;
-    private float Right = 125;
+    private float Top = 157;
+    private float Down = -78;
+    private float Left = -123;
+    private float Right = 123;
 
     public float speed = 20;
     private float speed2 = 20;
     private float speedTrail = 60;
     private float speedRotate = 20;
     private float speedTemp;
+    [ReadOnly] public int countDie;
 
     float time = 0f;
     [HideInInspector] public bool checkShield;
@@ -33,13 +34,11 @@ public class PlayerController : HCMonoBehaviour
     [HideInInspector] public int countHeadPlayer;
     [HideInInspector] public bool isPlayerDied;
     [HideInInspector] public float timeShield;
-    [DisableInEditorMode] [SerializeField] private Vector3 direction;
 
     public int tier = 0;
     [SerializeField] private int pointTier = 0;
     [SerializeField] private SpawnTrail spawnTrail;
     [SerializeField] private SpawnEnemy spawnEnemy;
-    private List<Eye> listEyes = new List<Eye>();
     public ParticleSystem trail;
     private Transform t;
 
@@ -71,13 +70,23 @@ public class PlayerController : HCMonoBehaviour
         playerName = Gm.data.user.name;
         entityInfo.name = playerName;
         nameTxt.text = playerName;
-        listEyes = GetComponentsInChildren<Eye>().ToList();
+        countDie = 0;
+        Debug.Log("init player");
+    }
+
+    public void Revival()
+    {
+        countDie = 1;
+        isPlayerDied = false;
+        anim.eye._skinnedMeshRenderer.SetBlendShapeWeight(0, 0);
+        anim.PlaySwin();
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isPlayerDied == true) anim.eye.ExplodeEye();
+        if (isPlayerDied == true) anim.eye.ExplodeEye();
         entityInfo.point = GameManager.Instance.point;
         if (GameManager.Instance.GameState == GameState.PLaying)
         {
@@ -117,7 +126,6 @@ public class PlayerController : HCMonoBehaviour
     {
         if (CnInputManager.GetAxis("Horizontal") != 0 || CnInputManager.GetAxis("Vertical") != 0)
         {
-            direction = new Vector3(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"), 0.0f);
             Vector3 _rotation = new Vector3(0, 0
                 , Mathf.Atan2(CnInputManager.GetAxis("Vertical"), CnInputManager.GetAxis("Horizontal")) * Mathf.Rad2Deg);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotation),
@@ -219,7 +227,7 @@ public class PlayerController : HCMonoBehaviour
         {
             pointTier = GameManager.Instance.point;
             tier += 1;
-            float x = 3 * Mathf.Pow(1.2f, tier);
+            float x = 2 * Mathf.Pow(1.2f, tier);
             this.transform.localScale = new Vector3(x, x, x);
         }
     }
@@ -315,17 +323,17 @@ public class PlayerController : HCMonoBehaviour
     {
         if (Database.CurrentIdModelSkin == 11)
         {
-            gameObject.GetComponentInChildren<Horn>().transform.localScale += new Vector3(0, 0, 0.05f);
+            gameObject.GetComponentInChildren<Horn>().transform.localScale += new Vector3(0, 0.05f, 0);
         }
 
         if (Database.CurrentIdModelSkin == 16)
         {
-            gameObject.GetComponentInChildren<Horn>().transform.localScale += new Vector3(0, 0, 0.1f);
+            gameObject.GetComponentInChildren<Horn>().transform.localScale += new Vector3(0, 0.1f, 0);
         }
 
         if (Database.CurrentIdModelSkin == 20)
         {
-            gameObject.GetComponentInChildren<Horn>().transform.localScale += new Vector3(0, 0, 0.15f);
+            gameObject.GetComponentInChildren<Horn>().transform.localScale += new Vector3(0, 0.15f, 0);
         }
     }
 }

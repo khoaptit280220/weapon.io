@@ -13,7 +13,6 @@ public class PlayScreen : UIPanel
     [SerializeField] private Image energy;
     [SerializeField] private Image energyEvent;
     [SerializeField] private GameObject notiEnergy;
-    [SerializeField] private TMP_Text point;
     [SerializeField] private TMP_Text kill;
     [SerializeField] private TMP_Text coin;
 
@@ -118,7 +117,6 @@ public class PlayScreen : UIPanel
 
     private void Update()
     {
-        point.text = "" + GameManager.Instance.point;
         kill.text = "" + GameManager.Instance.kill;
         coin.text = "" + GameManager.Instance.coin;
         if (CnInputManager.GetButton("Jump"))

@@ -21,11 +21,24 @@ public class GameData
 
         public int level = 1;
 
+
+        public int giftLevelID;
+        public int giftMainID;
+        public int giftDailyID;
+        public int giftLuckyID;
+
+        public TypeItem giftLevelType;
+        public TypeItem giftMainType;
+        public TypeItem giftDailyType;
+        public TypeItem giftLuckyType;
+
+
         //Progress Data
         public int money;
         public int score;
         public string name = "Player";
         public int luckyWheelProgress;
+        public int killHead;
         public DateTime lastFreeSpinTime = DateTime.MinValue;
         public int dailyRewardClaimedCount;
         public DateTime lastDailyRewardClaimTime = DateTime.MinValue;
@@ -69,7 +82,7 @@ public class GameData
 public static partial class Database
 {
     private static string dataKey = "GameData";
-
+    
     public static void SaveData()
     {
         var dataString = JsonConvert.SerializeObject(GameManager.Instance.data);

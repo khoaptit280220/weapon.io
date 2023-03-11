@@ -11,9 +11,9 @@ public class MapConfig : ScriptableObject
 
     public void UnlockMapDefault()
     {
-        
         GetMapDataByTypeMap(TypeMap.BlackPearlRuin).IsUnlock = true;
     }
+
     public MapData GetMapDataByTypeMap(TypeMap _typeMap)
     {
         foreach (var VARIABLE in ListMapDatas)
@@ -26,6 +26,7 @@ public class MapConfig : ScriptableObject
 
         return null;
     }
+
     public MapData GetMapDataById(int idmap)
     {
         foreach (var VARIABLE in ListMapDatas)
@@ -50,11 +51,14 @@ public enum TypeMap
     MidnightRift,
     DreamTowers,
 }
+
 [Serializable]
 public class MapData
 {
     public int idMap;
     public TypeMap typeMap;
+    public string descriptionMap;
+
     public bool IsUnlock
     {
         get

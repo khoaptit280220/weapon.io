@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Khoant;
 // using Pancake;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -8,19 +9,28 @@ using UnityEngine.UI;
 
 public class ShopItem : HCMonoBehaviour
 {
+    //private ControlViewModelSkin viewModelSkin;
+
     [ReadOnly] public StateItem stateItem;
     public GameObject bgUnSelect;
     public GameObject bgSelect;
     public Image icon;
     public GameObject btnBuy;
     public GameObject btnCannotBuy;
+
     public GameObject btnAds;
-   // public GameObject btnDaily;
+
+    public GameObject btnDaily;
     public TextMeshProUGUI textCoin;
     public TextMeshProUGUI textCoinCannotBuy;
 
+    public TextMeshProUGUI textName;
+
+    //public string descripSkin;
+
     private ItemData itemData;
-   // public PopupShop PopupShop => (PopupShop)GUIManager.Instance.NewPanel(UiPanelType.PopupShop) as PopupShop;
+
+    // public PopupShop PopupShop => (PopupShop)GUIManager.Instance.NewPanel(UiPanelType.PopupShop) as PopupShop;
     public void InitItemData(ItemData _itemData)
     {
         itemData = _itemData;
@@ -35,9 +45,23 @@ public class ShopItem : HCMonoBehaviour
         btnBuy.SetActive(false);
         btnCannotBuy.SetActive(false);
         btnAds.SetActive(false);
-       // btnDaily.SetActive(false);
+        btnDaily.SetActive(false);
+        if (itemData.typeItem == TypeItem.Skin)
+        {
+            textName.text = "" + itemData.skinName;
+        }
+
+        if (itemData.typeItem == TypeItem.Sword)
+        {
+            textName.text = "" + itemData.swordName;
+        }
+
+        if (itemData.typeItem == TypeItem.Trail)
+        {
+            textName.text = "" + itemData.trailName;
+        }
+
         icon.sprite = itemData.imageIcon;
-        icon.SetNativeSize();
         textCoin.text = textCoinCannotBuy.text = itemData.Coin.ToString();
     }
 
@@ -46,10 +70,18 @@ public class ShopItem : HCMonoBehaviour
         if (itemData.typeItem == TypeItem.Skin && itemData.id == Database.CurrentIdModelSkin)
         {
             stateItem = StateItem.Select;
+            PopupShop.Instance.name.text = "" + itemData.skinName;
+            PopupShop.Instance.desSkin.text = "" + itemData.descripSkin;
+
+            EventController.OnChangeViewSkin?.Invoke(itemData.id);
+
+            PopupShop.Instance.idviewSkin = itemData.id;
         }
         else if (itemData.typeItem == TypeItem.Sword && itemData.id == Database.CurrentIdHorn)
         {
             stateItem = StateItem.Select;
+            PopupShop.Instance.name.text = "" + itemData.swordName;
+            PopupShop.Instance.desSkin.text = "";
         }
         else if (itemData.typeItem == TypeItem.Trail && itemData.id == Database.CurrentIdTrail)
         {
@@ -64,7 +96,7 @@ public class ShopItem : HCMonoBehaviour
     private void SetupUI()
     {
         SetupDefaultUI();
-        
+
         if (itemData.IsUnlock)
         {
             if (stateItem == StateItem.Select)
@@ -92,39 +124,57 @@ public class ShopItem : HCMonoBehaviour
                     {
                         btnCannotBuy.SetActive(true);
                     }
+
                     break;
                 case TypeBuy.Ads:
                     btnAds.SetActive(true);
                     break;
-                // case TypeBuy.DailyReward:
-                //     btnDaily.SetActive(true);
-                //     break;
+                case TypeBuy.DailyReward:
+                    btnDaily.SetActive(true);
+                    break;
             }
         }
     }
 
     private bool CanBuyItem()
     {
-        if (Gm.data.user.money >= itemData.Coin && !itemData.IsUnlock) return true;
+        if (Gm.data.user.money >= itemData.Coin && !itemData.IsUnlock)
+        {
+            return true;
+        }
+
         //if (Data.CurrencyTotal >= itemData.Coin && !itemData.IsUnlock) return true;
-       // return false;
-       return false;
+        // return false;
+        return false;
     }
 
     public void OnClickSelect()
     {
-        Debug.Log("click");
-        
+        switch (itemData.typeItem)
+        {
+            case TypeItem.Skin:
+                PopupShop.Instance.name.text = "" + itemData.skinName;
+                PopupShop.Instance.desSkin.text = "" + itemData.descripSkin;
+
+                EventController.OnChangeViewSkin?.Invoke(itemData.id);
+
+                PopupShop.Instance.idviewSkin = itemData.id;
+                break;
+            case TypeItem.Sword:
+                PopupShop.Instance.name.text = "" + itemData.swordName;
+                PopupShop.Instance.desSkin.text = "";
+                break;
+        }
+
+
         if (itemData.IsUnlock && stateItem == StateItem.UnSelect)
         {
-            Debug.Log("chon vao");
             switch (itemData.typeItem)
             {
                 case TypeItem.Skin:
                     stateItem = StateItem.Select;
                     Database.CurrentIdModelSkin = itemData.id;
                     PopupShop.Instance.SetupState(PopupShop.Instance.currentShopState);
-                    Debug.Log("skin dc chon " + itemData.id);
                     break;
                 case TypeItem.Sword:
                     stateItem = StateItem.Select;
@@ -134,8 +184,7 @@ public class ShopItem : HCMonoBehaviour
             }
         }
 
-
-        PopupShop.Instance.ViewSkin(itemData.id);
+        //PopupShop.Instance.ViewSkin(itemData.id);
     }
 
     public void OnClickBuy()
@@ -143,15 +192,10 @@ public class ShopItem : HCMonoBehaviour
         Gm.data.user.money -= itemData.Coin;
         //Data.CurrencyTotal -= itemData.Coin;
         itemData.IsUnlock = true;
-      //  SoundController.Instance.PlayFX(SoundType.CompletePurchase);
+        ConfigManager.Instance.modelSkinConfig.GetModelSkinById(itemData.id).IsUnlock = true;
+        //  SoundController.Instance.PlayFX(SoundType.CompletePurchase);
         SetupUI();
         OnClickSelect();
-    }
-
-    public void OnClickDaily()
-    {
-        // PopupShop.Hide();
-        // PopupController.Instance.Show<PopupDailyReward>();
     }
 
     public void OnClickWatchAds()

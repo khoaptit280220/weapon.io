@@ -140,11 +140,12 @@ public class HornController : MonoBehaviour
             case TypeKiem.KiemPlayer:
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                    if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
+                    if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false &&
+                        GameManager.Instance.GetPlayer.isPlayerDied == false)
                     {
                         SetupHeadPlayer();
                         GameManager.Instance.kill += 1;
-                        other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
+                        //  other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
                         other.transform.parent.gameObject.SetActive(false);
                         parentFood = other.gameObject;
                         SpamFood();
@@ -173,7 +174,7 @@ public class HornController : MonoBehaviour
                     if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
                     {
                         SetupHeadEnemy();
-                        other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
+                        //    other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
                         other.transform.parent.gameObject.SetActive(false);
                         this.enemy.pointEnemy += 50;
                         parentFood = other.gameObject;
@@ -187,7 +188,6 @@ public class HornController : MonoBehaviour
                     {
                         SetupHeadEnemy();
                         GameManager.Instance.GetPlayer.isPlayerDied = true;
-                        SpawnEnemy.cells.RemoveAt(0);
                         DOTween.Sequence().SetDelay(0.8f).OnComplete(() => { other.gameObject.SetActive(false); });
                         GameManager.Instance.OnLoseGame();
                         this.enemy.pointEnemy += 50;
@@ -203,7 +203,7 @@ public class HornController : MonoBehaviour
                     if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
                     {
                         SetupHeadBoss();
-                        other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
+                        //   other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
                         other.transform.parent.gameObject.SetActive(false);
                         this.BossEnemy.pointEnemyBoss += 50;
                         parentFood = other.gameObject;
@@ -217,7 +217,6 @@ public class HornController : MonoBehaviour
                     {
                         SetupHeadBoss();
                         GameManager.Instance.GetPlayer.isPlayerDied = true;
-                        SpawnEnemy.cells.RemoveAt(0);
                         DOTween.Sequence().SetDelay(0.8f).OnComplete(() => { other.gameObject.SetActive(false); });
                         this.BossEnemy.pointEnemyBoss += 50;
                         GameManager.Instance.OnLoseGame();

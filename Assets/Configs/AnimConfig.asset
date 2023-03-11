@@ -21,7 +21,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 7e2e0d5c851da4bd593b8f3d024efd73, type: 2}
+      _Clip: {fileID: 7400000, guid: 24c73908077e4415d85acce63d5dc492, type: 2}
       _Speed: 1
       _NormalizedStartTime: 0
     Swin:
@@ -30,7 +30,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 262918bb6116946138974fb805b47831, type: 2}
+      _Clip: {fileID: 7400000, guid: d2b7f07617c1c4988a3aa2841a41687a, type: 2}
       _Speed: 1
       _NormalizedStartTime: 0
     SwinTrail:
@@ -39,7 +39,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 491d8e27f0ca24897b357d36d8a2ef4c, type: 2}
+      _Clip: {fileID: 7400000, guid: 8ebec1f3f31fe46c39def5a48fadd391, type: 2}
       _Speed: 1.7
       _NormalizedStartTime: 0
   - Id: 2
@@ -50,7 +50,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 04969803078fa4490b28fa1f3df69494, type: 2}
+      _Clip: {fileID: 7400000, guid: 139aa60ec30844e41acc8220d9e42a83, type: 2}
       _Speed: 1
       _NormalizedStartTime: 0
     Swin:
@@ -59,7 +59,7 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: 209bf389715bb43798a6517353d0205e, type: 2}
+      _Clip: {fileID: 7400000, guid: 036ec6ae409754c29a90d500ffb3f090, type: 2}
       _Speed: 1
       _NormalizedStartTime: 0
     SwinTrail:
@@ -68,6 +68,702 @@ MonoBehaviour:
         _NormalizedTimes: []
         _Callbacks: []
         _Names: []
-      _Clip: {fileID: 7400000, guid: af46f936130474d6f9fdd8e471c05b8c, type: 2}
+      _Clip: {fileID: 7400000, guid: f05b4f175da9f43ed9a843fbe16984d7, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 3
+    typeModelSkin: 2
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: e8d1dceca1d254c23a4bebcbc188fd36, type: 2}
       _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 220af5f4fd2fc4b3794d0a66c8805a01, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: bb52cebda89a949b5a54db99fdee930e, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 4
+    typeModelSkin: 3
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 2e3cc9cb0142744b7855ffdd10b82067, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: d37feca7ebafc4132b88c48e9dc651ac, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: b8f6524fc87154feb98ac5092e8ed00a, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 5
+    typeModelSkin: 4
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 40ca2dae3e59c4ff684f2b098d3b9c85, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 741dad44d14f24b3396d6a9ca60a7c80, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 5660cebab80e44e278077c586bcba193, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 6
+    typeModelSkin: 5
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 0e47092cf14dc4e0882ea3c9426e1a55, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 31ba69286bf054f18a7642099411bba5, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 8f8b1a0f60c744e5798b876051295e2c, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 7
+    typeModelSkin: 6
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 97cd9d31ebb3841efb83dc091a410614, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: e0e338c04da2840d485bc1758883e438, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: ca4508d63c74a405bbd8814fddb634b1, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 8
+    typeModelSkin: 7
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 7f9871040801f4d349dfff22ff41ca9f, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a293ee3e93e224a2fa6661a50e0ee9ab, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 850618178e9f7468eb29294a61da1965, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 9
+    typeModelSkin: 8
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 644c525eeeec14e03b9cd63dd2689ef7, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: ff273c265dbbf47978380bea5cb959c5, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 6a2f6bb33df9f43f28e2701649cdc113, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 10
+    typeModelSkin: 9
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 181d1533a56a748898942557b913eaad, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: d102a7c4cf8ee4a79a9e1837d574bb3a, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 219d85f1b50c84ff98e380fdb15507c9, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 11
+    typeModelSkin: 10
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: ab0e69171a8224766875eb87865654c7, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 317864c55e9434514aef8c21f169521f, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 72f0c59ce961d422dabd2fbe7ba1096a, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 12
+    typeModelSkin: 11
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: b5fa9a5ba6e0a42a29e3ae2254d35487, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 97b4b091fbba04cfcadab6a4f6c91d51, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: da162e8df4b834487a5733771d8f5c56, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 13
+    typeModelSkin: 12
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a6a319c1447da439b9cbd33c7dd162c5, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 3e281f04088fe4b4faac6fe49257b70c, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 5b2cdc4f5de7b4a1184a163b665e5ae2, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 14
+    typeModelSkin: 13
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 1408e799194f54f559904eff2f8d2472, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 98370af507fc94e09b24a7a2840cad6d, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 09c48fd573b44400bb17b7d029c844cc, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 15
+    typeModelSkin: 14
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: d8585484bdff94d2eb5fd3bce9b6dab2, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 3711eb1239384464c9383cc6de7d3f38, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 1f4adadddff6345af9da56191720dab5, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 16
+    typeModelSkin: 15
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: ba606dd85141447c488beb7cf91d54b7, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 5fb4df5bfbda1483d92c99b156e4e184, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 8b131a817c92a4085bd6ec81e0f6afaf, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 17
+    typeModelSkin: 16
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: c08e81805333941c9b4efd67c04210ac, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 49ef34e0c08364fd69998490a5b6dfa0, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 12f50db7f8b33497ba736a924da3547b, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 18
+    typeModelSkin: 17
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 30c92a8e88bbe4e169b2d6545133afbd, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: eb7285c06349f475cbb24c528ab543b7, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: e68e95c512e784e9ca6471f15d2e5b3d, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 19
+    typeModelSkin: 18
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 989b133a9f90d42d3840bac3fea17bfa, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: e227b7736078d4f1e88dec5138382888, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: a046b8563138546d5869cfad2c31ad30, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 20
+    typeModelSkin: 19
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: f9bcd49aa1d474f77988fd646027ceb4, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 1903c8d266c43405fac51e4bb5227ae9, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 1a89b8bbaf3304f8693b41b82560998b, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 21
+    typeModelSkin: 20
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 468f2fa12aa98466fa04138e96b107c6, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: bd0d34221ceee4db1a9ccd0e6083e8ff, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 854a04945a51740bf91b712f663b6502, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 22
+    typeModelSkin: 21
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 765b0195c614f45d09f1b152c3fbbb48, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 6afb0cf81e16f412ab417041b91b8291, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 1efc9f9688b304059a7b7011ec3685dd, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 23
+    typeModelSkin: 22
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: ea0974dde71994fb4976bc7b032864ed, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 83becfd9de8294727bbcf351eed37e84, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 592f507e0fc92453f86be006917d7b5f, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 24
+    typeModelSkin: 23
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: d435925cf33e64782aa69b3e981ef8c4, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 68a454650427543d7a75f57ef6aba4f7, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: de49265a5ac5146e39093f1ed83c1f08, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 25
+    typeModelSkin: 24
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 40a5d698ca9974e03897d9880dd2eb34, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: b3d35b0c4c6ec4aabbe7d2a1e99502e6, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 2a3edfba2dbb24fb0b5e5b7653664294, type: 2}
+      _Speed: 1.7
+      _NormalizedStartTime: 0
+  - Id: 26
+    typeModelSkin: 25
+    Idle:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: 53a4b52b8388c401b922747e8a564910, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    Swin:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: c3d21d4c1aaa54463bbf39424332362b, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: 0
+    SwinTrail:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400000, guid: d171b855aedba41258eb73ce616671af, type: 2}
+      _Speed: 1.7
       _NormalizedStartTime: 0

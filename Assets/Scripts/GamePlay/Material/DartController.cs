@@ -19,7 +19,7 @@ public class DartController : MonoBehaviour
             if (GameManager.Instance.GetPlayer.checkShield == false)
             {
                 GameManager.Instance.GetPlayer.isPlayerDied = true;
-                SpawnEnemy.cells.RemoveAt(0);
+                //SpawnEnemy.cells.RemoveAt(0);
                 other.transform.gameObject.SetActive(false);
                 parentFood = other.gameObject;
                 SpamFood();
@@ -31,7 +31,7 @@ public class DartController : MonoBehaviour
         {
             if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
             {
-                other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
+                // other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
                 other.transform.parent.gameObject.SetActive(false);
                 parentFood = other.gameObject;
                 SpamFood();

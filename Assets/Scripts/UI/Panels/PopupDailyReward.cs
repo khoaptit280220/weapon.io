@@ -8,7 +8,7 @@ public class PopupDailyReward : UIPanel
     [SerializeField] private GameObject claimable;
     [SerializeField] private GameObject notClaimable;
     [SerializeField] private TMP_Text timer;
-    
+
     public static PopupDailyReward Instance { get; private set; }
 
     public override UiPanelType GetId()
@@ -18,7 +18,7 @@ public class PopupDailyReward : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupDailyReward) GUIManager.Instance.NewPanel(UiPanelType.PopupDailyReward);
+        var newInstance = (PopupDailyReward)GUIManager.Instance.NewPanel(UiPanelType.PopupDailyReward);
         Instance = newInstance;
         newInstance.OnAppear();
     }
@@ -38,11 +38,12 @@ public class PopupDailyReward : UIPanel
         for (var i = 0; i < dailyRewardItems.Length; i++)
         {
             if (i < dailyRewardItems.Length - 1)
-                dailyRewardItems[i].InitCoin(Cfg.gameCfg.extraFeatureConfig.dailyRewardCoinRewardValues[i], UpdateTimer);
+                dailyRewardItems[i].InitCoin(Cfg.gameCfg.extraFeatureConfig.dailyRewardCoinRewardValues[i],
+                    UpdateTimer);
             else
                 dailyRewardItems[i].InitGift(UpdateTimer);
         }
-        
+
         UpdateTimer();
     }
 
@@ -53,18 +54,18 @@ public class PopupDailyReward : UIPanel
 
         claimable.SetActive(isClaimable);
         notClaimable.SetActive(!isClaimable);
-        
-        
+
+
         if (!isClaimable)
             timer.text = GetRemainTime().ToTimeFormat();
-        
+
         for (var i = 0; i < dailyRewardItems.Length; i++)
         {
             if (i < currentDayIndex)
                 dailyRewardItems[i].SetStatus(DailyRewardItem.Status.Claimed);
             else if (i == currentDayIndex)
-                dailyRewardItems[i].SetStatus(isClaimable 
-                    ? DailyRewardItem.Status.Claimable 
+                dailyRewardItems[i].SetStatus(isClaimable
+                    ? DailyRewardItem.Status.Claimable
                     : DailyRewardItem.Status.NotClaimable);
             else
                 dailyRewardItems[i].SetStatus(DailyRewardItem.Status.NotClaimable);
@@ -88,9 +89,9 @@ public class PopupDailyReward : UIPanel
             UpdateTimer();
         });
     }
-    
-    public static int GetRemainTime() => (int) (DateTime.Today.AddDays(1) - DateTime.Now).TotalSeconds;
-    
+
+    public static int GetRemainTime() => (int)(DateTime.Today.AddDays(1) - DateTime.Now).TotalSeconds;
+
     protected override void RegisterEvent()
     {
         base.RegisterEvent();
@@ -101,7 +102,7 @@ public class PopupDailyReward : UIPanel
     protected override void UnregisterEvent()
     {
         base.UnregisterEvent();
-        
+
         if (Evm)
             Evm.OnEverySecondTick.RemoveListener(UpdateTimer);
     }

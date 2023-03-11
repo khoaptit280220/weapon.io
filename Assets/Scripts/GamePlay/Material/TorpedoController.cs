@@ -18,7 +18,7 @@ public class TorpedoController : MonoBehaviour
             if (GameManager.Instance.GetPlayer.checkShield == false)
             {
                 GameManager.Instance.GetPlayer.isPlayerDied = true;
-                SpawnEnemy.cells.RemoveAt(0);
+                // SpawnEnemy.cells.RemoveAt(0);
                 other.transform.gameObject.SetActive(false);
                 this.gameObject.SetActive(false);
                 parentFood = other.gameObject;
@@ -31,7 +31,7 @@ public class TorpedoController : MonoBehaviour
         {
             if (other.gameObject.GetComponentInParent<EnemyController>().checkShieldEnemy == false)
             {
-                other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
+                // other.gameObject.GetComponentInParent<EnemyController>().pointEnemy = 0;
                 other.transform.parent.gameObject.SetActive(false);
                 this.gameObject.SetActive(false);
                 parentFood = other.gameObject;

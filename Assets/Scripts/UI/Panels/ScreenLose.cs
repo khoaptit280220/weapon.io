@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Khoant;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScreenLose : UIPanel
 {
-    
+    [SerializeField] private TMP_Text txtRank, txtkill, txtCoin;
+
+    [SerializeField] private ItemGiftLevel _itemGiftLevel;
     public static ScreenLose Instance { get; private set; }
 
     public override UiPanelType GetId()
@@ -31,14 +36,23 @@ public class ScreenLose : UIPanel
 
     private void Init()
     {
-        
-    }
+        Gm.AddMoney(GameManager.Instance.coin);
+        txtRank.text = "" + GameManager.Instance.rank;
+        txtkill.text = "" + GameManager.Instance.kill;
+        txtCoin.text = "" + GameManager.Instance.coin;
 
-    
+        _itemGiftLevel.Init();
+       
+        //GameManager.Instance.ViewModelWeponController.SetupModelWeapon();
+    }
 
     public void ReMatch()
     {
         AudioAssistant.Shot(TypeSound.Button);
+        Hide();
+        GameManager.Instance.BackHome();
+        GameManager.Instance.previewAfterGame.SetActive(false);
+        GameManager.Instance.previewMain.SetActive(true);
         MainScreen.Show();
     }
 

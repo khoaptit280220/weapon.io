@@ -6,6 +6,7 @@ public class Level : MonoBehaviour
 {
     private MapController mapController;
     private ModelSkinController modelSkinController;
+    private ModelHornController modelHornController;
 
     public void SetupMap()
     {
@@ -17,5 +18,11 @@ public class Level : MonoBehaviour
     {
         modelSkinController = GetComponentInChildren<ModelSkinController>();
         modelSkinController.SetupModelSkin();
+    }
+
+    public void SetupHorn()
+    {
+        modelHornController = GetComponentInChildren<ModelHornController>();
+        modelHornController.SetupModelHorn();
     }
 }

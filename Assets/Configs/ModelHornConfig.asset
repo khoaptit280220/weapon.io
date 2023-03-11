@@ -12,4 +12,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a63ef0094d244e7194887a4b5041168, type: 3}
   m_Name: ModelHornConfig
   m_EditorClassIdentifier: 
-  ListModelHornDatas: []
+  ListModelHornDatas:
+  - idModelHorn: 1
+    typeModelHorn: 0
+  - idModelHorn: 2
+    typeModelHorn: 1
+  - idModelHorn: 3
+    typeModelHorn: 2
+  - idModelHorn: 4
+    typeModelHorn: 3
+  - idModelHorn: 5
+    typeModelHorn: 4
+  - idModelHorn: 6
+    typeModelHorn: 5
+  - idModelHorn: 7
+    typeModelHorn: 6
+  - idModelHorn: 8
+    typeModelHorn: 7
+  - idModelHorn: 9
+    typeModelHorn: 8
+  - idModelHorn: 10
+    typeModelHorn: 9
+  - idModelHorn: 11
+    typeModelHorn: 10
+  - idModelHorn: 12
+    typeModelHorn: 11
+  - idModelHorn: 13
+    typeModelHorn: 12
+  - idModelHorn: 14
+    typeModelHorn: 13
+  - idModelHorn: 15
+    typeModelHorn: 14
+  - idModelHorn: 16
+    typeModelHorn: 15
+  - idModelHorn: 17
+    typeModelHorn: 16
+  - idModelHorn: 18
+    typeModelHorn: 17
+  - idModelHorn: 19
+    typeModelHorn: 18
+  - idModelHorn: 20
+    typeModelHorn: 19
+  - idModelHorn: 21
+    typeModelHorn: 20
+  - idModelHorn: 22
+    typeModelHorn: 21
+  - idModelHorn: 23
+    typeModelHorn: 22
+  - idModelHorn: 24
+    typeModelHorn: 23
+  - idModelHorn: 25
+    typeModelHorn: 24
+  - idModelHorn: 26
+    typeModelHorn: 25
+  - idModelHorn: 27
+    typeModelHorn: 26
+  - idModelHorn: 28
+    typeModelHorn: 27
+  - idModelHorn: 29
+    typeModelHorn: 28
+  - idModelHorn: 30
+    typeModelHorn: 29
+  - idModelHorn: 31
+    typeModelHorn: 30
+  - idModelHorn: 32
+    typeModelHorn: 31
+  - idModelHorn: 33
+    typeModelHorn: 32
+  - idModelHorn: 34
+    typeModelHorn: 33
+  - idModelHorn: 35
+    typeModelHorn: 34
+  - idModelHorn: 36
+    typeModelHorn: 35
+  - idModelHorn: 37
+    typeModelHorn: 36
+  - idModelHorn: 38
+    typeModelHorn: 37
+  - idModelHorn: 39
+    typeModelHorn: 38
+  - idModelHorn: 40
+    typeModelHorn: 39

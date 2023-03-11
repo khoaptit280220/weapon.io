@@ -15,15 +15,22 @@ MonoBehaviour:
   ListMapDatas:
   - idMap: 1
     typeMap: 0
+    descriptionMap: Black Pearl ship is a hotspot for fishes and newcomers
   - idMap: 2
     typeMap: 1
+    descriptionMap: A sunkken city under the sea, what danger lines ahead
   - idMap: 3
     typeMap: 2
+    descriptionMap: I'm here to steal christmas .. run now
   - idMap: 4
     typeMap: 3
+    descriptionMap: The fish here are destroyed by their own creation
   - idMap: 5
     typeMap: 4
+    descriptionMap: These bandits have hunted many great treasures
   - idMap: 6
     typeMap: 5
+    descriptionMap: It is an endless battlefield on midnight rift
   - idMap: 7
     typeMap: 6
+    descriptionMap: You can eat these golden creatures to gain booster

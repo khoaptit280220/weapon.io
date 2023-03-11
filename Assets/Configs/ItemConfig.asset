@@ -16,227 +16,597 @@ MonoBehaviour:
   - typeItem: 0
     id: 1
     skinName: 0
+    descripSkin: Best A to start
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 1d983df8659ef47be84aa176e14a21e1, type: 3}
+    imageIcon: {fileID: 21300000, guid: aa34923d40ebd474ba3f912302d11706, type: 3}
     typeBuy: 0
     Coin: 0
   - typeItem: 0
     id: 2
     skinName: 1
+    descripSkin: Gift for new players
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 50791e9d1307b4c66b0040a1cf018cd7, type: 3}
+    imageIcon: {fileID: 21300000, guid: d47a37582fbba4d5097f0b1f423f4968, type: 3}
     typeBuy: 1
     Coin: 1000
   - typeItem: 0
     id: 3
     skinName: 2
+    descripSkin: Reduce 5% Energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: fd838632c451e434bad8e47258adc171, type: 3}
+    imageIcon: {fileID: 21300000, guid: 6914917cf8eab4e4bb70eca73b245115, type: 3}
     typeBuy: 1
     Coin: 1000
   - typeItem: 0
     id: 4
     skinName: 3
+    descripSkin: Gift for new players
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: b67a86bc7035649bbb501fe7361baa5e, type: 3}
+    imageIcon: {fileID: 21300000, guid: 43f11e34c75654374bd09b521eb1eff2, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 5
     skinName: 4
+    descripSkin: Reduce 10% Energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 936c0e0bd658a4ca7bc9f973c1127d70, type: 3}
+    imageIcon: {fileID: 21300000, guid: f26aa651e96f24ff082d1c1a1b8bb020, type: 3}
     typeBuy: 1
     Coin: 2000
   - typeItem: 0
     id: 6
     skinName: 5
+    descripSkin: Spawn snow when rush
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: fd572786c449d43cda3412a32318e486, type: 3}
+    imageIcon: {fileID: 21300000, guid: 16c1cae7a921042b2a0c982b5f1d42df, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 7
     skinName: 6
+    descripSkin: Reduce 15% Energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 8245469db651e43a69357491e8e9e08a, type: 3}
+    imageIcon: {fileID: 21300000, guid: d36ce793087974dd6bc7ae448745fcc3, type: 3}
     typeBuy: 1
     Coin: 2000
   - typeItem: 0
     id: 8
     skinName: 7
+    descripSkin: 10s turn on shield 5s
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: b24ebd68a207c4336a128dff8f1ed9fe, type: 3}
+    imageIcon: {fileID: 21300000, guid: 0e3a57a063c0e4738a320b45771e3627, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 9
     skinName: 8
+    descripSkin: Spawn darts when rush
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 04320eabec16d4d109dad1921fe061f6, type: 3}
+    imageIcon: {fileID: 21300000, guid: 9c8e2ca449c8f4afe8da80f611e1629d, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 10
     skinName: 9
+    descripSkin: Buff speed 5%
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: d977929640b59446fb5a2b9ebd2f9744, type: 3}
+    imageIcon: {fileID: 21300000, guid: df8bdd185848f48c087f9df19284a5e7, type: 3}
     typeBuy: 1
     Coin: 3000
   - typeItem: 0
     id: 11
     skinName: 10
+    descripSkin: Buff sword 5%
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 77ebf7cb36d6849dfb436f3bf437a167, type: 3}
+    imageIcon: {fileID: 21300000, guid: 98a1cd859584d44c29109cbbaa98ecbc, type: 3}
     typeBuy: 1
     Coin: 3000
   - typeItem: 0
     id: 12
     skinName: 11
+    descripSkin: Spawn small torpedo when rush
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 973a5de4bfce74273b11df9cb4eaa0c5, type: 3}
+    imageIcon: {fileID: 21300000, guid: 01994cd5ca77d4e4f880a7f1c9cbcd7e, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 13
     skinName: 12
+    descripSkin: Reduce 20% Energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: ae1089f34cbf6491780025c81be0f80e, type: 3}
+    imageIcon: {fileID: 21300000, guid: 0fb91e75dee0c4787b391145ed3ea31c, type: 3}
     typeBuy: 1
     Coin: 4000
   - typeItem: 0
     id: 14
     skinName: 13
+    descripSkin: Buff speed 10%
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 86e4c54371357471884d795abde860ba, type: 3}
+    imageIcon: {fileID: 21300000, guid: 633042ab7638b43e0a8952b2e1876f4a, type: 3}
     typeBuy: 1
     Coin: 4000
   - typeItem: 0
     id: 15
     skinName: 14
+    descripSkin: 10s turn on shield 10s
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 6da9db74f97ef41b5b74f6c83739cf5f, type: 3}
+    imageIcon: {fileID: 21300000, guid: 7b6ae62006def4e1e8b8e4f05fa8d24a, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 16
     skinName: 15
+    descripSkin: Buff sword 10%
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 38b597f89a6ca426fa39793f5a540783, type: 3}
+    imageIcon: {fileID: 21300000, guid: 2ee853bd83d92454c9f0dedd627b5ed1, type: 3}
     typeBuy: 1
     Coin: 5000
   - typeItem: 0
     id: 17
     skinName: 16
+    descripSkin: Reduce 25% Energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 737fc542662434b8cb1130edfd3690c9, type: 3}
+    imageIcon: {fileID: 21300000, guid: 61ccaa6a85d3b4c29a6977112f63223f, type: 3}
     typeBuy: 1
     Coin: 5000
   - typeItem: 0
     id: 18
     skinName: 17
+    descripSkin: Buff speed 15%
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: a5b0affa06d674a938152b9da066bbf0, type: 3}
+    imageIcon: {fileID: 21300000, guid: a15dac4027c0c45cabdb070c8e32e134, type: 3}
     typeBuy: 2
     Coin: 0
   - typeItem: 0
     id: 19
     skinName: 18
+    descripSkin: 5s turn on shield 10s
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 2703dfd050827438592236dc17eb57a4, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: 9a99fa70b26e744b3b297d1b954a10c2, type: 3}
+    typeBuy: 3
     Coin: 6000
   - typeItem: 0
     id: 20
     skinName: 19
+    descripSkin: Buff sword 155
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 867f23b725eae4de89ae0d0ed8afa258, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: 7c5808311fce5450bbfbc37ff2a80391, type: 3}
+    typeBuy: 3
     Coin: 6000
   - typeItem: 0
     id: 21
     skinName: 20
+    descripSkin: Reduce 30% Energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: cb0f431b78bdb43d48ed9f493f74278e, type: 3}
-    typeBuy: 2
+    imageIcon: {fileID: 21300000, guid: 1c7018ae1172b4cbcbff48570402801c, type: 3}
+    typeBuy: 3
     Coin: 0
   - typeItem: 0
     id: 22
     skinName: 21
+    descripSkin: Buff speed 20%
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: f9c6ad308fb4146628a666e4310205ab, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: 2e442e136014342308f5fc7bf7d1a036, type: 3}
+    typeBuy: 3
     Coin: 7000
   - typeItem: 0
     id: 23
     skinName: 22
+    descripSkin: Magnet coin, food, energy
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: adf0b97fd28a94765acda3505909a0c8, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: 12e7b478fda0645d88076a6deb1d3afe, type: 3}
+    typeBuy: 3
     Coin: 8000
   - typeItem: 0
     id: 24
     skinName: 23
+    descripSkin: X2 coin
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: e48d73ac7e0734e1a8762667ce150823, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: 2251e8880e4c44074a687a234ba49bcc, type: 3}
+    typeBuy: 3
     Coin: 8500
   - typeItem: 0
     id: 25
     skinName: 24
+    descripSkin: X2 point eat food
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 925ea71c0442a40e9b893c3f918d8320, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: ed0beae4937ed471a9a58b70cad08bcf, type: 3}
+    typeBuy: 3
     Coin: 9000
   - typeItem: 0
     id: 26
     skinName: 25
+    descripSkin: X2 energy recovery
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 21300000, guid: 61150404ecd084861a2a0b7a66f8c6d0, type: 3}
-    typeBuy: 1
+    imageIcon: {fileID: 21300000, guid: f9321079e5017464b8ed9ee34206cc76, type: 3}
+    typeBuy: 3
     Coin: 9500
   ListSwordDatas:
   - typeItem: 1
     id: 1
     skinName: 0
+    descripSkin: 
     swordName: 0
     trailName: 0
-    imageIcon: {fileID: 0}
+    imageIcon: {fileID: 21300000, guid: db3484a9303e148c682abc02beb96b3c, type: 3}
     typeBuy: 0
     Coin: 0
   - typeItem: 1
     id: 2
     skinName: 0
-    swordName: 0
+    descripSkin: 
+    swordName: 1
     trailName: 0
-    imageIcon: {fileID: 0}
+    imageIcon: {fileID: 21300000, guid: a1b4e66044e41463c91e016e9387e7ee, type: 3}
+    typeBuy: 1
+    Coin: 2000
+  - typeItem: 1
+    id: 3
+    skinName: 0
+    descripSkin: 
+    swordName: 2
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: a4803ef0c0aeb4f49b6a4a2197c7d809, type: 3}
+    typeBuy: 1
+    Coin: 2000
+  - typeItem: 1
+    id: 4
+    skinName: 0
+    descripSkin: 
+    swordName: 3
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 03cbaa0da56ac4c0888a6f28c87e0937, type: 3}
+    typeBuy: 1
+    Coin: 3000
+  - typeItem: 1
+    id: 5
+    skinName: 0
+    descripSkin: 
+    swordName: 4
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 8e4bcb83374314fdbbb7e693fea1380b, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 6
+    skinName: 0
+    descripSkin: 
+    swordName: 5
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 880b35af41faf449c9e336c403d91993, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 7
+    skinName: 0
+    descripSkin: 
+    swordName: 6
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 793f4f179ead24359b2a7d16804dbb9e, type: 3}
+    typeBuy: 1
+    Coin: 3000
+  - typeItem: 1
+    id: 8
+    skinName: 0
+    descripSkin: 
+    swordName: 7
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: c3d6b0994e4244e0d8107a6200900884, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 9
+    skinName: 0
+    descripSkin: 
+    swordName: 8
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 7476d1efee0124481aca882d56b4099b, type: 3}
     typeBuy: 0
     Coin: 0
+  - typeItem: 1
+    id: 10
+    skinName: 0
+    descripSkin: 
+    swordName: 9
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: eac4a7acc3e634282b248b9442d830d2, type: 3}
+    typeBuy: 1
+    Coin: 3000
+  - typeItem: 1
+    id: 11
+    skinName: 0
+    descripSkin: 
+    swordName: 10
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 5b11e377437ff4c60bc4459ae7087907, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 12
+    skinName: 0
+    descripSkin: 
+    swordName: 11
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 45364e34775604017bb350891c0db25c, type: 3}
+    typeBuy: 1
+    Coin: 4000
+  - typeItem: 1
+    id: 13
+    skinName: 0
+    descripSkin: 
+    swordName: 12
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: c154e1354b4714c0aad8902dd75ee945, type: 3}
+    typeBuy: 1
+    Coin: 4000
+  - typeItem: 1
+    id: 14
+    skinName: 0
+    descripSkin: 
+    swordName: 13
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: f94fd1d7be5e6464f81f93e839c94e8f, type: 3}
+    typeBuy: 1
+    Coin: 4000
+  - typeItem: 1
+    id: 15
+    skinName: 0
+    descripSkin: 
+    swordName: 14
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: b68df22dc1a9c4ae9b43c59ea8205901, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 16
+    skinName: 0
+    descripSkin: 
+    swordName: 15
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 09b1d6d4a80154c23a77f9ac58ad235e, type: 3}
+    typeBuy: 1
+    Coin: 5000
+  - typeItem: 1
+    id: 17
+    skinName: 0
+    descripSkin: 
+    swordName: 16
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 2d4a27f77de74471c8dc7c3af2de69f7, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 18
+    skinName: 0
+    descripSkin: 
+    swordName: 17
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 028a0b83f8a914a7d94aa7fc9f4dfee5, type: 3}
+    typeBuy: 1
+    Coin: 5000
+  - typeItem: 1
+    id: 19
+    skinName: 0
+    descripSkin: 
+    swordName: 18
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 8afcb596192f04a02b3b6c31c7fde5b5, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 20
+    skinName: 0
+    descripSkin: 
+    swordName: 19
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: edac95cac8f7e474199675d7cef90fc5, type: 3}
+    typeBuy: 1
+    Coin: 5500
+  - typeItem: 1
+    id: 21
+    skinName: 0
+    descripSkin: 
+    swordName: 20
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 4697d051736e3404d90263a16ae6688e, type: 3}
+    typeBuy: 1
+    Coin: 5500
+  - typeItem: 1
+    id: 22
+    skinName: 0
+    descripSkin: 
+    swordName: 21
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: fe393643ad0ea4703926b94b20bf0235, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 23
+    skinName: 0
+    descripSkin: 
+    swordName: 22
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 34f7cf598fbd94973ab1806e81a7b65d, type: 3}
+    typeBuy: 1
+    Coin: 6000
+  - typeItem: 1
+    id: 24
+    skinName: 0
+    descripSkin: 
+    swordName: 23
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 11303112e1f0547df9a6efa9a06a332c, type: 3}
+    typeBuy: 1
+    Coin: 6000
+  - typeItem: 1
+    id: 25
+    skinName: 0
+    descripSkin: 
+    swordName: 24
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 0dd15c8cda08a448594d0155d7a5113f, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 26
+    skinName: 0
+    descripSkin: 
+    swordName: 25
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 3ca92918f51324160b0f25c50aae2e40, type: 3}
+    typeBuy: 1
+    Coin: 6500
+  - typeItem: 1
+    id: 27
+    skinName: 0
+    descripSkin: 
+    swordName: 26
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 0a658b32a37ed4f6daa71f49d8030286, type: 3}
+    typeBuy: 1
+    Coin: 6500
+  - typeItem: 1
+    id: 28
+    skinName: 0
+    descripSkin: 
+    swordName: 27
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 1d3f523b09e4a47bb8ee142f0daac5e1, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 29
+    skinName: 0
+    descripSkin: 
+    swordName: 28
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: f49d21c55dfea43a88d702fd22a853c4, type: 3}
+    typeBuy: 1
+    Coin: 7000
+  - typeItem: 1
+    id: 30
+    skinName: 0
+    descripSkin: 
+    swordName: 29
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: d2e19aa89de104111b026d7df27fa032, type: 3}
+    typeBuy: 1
+    Coin: 7000
+  - typeItem: 1
+    id: 31
+    skinName: 0
+    descripSkin: 
+    swordName: 30
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: c5ca4bcd63c6f4adca925802b57c785e, type: 3}
+    typeBuy: 1
+    Coin: 7000
+  - typeItem: 1
+    id: 32
+    skinName: 0
+    descripSkin: 
+    swordName: 31
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 21d1391ed7c3f49efaa9c72d255ec67d, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 33
+    skinName: 0
+    descripSkin: 
+    swordName: 32
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: ad1288bd60f6b476b808e2fe290b295b, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 34
+    skinName: 0
+    descripSkin: 
+    swordName: 33
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 722dfb4f35794405fb01bf74f0e20ec2, type: 3}
+    typeBuy: 2
+    Coin: 0
+  - typeItem: 1
+    id: 35
+    skinName: 0
+    descripSkin: 
+    swordName: 34
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: c282fe5f3b8114b1b8b947ce2e816075, type: 3}
+    typeBuy: 1
+    Coin: 7500
+  - typeItem: 1
+    id: 36
+    skinName: 0
+    descripSkin: 
+    swordName: 35
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 8760c36c0fe9046b2985ba92423b4bc2, type: 3}
+    typeBuy: 1
+    Coin: 7500
+  - typeItem: 1
+    id: 37
+    skinName: 0
+    descripSkin: 
+    swordName: 36
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: fd96c90129b374f8b87cb16f4b96132b, type: 3}
+    typeBuy: 1
+    Coin: 8000
+  - typeItem: 1
+    id: 38
+    skinName: 0
+    descripSkin: 
+    swordName: 37
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: fc29ce1ef33644001b8936b796990bcf, type: 3}
+    typeBuy: 1
+    Coin: 8000
+  - typeItem: 1
+    id: 39
+    skinName: 0
+    descripSkin: 
+    swordName: 38
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 7c5746a0884ce4eb3aae5186ee8ff02d, type: 3}
+    typeBuy: 1
+    Coin: 8500
+  - typeItem: 1
+    id: 40
+    skinName: 0
+    descripSkin: 
+    swordName: 39
+    trailName: 0
+    imageIcon: {fileID: 21300000, guid: 03c1faddec2f94d5f9639f79bd56e42a, type: 3}
+    typeBuy: 1
+    Coin: 9000
   ListTrailDatas: []
   ListPackDatas: []

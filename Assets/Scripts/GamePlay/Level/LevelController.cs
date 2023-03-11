@@ -27,6 +27,7 @@ public class LevelController : MonoBehaviour
         CurrentLevel.gameObject.SetActive(false);
         CurrentLevel.SetupMap();
         CurrentLevel.SetupSkin();
+        CurrentLevel.SetupHorn();
         SpawnEnemy.cells.Clear();
     }
 }

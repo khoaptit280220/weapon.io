@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class LuckyWheelProgress : HCMonoBehaviour
 {
     [SerializeField] private Slider progressSlider;
-    [SerializeField] private TMP_Text progressTxt;
+
+    //[SerializeField] private TMP_Text progressTxt;
     [SerializeField] private SerializedDictionary<int, LuckyWheelProgressReward> rewardMap;
 
     public void Init()
@@ -26,7 +27,7 @@ public class LuckyWheelProgress : HCMonoBehaviour
     public void UpdateProgress()
     {
         var progress = Gm.data.user.luckyWheelProgress;
-        progressTxt.text = $"Progress: {progress}/{progressSlider.maxValue}";
+        //   progressTxt.text = $"Progress: {progress}/{progressSlider.maxValue}";
         progressSlider.DOValue(progress, .5f).OnComplete(() =>
         {
             foreach (var pair in rewardMap)
@@ -43,12 +44,12 @@ public class LuckyWheelProgress : HCMonoBehaviour
     {
         // TODO: Claim reward logic
     }
-    
+
     public void ClaimReward2()
     {
         // TODO: Claim reward logic
     }
-    
+
     public void ClaimReward3()
     {
         // TODO: Claim reward logic

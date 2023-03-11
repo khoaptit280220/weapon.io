@@ -12,6 +12,20 @@ public class Leaderboard : MonoBehaviour
     void Update()
     {
         SpawnEnemy.cells.Sort();
+        for (int i = 0; i < SpawnEnemy.cells.Count - 1; i++)
+        {
+            if (SpawnEnemy.cells[i].name != GameManager.Instance.GetPlayer.entityInfo.name)
+            {
+                for (int j = 1; j < SpawnEnemy.cells.Count; j++)
+                {
+                    if (SpawnEnemy.cells[i].name == SpawnEnemy.cells[j].name)
+                    {
+                        // SpawnEnemy.cells[i].name = "Cuu con";
+                        // SpawnEnemy.cells[i].point = 0;
+                    }
+                }
+            }
+        }
 
         for (int i = 0; i < rows.Length; i++)
         {

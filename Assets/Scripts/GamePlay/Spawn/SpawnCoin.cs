@@ -74,11 +74,11 @@ public class SpawnCoin : MonoBehaviour
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Instantiate(shield, new Vector3(Random.Range(-120, 120), Random.Range(-60, 130), 0),
+                    Instantiate(shield, new Vector3(Random.Range(-120, 120), Random.Range(-70, 150), 0),
                         shield.transform.rotation, parent);
-                    Instantiate(weapon, new Vector3(Random.Range(-120, 120), Random.Range(-60, 130), 0),
+                    Instantiate(weapon, new Vector3(Random.Range(-120, 120), Random.Range(-70, 150), 0),
                         weapon.transform.rotation, parent);
-                    Instantiate(shoe, new Vector3(Random.Range(-120, 120), Random.Range(-60, 130), 0),
+                    Instantiate(shoe, new Vector3(Random.Range(-120, 120), Random.Range(-70, 150), 0),
                         shoe.transform.rotation, parent);
                 }
             });

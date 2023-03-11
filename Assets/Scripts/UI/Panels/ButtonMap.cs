@@ -7,5 +7,7 @@ public class ButtonMap : MonoBehaviour
 {
     public int idMap;
     public TypeMap typeMap;
+
     public TextMeshProUGUI textMap;
+    // public TextMeshProUGUI desMap;
 }

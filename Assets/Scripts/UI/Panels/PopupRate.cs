@@ -10,11 +10,9 @@ public class PopupRate : UIPanel
 {
     private int _starCount = 4;
 
-    [SerializeField]
-    private Image[] imgStar;
+    [SerializeField] private Image[] imgStar;
 
-    [SerializeField]
-    private Sprite[] sprStar;
+    [SerializeField] private Sprite[] sprStar;
 
     public override UiPanelType GetId()
     {
@@ -23,7 +21,7 @@ public class PopupRate : UIPanel
 
     public static void Show()
     {
-        var newInstance = (PopupRate) GUIManager.Instance.NewPanel(UiPanelType.PopupRate);
+        var newInstance = (PopupRate)GUIManager.Instance.NewPanel(UiPanelType.PopupRate);
         newInstance.OnAppear();
     }
 
@@ -60,12 +58,14 @@ public class PopupRate : UIPanel
 
         if (_starCount < 4)
         {
-            PopupNotification.Show(GameConst.FeedbackThanks);
+            PopupRateThanks.Show();
+            // PopupNotification.Show(GameConst.FeedbackThanks);
         }
         else
         {
 #if UNITY_ANDROID
-            Application.OpenURL(@"https://play.google.com/store/apps/details?id=" + GameManager.Instance.gameSetting.packageName);
+            Application.OpenURL(@"https://play.google.com/store/apps/details?id=" +
+                                GameManager.Instance.gameSetting.packageName);
 #elif UNITY_IOS
         if (!Device.RequestStoreReview())
         {

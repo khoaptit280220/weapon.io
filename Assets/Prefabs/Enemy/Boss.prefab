@@ -314,9 +314,9 @@ MonoBehaviour:
   WayPointController: {fileID: 6438313859394605491}
   countHeadBoss: 0
   trail: {fileID: 1198432888804447853}
-  snowPrefab: {fileID: 9021628719676488451, guid: 1edd51d837f9e4112b5610051545faf1,
+  snowPrefab: {fileID: 3284004681932003388, guid: 5495e0f6dbbea427e96351491cee295a,
     type: 3}
-  dartPrefab: {fileID: 2914300906330812863, guid: e9ab90e076e4849e1922eee3091104b8,
+  dartPrefab: {fileID: -4095269108305878557, guid: 5495e0f6dbbea427e96351491cee295a,
     type: 3}
   checkShieldBoss: 0
   shield: {fileID: 5865473520981861723}
@@ -439,17 +439,17 @@ PrefabInstance:
     - target: {fileID: 3748117657015413533, guid: fac3799752f274f36bb4096991563e1f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3748117657015413533, guid: fac3799752f274f36bb4096991563e1f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3748117657015413533, guid: fac3799752f274f36bb4096991563e1f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3748117657015413533, guid: fac3799752f274f36bb4096991563e1f,
         type: 3}
@@ -501,6 +501,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4233660603843776139, guid: fac3799752f274f36bb4096991563e1f,
+        type: 3}
+      propertyPath: objfood
+      value: 
+      objectReference: {fileID: -8841933064720734068, guid: 5495e0f6dbbea427e96351491cee295a,
+        type: 3}
     - target: {fileID: 4233660603843776139, guid: fac3799752f274f36bb4096991563e1f,
         type: 3}
       propertyPath: typeKiem

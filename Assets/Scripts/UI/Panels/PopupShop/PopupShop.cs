@@ -8,7 +8,12 @@ using UnityEngine;
 public class PopupShop : UIPanel
 {
     [SerializeField] private TMP_Text coin;
-    
+
+    public TextMeshProUGUI desSkin;
+    public TextMeshProUGUI name;
+
+    public int idviewSkin;
+
     [ReadOnly] public ShopState currentShopState = ShopState.Skin;
     public Transform content;
     public GameObject btnOnShopSkin;
@@ -17,12 +22,11 @@ public class PopupShop : UIPanel
     public GameObject btnOffShopSword;
     public GameObject btnOnShopTrail;
     public GameObject btnOffShopTrail;
-    public GameObject btnOnShopPack;
-    public GameObject btnOffShopPack;
-    
+
     [SerializeField] private ShopItem shopItemPrefabs;
     private ItemConfig itemConfig;
     private List<ItemData> listItemDatas = new List<ItemData>();
+
 
     public static PopupShop Instance { get; private set; }
 
@@ -30,12 +34,12 @@ public class PopupShop : UIPanel
     {
         return UiPanelType.PopupShop;
     }
+
     public static void Show()
     {
         var newInstance = (PopupShop)GUIManager.Instance.NewPanel(UiPanelType.PopupShop);
         Instance = newInstance;
         newInstance.OnAppear();
-        
     }
 
     public override void OnAppear()
@@ -64,20 +68,14 @@ public class PopupShop : UIPanel
     {
         coin.text = "" + Gm.data.user.money;
     }
-    
-    public void OnClickBtnSkin(int idSkin)
-    {
-        //if (ConfigManager.Instance.modelSkinConfig.GetModelSkinById(idSkin).IsUnlock == true)
-        {
-            Database.CurrentIdModelSkin = idSkin;
-        }
-    }
 
     public void ShopBackHome()
     {
+        GameManager.Instance.previewShop.SetActive(false);
         AudioAssistant.Shot(TypeSound.Button);
         Hide();
         GameManager.Instance.PrepareGame();
+        GameManager.Instance.previewMain.SetActive(true);
         MainScreen.Show();
     }
 
@@ -85,13 +83,12 @@ public class PopupShop : UIPanel
     {
         Hide();
     }
+
     private void SetupDefaultBtn()
     {
-        btnOffShopPack.SetActive(false);
         btnOffShopSkin.SetActive(false);
         btnOffShopSword.SetActive(false);
         btnOffShopTrail.SetActive(false);
-        btnOnShopPack.SetActive(false);
         btnOnShopSkin.SetActive(false);
         btnOnShopSword.SetActive(false);
         btnOnShopTrail.SetActive(false);
@@ -106,25 +103,16 @@ public class PopupShop : UIPanel
                 btnOnShopSkin.SetActive(true);
                 btnOffShopSword.SetActive(true);
                 btnOffShopTrail.SetActive(true);
-                btnOffShopPack.SetActive(true);
                 break;
             case ShopState.Sword:
                 btnOffShopSkin.SetActive(true);
                 btnOnShopSword.SetActive(true);
                 btnOffShopTrail.SetActive(true);
-                btnOffShopPack.SetActive(true);
                 break;
             case ShopState.Trail:
                 btnOffShopSkin.SetActive(true);
                 btnOffShopSword.SetActive(true);
                 btnOnShopTrail.SetActive(true);
-                btnOffShopPack.SetActive(true);
-                break;
-            case ShopState.Pack:
-                btnOffShopSkin.SetActive(true);
-                btnOffShopSword.SetActive(true);
-                btnOffShopTrail.SetActive(true);
-                btnOnShopPack.SetActive(true);
                 break;
         }
     }
@@ -136,6 +124,7 @@ public class PopupShop : UIPanel
         {
             DestroyImmediate(content.GetChild(i).gameObject, true);
         }
+
         //Utility.Clear(content);
         currentShopState = _shopState;
         SetupBtn(_shopState);
@@ -149,9 +138,6 @@ public class PopupShop : UIPanel
                 break;
             case ShopState.Trail:
                 listItemDatas = itemConfig.ListTrailDatas;
-                break;
-            case ShopState.Pack:
-                listItemDatas = itemConfig.ListPackDatas;
                 break;
         }
 
@@ -179,6 +165,7 @@ public class PopupShop : UIPanel
             SetupState(currentShopState);
         }
     }
+
     public void OnClickTrailShop()
     {
         if (currentShopState != ShopState.Trail)
@@ -187,14 +174,7 @@ public class PopupShop : UIPanel
             SetupState(currentShopState);
         }
     }
-    public void OnClickPackShop()
-    {
-        if (currentShopState != ShopState.Pack)
-        {
-            currentShopState = ShopState.Pack;
-            SetupState(currentShopState);
-        }
-    }
+
     public void ViewSkin(int idSkin)
     {
         //playerSkinController.ViewSkin(idSkin);
@@ -205,10 +185,10 @@ public class PopupShop : UIPanel
         UpdateText();
     }
 }
+
 public enum ShopState
 {
     Skin,
     Sword,
     Trail,
-    Pack,
 }
