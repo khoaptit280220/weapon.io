@@ -11,7 +11,8 @@ public class Leaderboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnEnemy.cells.Sort();
+        // SpawnEnemy.cells.Sort();
+        SortLeaderboard();
         for (int i = 0; i < SpawnEnemy.cells.Count - 1; i++)
         {
             if (SpawnEnemy.cells[i].name != GameManager.Instance.GetPlayer.entityInfo.name)
@@ -35,6 +36,22 @@ public class Leaderboard : MonoBehaviour
         for (int i = 0; i < rowsP.Length; i++)
         {
             rowsP[i].text = "" + SpawnEnemy.cells[i].point;
+        }
+    }
+
+    void SortLeaderboard()
+    {
+        for (int i = 0; i < SpawnEnemy.cells.Count; i++)
+        {
+            for (int j = i; j < SpawnEnemy.cells.Count; j++)
+            {
+                if (SpawnEnemy.cells[i].point < SpawnEnemy.cells[j].point)
+                {
+                    var temp = SpawnEnemy.cells[i];
+                    SpawnEnemy.cells[i] = SpawnEnemy.cells[j];
+                    SpawnEnemy.cells[j] = temp;
+                }
+            }
         }
     }
 }

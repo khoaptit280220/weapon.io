@@ -68,19 +68,9 @@ public class PopupReward : UIPanel
 
     public void InitGift(ItemData _itemData)
     {
-        if (_itemData != null)
-        {
-            itemData = _itemData;
-            skin.SetActive(true);
-            itemIcon.sprite = itemData.imageIcon;
-        }
-
-        if (_itemData == null)
-        {
-            coin.SetActive(true);
-            _coinValue = 3000;
-            coinVal.text = "3000";
-        }
+        itemData = _itemData;
+        skin.SetActive(true);
+        itemIcon.sprite = itemData.imageIcon;
     }
 
     // public void Show(float animInTime)
@@ -144,7 +134,8 @@ public class PopupReward : UIPanel
                     Database.CurrentIdTrail = itemData.id;
                 }
             }
-            else
+
+            if (itemData.IsUnlock == true)
             {
                 moneyClaimFx.ClaimMoney(1000);
             }

@@ -299,7 +299,6 @@ public class GameManager : Singleton<GameManager>
         if (GameState != GameState.Lose)
         {
             PopupIngameWin.Show();
-            Debug.Log("Victory");
             GameState = GameState.Win;
             AddMoney(coin);
 
@@ -309,15 +308,12 @@ public class GameManager : Singleton<GameManager>
 
     public void OnLoseGame()
     {
-        Debug.Log("Lose");
         if (GetPlayer.countDie == 0)
         {
-            Debug.Log("kill show");
             DOTween.Sequence().SetDelay(1).OnComplete(() => { PopupKilled.Show(); });
         }
         else
         {
-            Debug.Log("lose show");
             DOTween.Sequence().SetDelay(1).OnComplete(() => { PopupInGameLose.Show(); });
         }
 

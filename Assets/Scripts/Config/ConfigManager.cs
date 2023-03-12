@@ -26,6 +26,7 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
     public ModelHornConfig modelHornConfig;
     public ItemConfig itemConfig;
     public AnimConfig animConfig;
+    public CountryConfig countryConfig;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
         modelHornConfig.UnlockModelHornDefault();
         itemConfig.InitItem();
     }
-    
+
 
     #region Odin
 
@@ -51,6 +52,7 @@ public class ConfigManager : Singleton<ConfigManager>, ISerializationCallbackRec
         modelHornConfig = HCTools.GetConfig<ModelHornConfig>("Assets/Configs/");
         itemConfig = HCTools.GetConfig<ItemConfig>("Assets/Configs/");
         animConfig = HCTools.GetConfig<AnimConfig>("Assets/Configs/");
+        countryConfig = HCTools.GetConfig<CountryConfig>("Assets/Configs/");
     }
 #endif
 

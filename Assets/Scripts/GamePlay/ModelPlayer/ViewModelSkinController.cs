@@ -12,6 +12,7 @@ public class ViewModelSkinController : MonoBehaviour
 
     public List<SkinController> listModelSkins = new List<SkinController>();
 
+    // public List<SkinController> listSkins => GetComponentsInChildren<SkinController>().ToList();
     [Button]
     private void LoadList()
     {
@@ -39,14 +40,28 @@ public class ViewModelSkinController : MonoBehaviour
     private void OnEnable()
     {
         EventController.MainSkin += MainGame;
+        EventController.Win += WinGame;
+        EventController.Lose += LoseGame;
     }
 
     private void OnDestroy()
     {
         EventController.MainSkin -= MainGame;
+        EventController.Win -= WinGame;
+        EventController.Lose -= LoseGame;
     }
 
     public void MainGame()
+    {
+        SetupModelSkin();
+    }
+
+    public void WinGame()
+    {
+        SetupModelSkin();
+    }
+
+    public void LoseGame()
     {
         SetupModelSkin();
     }

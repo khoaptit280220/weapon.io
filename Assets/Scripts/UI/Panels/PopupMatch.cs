@@ -6,6 +6,9 @@ using UnityEngine;
 public class PopupMatch : UIPanel
 {
     public static PopupMatch Instance { get; private set; }
+    public ItemMatching ItemMatchingPrefabs;
+    public Transform container;
+    private List<CountryData> listCountryDatas;
 
     public override UiPanelType GetId()
     {
@@ -26,7 +29,8 @@ public class PopupMatch : UIPanel
     }
 
     private void Init()
-    {
+    { 
+        SetupUI();
         DOVirtual.DelayedCall(3f, () =>
         {
             Close();
@@ -39,5 +43,16 @@ public class PopupMatch : UIPanel
     {
         base.OnDisappear();
         Instance = null;
+    }
+
+    private void SetupUI()
+    {
+        Utility.Clear(container);
+        listCountryDatas = ConfigManager.Instance.countryConfig.GetRandomTenValue();
+        foreach (var VARIABLE in listCountryDatas)
+        {
+            ItemMatching itemMatching = Instantiate(ItemMatchingPrefabs, container);
+            itemMatching.Init(VARIABLE);
+        }
     }
 }

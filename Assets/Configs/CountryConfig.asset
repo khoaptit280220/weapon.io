@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901a3cf7a66e64429baf097d31128f0c, type: 3}
+  m_Name: CountryConfig
+  m_EditorClassIdentifier: 
+  ListCountryDatas:
+  - icon: {fileID: 21300000, guid: 33661a72f65bb3243a394f3cfaff7638, type: 3}
+    name: Acacia
+  - icon: {fileID: 21300000, guid: 5e1c7286ba407b14395d3fbc2e1f3791, type: 3}
+    name: Soi Sam
+  - icon: {fileID: 21300000, guid: 25bd0363ce11df64d9ac0b64291103c2, type: 3}
+    name: Adela
+  - icon: {fileID: 21300000, guid: 66019eb826f698f408937a38c0e54f3e, type: 3}
+    name: Azura
+  - icon: {fileID: 21300000, guid: f4d1bcfb76cf82d45b5e3495a76f8317, type: 3}
+    name: Bernice
+  - icon: {fileID: 21300000, guid: 5fc3aed2391ce524ebb5bc4f6ee3bd62, type: 3}
+    name: Bertha
+  - icon: {fileID: 21300000, guid: ce7fa2491db61b347892749a1264f8ce, type: 3}
+    name: Bridget
+  - icon: {fileID: 21300000, guid: a0c9a25cd9fc0bd4688a149b321d79b4, type: 3}
+    name: Calantha
+  - icon: {fileID: 21300000, guid: 93dffc7b6a10a524fb74affa51b45fa3, type: 3}
+    name: Calliope
+  - icon: {fileID: 21300000, guid: 1ab99cfcf3605674489644a25bd6ddfa, type: 3}
+    name: Ceridwen
+  - icon: {fileID: 21300000, guid: d3eb440a474188f438918bbcdbf2ae4e, type: 3}
+    name: Daria
+  - icon: {fileID: 21300000, guid: a1396df659afc6f4594fa8ddb61c41c8, type: 3}
+    name: Dilys
+  - icon: {fileID: 21300000, guid: cbf7d38f20e6cbb40a8abfe854fce67d, type: 3}
+    name: Drusilla
+  - icon: {fileID: 21300000, guid: 9a4c17e0046459e4d9ddbee0e2dbf5fa, type: 3}
+    name: Edana
+  - icon: {fileID: 21300000, guid: 6d35581e19db37044ba8ecf42d276e53, type: 3}
+    name: Eira
+  - icon: {fileID: 21300000, guid: 28aeaafa6e4ffd946975a6fdea26c614, type: 3}
+    name: Eirlys
+  - icon: {fileID: 21300000, guid: 96ef40882a469f24f8153d09a6200dbe, type: 3}
+    name: Farah
+  - icon: {fileID: 21300000, guid: 4ea7d86c5a8795740bad67021552dd97, type: 3}
+    name: Felicity
+  - icon: {fileID: 21300000, guid: 5794f07eb9bb09d43a814bddd419593e, type: 3}
+    name: Genevieve
+  - icon: {fileID: 21300000, guid: 3386d1234bfd80c4d81cc54eb904d99c, type: 3}
+    name: Gladys
+  - icon: {fileID: 21300000, guid: f295b3dde10940d489c45509f5fbbc55, type: 3}
+    name: Halcyon
+  - icon: {fileID: 21300000, guid: 6e0033b7990a00648b777f68fee2187a, type: 3}
+    name: Hebe
+  - icon: {fileID: 21300000, guid: 1b9cf72ee20353842ad1c9dbb22c845a, type: 3}
+    name: Imelda
+  - icon: {fileID: 21300000, guid: df6ecc97747b941478df21ed5e596f88, type: 3}
+    name: Jena
+  - icon: {fileID: 21300000, guid: b0ab39b774c091243a870931615e659b, type: 3}
+    name: Isadora
+  - icon: {fileID: 21300000, guid: addb23b1b46e8b44baff2715dff0c535, type: 3}
+    name: Joyce
+  - icon: {fileID: 21300000, guid: ace7c5db9b896b94782722331745b746, type: 3}
+    name: Keva
+  - icon: {fileID: 21300000, guid: 1644462a2eb2a4d4081eb071e6e04d16, type: 3}
+    name: Kelsey
+  - icon: {fileID: 21300000, guid: 29e080c0559c49a4bb90f44874ce3a18, type: 3}
+    name: Martha
+  - icon: {fileID: 21300000, guid: 9927837c5bd20414987b60715b15461a, type: 3}
+    name: Meliora
+  - icon: {fileID: 21300000, guid: 425b6234897c5a447a438fcb4f4deb6b, type: 3}
+    name: Neala
+  - icon: {fileID: 21300000, guid: ff18cdec3bcae1d4d9b781caf150af6d, type: 3}
+    name: Olwen
+  - icon: {fileID: 21300000, guid: fb02c7db3689d4b4786a40ad045df419, type: 3}
+    name: Phedra
+  - icon: {fileID: 21300000, guid: 33661a72f65bb3243a394f3cfaff7638, type: 3}
+    name: Rowan
+  - icon: {fileID: 21300000, guid: 5e1c7286ba407b14395d3fbc2e1f3791, type: 3}
+    name: Cuu Con
+  - icon: {fileID: 21300000, guid: 636ff720925000f46a8c05231977ea38, type: 3}
+    name: Selina
+  - icon: {fileID: 21300000, guid: 33661a72f65bb3243a394f3cfaff7638, type: 3}
+    name: Theodora
+  - icon: {fileID: 21300000, guid: 33661a72f65bb3243a394f3cfaff7638, type: 3}
+    name: Verity
+  - icon: {fileID: 21300000, guid: 5e1c7286ba407b14395d3fbc2e1f3791, type: 3}
+    name: Hoa Le
+  - icon: {fileID: 21300000, guid: 5e1c7286ba407b14395d3fbc2e1f3791, type: 3}
+    name: Duc Nguyen
